@@ -1,114 +1,66 @@
 # FMF Pipeline Cohort — Deployment Brief
 
-**File this brief is based on:** `2b728130-pipelinecohortfmf.html`
-**Purpose:** Turn the finished HTML landing page into a Netlify-deployable page with working form submissions delivered by email.
-**Estimated time to live:** 30–45 minutes.
+**Deployable file:** `briefs/fmf-pipeline-cohort.html` (in this repo)
+**Purpose:** A Netlify-ready version of the landing page with working form submissions delivered by email.
+**Estimated time to live:** 20–30 minutes.
 
 ---
 
-## How to use this brief
+## Status
 
-The HTML file is already production-quality. The only changes needed are:
+The deployable file is **ready**. The form-wiring changes have been applied — you do
+not need claude.ai or any code editor. Just download `fmf-pipeline-cohort.html` and
+follow Part 2 (Netlify) and Part 3 (subdomain).
 
-1. Wire the form to Netlify Forms (4 code changes)
-2. Deploy the file to Netlify (drag and drop)
-3. Add email notification for submissions
-4. Point your subdomain
-
-**The fastest path:** paste the prompt in Part 1 into claude.ai, paste the full HTML contents after it, download the artifact, then follow Part 3.
+The design, copy, layout, calculator, and FAQ are byte-identical to the original.
+Only the application form was modified.
 
 ---
 
-## Part 1 — The claude.ai prompt (copy and paste this)
+## Part 1 — What was changed (for the record)
 
-> You are going to modify a single self-contained HTML landing page. Your only job is to wire the application form to Netlify Forms so it can be deployed and receive submissions. Do not change any copy, layout, design, colours, or interactive behaviour. Apply these four changes exactly and return the complete modified HTML file:
->
-> **Change 1 — Form element attributes**
-> Find: `<form class="form-grid" onsubmit="event.preventDefault();">`
-> Replace with: `<form class="form-grid" name="cohort-application" method="POST" data-netlify="true">`
->
-> **Change 2 — Hidden form-name field**
-> Immediately after the opening `<form>` tag, add:
-> `<input type="hidden" name="form-name" value="cohort-application">`
->
-> **Change 3 — Move submit button inside the form**
-> The `<button class="btn-submit" type="button">Apply for the cohort</button>` currently sits outside the `</form>` closing tag. Move it to just before `</form>` and change `type="button"` to `type="submit"`. The `<p class="form-footnote">` stays outside the form.
->
-> **Change 4 — AJAX submission with inline thank-you**
-> In the `<script>` block, after the `calculateROI()` call at the bottom, add this:
->
-> ```javascript
-> const cohortForm = document.querySelector('form[name="cohort-application"]');
-> if (cohortForm) {
->   cohortForm.addEventListener('submit', function(e) {
->     e.preventDefault();
->     const data = new FormData(cohortForm);
->     fetch('/', {
->       method: 'POST',
->       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
->       body: new URLSearchParams(data).toString()
->     }).then(() => {
->       const shell = cohortForm.closest('.apply-shell');
->       shell.innerHTML = `
->         <div style="text-align:center;padding:60px 24px;">
->           <div style="font-family:'Lora',serif;font-size:1.6rem;font-weight:700;color:#0C101D;margin-bottom:16px;">Application received.</div>
->           <p style="font-size:1rem;color:#3F4C7B;line-height:1.6;max-width:480px;margin:0 auto;">We'll respond personally within 3 business days by email. No automated sequences — a real reply from our senior strategy team.</p>
->         </div>`;
->     }).catch(() => {
->       alert('Something went wrong. Please email us directly at marketing@fillmyfunnel.co.uk');
->     });
->   });
-> }
-> ```
->
-> Return the complete HTML file with only these four changes applied. Nothing else should differ from the input.
+Five changes, all confined to the application form. Nothing else differs from the
+original HTML.
 
-**After the prompt, paste the entire contents of your HTML file.**
-
----
-
-## Part 2 — The four changes explained
-
-For reference if you want to apply them manually rather than via claude.ai.
-
-### Change 1 — Form element attributes
-
+### 1. Form element attributes
 ```html
 <!-- Before -->
 <form class="form-grid" onsubmit="event.preventDefault();">
-
 <!-- After -->
-<form class="form-grid" name="cohort-application" method="POST" data-netlify="true">
+<form class="form-grid" name="cohort-application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
 ```
+`data-netlify="true"` is what Netlify scans for at deploy time. `netlify-honeypot`
+adds invisible spam protection.
 
-`data-netlify="true"` is what Netlify scans for at deploy time. Without it, Netlify never registers the form.
-
-### Change 2 — Hidden form-name field
-
+### 2. Hidden fields (form routing + spam trap)
+Added immediately inside the `<form>`:
 ```html
-<form class="form-grid" name="cohort-application" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="cohort-application">
-  <!-- rest of fields -->
+<input type="hidden" name="form-name" value="cohort-application">
+<p style="display:none;"><label>Do not fill this in: <input name="bot-field"></label></p>
 ```
+The `form-name` field routes the AJAX POST to the right form. The hidden honeypot
+catches bots — real users never see it.
 
-Required for AJAX submissions. Netlify uses this to route the POST to the correct form.
+### 3. `name` attributes on every field
+The original inputs had only `id` attributes. **Form submissions only capture fields
+with a `name` attribute** — without this, Netlify would receive blank applications.
+A `name` (matching each `id`) was added to all 10 fields, plus `required` on the five
+text/email/phone fields.
 
-### Change 3 — Submit button inside the form
+### 4. Submit button moved inside the form
+The button previously sat *outside* the `</form>` tag — it could never trigger a
+submission. It was moved inside the form, changed to `type="submit"`, and given
+`grid-column: 1 / -1` so it spans the full form width on desktop and stays clean on
+mobile. (`1 / -1` spans all real columns without breaking the 1-column mobile layout.)
 
-```html
-<!-- Move this line from outside </form> to inside, just before </form> -->
-<button class="btn-submit" type="submit">Apply for the cohort</button>
-```
-
-A submit button outside the form tag has no association with the form by default — it will not trigger form submission.
-
-### Change 4 — AJAX submission handler
-
-Replaces the existing `onsubmit="event.preventDefault();"` behaviour with a proper AJAX POST to Netlify, followed by an inline thank-you state. No page redirect. The user stays on the page and sees confirmation immediately.
+### 5. AJAX submission with inline thank-you
+The old `onsubmit="event.preventDefault();"` was replaced with a handler that POSTs
+to Netlify and then swaps the form for an inline "Application received" message — no
+page redirect, the applicant stays on the page.
 
 ---
 
-## Part 3 — Deploy to Netlify (step by step)
+## Part 2 — Deploy to Netlify (step by step)
 
 ### Step 1 — Create your Netlify account
 Go to [netlify.com](https://netlify.com) and sign up free. No credit card needed for this.
@@ -137,7 +89,7 @@ Go to your Netlify URL, fill in the application form, and submit. Check:
 
 ---
 
-## Part 4 — Add your subdomain (e.g. cohort.fillmyfunnel.co.uk)
+## Part 3 — Add your subdomain (e.g. cohort.fillmyfunnel.co.uk)
 
 ### In Netlify
 1. **Site configuration** → **Domain management** → **Add custom domain**

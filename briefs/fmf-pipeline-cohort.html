@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 2026 Pipeline Cohort · Fill My Funnel</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Main */
+  --cornflower: #6A8FFD;
+  --pale-sky: #C0D5F0;
+  /* Secondary */
+  --dusk-blue: #3F4C7B;
+  --electric: #2068FF;
+  /* Neutral */
+  --blue-black: #0C101D;
+  --prussian: #151C33;
+  --pale-slate: #C1C9D4;
+  --alice-blue: #E7ECF3;
+  --platinum: #F2F5F8;
+  --white: #FFFFFF;
+  /* Status — used semantically only */
+  --success: #05C168;
+  --success-100: #DEF2E6;
+  --warn: #FDBD1A;
+  --warn-100: #FFF6E4;
+  --danger: #FF5A65;
+  --danger-100: #FFEFF0;
+  --cold-blue: #1D8BFE;
+  --cold-bg: #EAF4FF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--white);
+  color: var(--blue-black);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ──────────────────────────── */
+h1, h2, h3, h4 { font-family: 'Lora', serif; color: var(--blue-black); letter-spacing: -0.02em; line-height: 1.15; }
+h1 { font-size: clamp(34px, 4.6vw, 60px); font-weight: 700; }
+h2.section { font-size: clamp(36px, 4.4vw, 60px); font-weight: 700; line-height: 1.12; }
+h3 { font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; }
+h4 { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
+h1 em, h2 em, h3 em, h4 em { font-style: italic; color: var(--cornflower); font-weight: 700; }
+
+p { font-size: 1rem; color: var(--dusk-blue); }
+.eyebrow { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cornflower); margin-bottom: 12px; }
+.lead { font-size: 1.05rem; color: var(--dusk-blue); line-height: 1.6; max-width: 780px; margin: 0 0 28px; }
+strong { color: var(--blue-black); font-weight: 700; }
+a { color: var(--cornflower); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Layout ──────────────────────────── */
+section.section { padding: 96px 24px; }
+.inner { max-width: 1180px; margin: 0 auto; }
+.section-head { margin-bottom: 48px; }
+.section-head h2 { margin-bottom: 16px; }
+
+section.accent { background: linear-gradient(180deg, rgba(192,213,240,0.32) 0%, rgba(192,213,240,0.08) 100%); }
+section.platinum { background: var(--platinum); }
+section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, rgba(106,143,253,0.15) 100%); }
+
+/* ── Floating pill nav ──────────────────────────── */
+.float-nav-wrap {
+  position: fixed; top: 18px; left: 0; right: 0; z-index: 90;
+  display: flex; justify-content: center; pointer-events: none;
+  padding: 0 16px;
+}
+.float-nav {
+  display: flex; align-items: center; gap: 4px;
+  padding: 8px 8px 8px 18px;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(106,143,253,0.22);
+  border-radius: 100px;
+  box-shadow: 0 8px 32px rgba(21,28,51,0.10);
+  pointer-events: auto;
+  max-width: 100%; overflow: hidden;
+}
+.float-nav .brand {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Lora', serif; font-weight: 700; font-size: 0.92rem;
+  color: var(--blue-black); padding-right: 18px; margin-right: 8px;
+  border-right: 1px solid rgba(63,76,123,0.14);
+}
+.float-nav .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cornflower); }
+.float-nav a {
+  font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600;
+  color: var(--dusk-blue); padding: 8px 14px; border-radius: 100px;
+  white-space: nowrap; transition: background 0.15s, color 0.15s;
+}
+.float-nav a:hover { background: rgba(106,143,253,0.10); color: var(--blue-black); text-decoration: none; }
+.float-nav a.cta {
+  background: var(--cornflower); color: #fff; padding: 9px 18px;
+  margin-left: 6px;
+}
+.float-nav a.cta:hover { background: #4D75E8; color: #fff; }
+
+/* ── Buttons ──────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em;
+  border-radius: 100px; border: 1.5px solid transparent;
+  transition: transform 0.15s, background 0.15s, color 0.15s;
+  cursor: pointer; text-decoration: none;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn-primary { background: var(--cornflower); color: #fff; }
+.btn-primary:hover { background: #4D75E8; }
+.btn-secondary { background: transparent; color: var(--blue-black); border-color: rgba(63,76,123,0.3); }
+.btn-secondary:hover { border-color: var(--cornflower); color: var(--cornflower); }
+
+/* ══════════════════════════ HERO ══════════════════════════ */
+.hero { position: relative; padding: 130px 24px 72px; overflow: hidden; }
+
+/* LIGHT variant (default) */
+.hero[data-hero="light"] {
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(192,213,240,0.55) 0%, rgba(231,236,243,0.4) 40%, var(--white) 100%);
+  color: var(--blue-black);
+}
+.hero[data-hero="light"] .partner-badge { background: rgba(255,255,255,0.7); border-color: rgba(106,143,253,0.3); color: var(--blue-black); }
+.hero[data-hero="light"] .hero-eyebrow { color: var(--cornflower); }
+.hero[data-hero="light"] .hero-bullet { background: rgba(255,255,255,0.7); border-color: rgba(106,143,253,0.22); }
+.hero[data-hero="light"] .hero-bullet-marker { background: var(--cornflower); color: #fff; }
+.hero[data-hero="light"] .hero-bullet-text { color: var(--dusk-blue); }
+.hero[data-hero="light"] .hero-bullet-text strong { color: var(--cornflower); }
+.hero[data-hero="light"] .video-card { background: rgba(255,255,255,0.6); border-color: rgba(106,143,253,0.3); }
+.hero[data-hero="light"] .video-placeholder { background: linear-gradient(135deg, rgba(192,213,240,0.45), rgba(106,143,253,0.15)); color: var(--blue-black); }
+.hero[data-hero="light"] .video-label { color: var(--blue-black); }
+.hero[data-hero="light"] .video-meta { color: var(--dusk-blue); }
+.hero[data-hero="light"] .hero-meta-strip .item { background: rgba(255,255,255,0.6); border-color: rgba(106,143,253,0.2); }
+.hero[data-hero="light"] .hero-meta-strip .item strong { color: var(--blue-black); }
+.hero[data-hero="light"] .hero-meta-strip .item span { color: var(--dusk-blue); }
+.hero[data-hero="light"] .btn-secondary { color: var(--blue-black); border-color: rgba(63,76,123,0.3); }
+.hero[data-hero="light"] h1 { color: var(--blue-black); }
+
+/* NAVY variant */
+.hero[data-hero="navy"] {
+  background: var(--blue-black);
+  color: var(--white);
+}
+.hero[data-hero="navy"] h1 { color: var(--white); }
+.hero[data-hero="navy"] .partner-badge { background: rgba(255,255,255,0.06); border-color: rgba(192,213,240,0.18); color: var(--pale-sky); }
+.hero[data-hero="navy"] .hero-eyebrow { color: var(--pale-sky); }
+.hero[data-hero="navy"] .hero-bullet { background: rgba(255,255,255,0.04); border-color: rgba(192,213,240,0.18); }
+.hero[data-hero="navy"] .hero-bullet-marker { background: var(--cornflower); color: #fff; }
+.hero[data-hero="navy"] .hero-bullet-text { color: rgba(255,255,255,0.78); }
+.hero[data-hero="navy"] .hero-bullet-text strong { color: var(--cornflower); }
+.hero[data-hero="navy"] .video-card { background: rgba(255,255,255,0.04); border-color: rgba(192,213,240,0.18); }
+.hero[data-hero="navy"] .video-placeholder { background: linear-gradient(135deg, rgba(106,143,253,0.20), rgba(32,104,255,0.10)); color: var(--white); }
+.hero[data-hero="navy"] .video-label { color: var(--white); }
+.hero[data-hero="navy"] .video-meta { color: rgba(255,255,255,0.65); }
+.hero[data-hero="navy"] .hero-meta-strip .item { background: rgba(255,255,255,0.04); border-color: rgba(192,213,240,0.16); }
+.hero[data-hero="navy"] .hero-meta-strip .item strong { color: var(--white); }
+.hero[data-hero="navy"] .hero-meta-strip .item span { color: rgba(255,255,255,0.65); }
+.hero[data-hero="navy"] .btn-secondary { color: var(--white); border-color: rgba(255,255,255,0.3); }
+.hero[data-hero="navy"] .btn-secondary:hover { color: var(--pale-sky); border-color: var(--pale-sky); }
+
+.hero .inner-wide { max-width: 1280px; margin: 0 auto; }
+
+.partner-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 14px; border: 1px solid; border-radius: 100px;
+  font-size: 0.78rem; font-weight: 600; margin-bottom: 22px;
+  backdrop-filter: blur(8px);
+}
+.partner-badge svg { width: 16px; height: 16px; }
+.partner-badge span { opacity: 0.6; font-weight: 500; }
+
+.hero-eyebrow { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 20px; }
+.hero-scarcity { color: var(--danger); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.hero h1 { margin-bottom: 32px; max-width: 720px; }
+
+.hero-grid {
+  display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px;
+  align-items: center; margin-bottom: 56px;
+}
+@media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+.targeted-block { margin-bottom: 32px; }
+.targeted-block-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.hero[data-hero="light"] .targeted-block-label { color: var(--cornflower); }
+.hero[data-hero="navy"] .targeted-block-label { color: var(--pale-sky); }
+.targeted-block-title {
+  font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600;
+  letter-spacing: -0.01em; margin-bottom: 14px;
+}
+.hero[data-hero="light"] .targeted-block-title { color: var(--blue-black); }
+.hero[data-hero="navy"] .targeted-block-title { color: var(--white); }
+
+.hero-bullets {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+@media (max-width: 880px) { .hero-bullets { grid-template-columns: 1fr; } }
+.hero-bullet {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 16px 18px; border: 1px solid; border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+.hero-bullet-marker {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif; font-weight: 700; font-size: 0.95rem;
+}
+.hero-bullet-text { font-size: 0.94rem; line-height: 1.55; }
+
+.hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.video-card {
+  border: 1.5px solid; border-radius: 18px; padding: 14px;
+  backdrop-filter: blur(8px);
+}
+.video-placeholder {
+  aspect-ratio: 16 / 10; border-radius: 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; padding: 24px; text-align: center;
+}
+.play-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--cornflower); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(106,143,253,0.35);
+}
+.video-label { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; }
+.video-meta { font-size: 0.78rem; }
+
+.hero-meta-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+@media (max-width: 720px) { .hero-meta-strip { grid-template-columns: repeat(2, 1fr); } }
+.hero-meta-strip .item {
+  padding: 16px 18px; border: 1px solid; border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+.hero-meta-strip .item strong {
+  display: block; font-family: 'Lora', serif; font-size: 1.55rem; font-weight: 700;
+  letter-spacing: -0.02em; margin-bottom: 4px;
+}
+.hero-meta-strip .item span { display: block; font-size: 0.74rem; line-height: 1.4; }
+
+/* Down-arrow between sections */
+.down-arrow {
+  display: flex; justify-content: center; padding: 32px 0 0;
+}
+.down-arrow svg { opacity: 0.6; }
+
+/* ══════════════════════════ Cards & generic ══════════════════════════ */
+.metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 880px) { .metric-grid { grid-template-columns: 1fr; } }
+.metric-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-left: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 28px 26px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.metric-card .metric {
+  font-family: 'Lora', serif; font-size: 2.6rem; font-weight: 700;
+  color: var(--blue-black); letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px;
+}
+.metric-card .stat-label {
+  font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--cornflower);
+  margin-bottom: 12px;
+}
+.metric-card p { font-size: 0.9rem; line-height: 1.55; }
+
+/* Credentials */
+.cred-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+@media (max-width: 980px) { .cred-grid { grid-template-columns: repeat(2, 1fr); } }
+.cred-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 28px 24px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.cred-card.highlight { border-top-color: var(--cornflower); background: linear-gradient(180deg, rgba(106,143,253,0.07), var(--white) 60%); }
+.cred-card .cred-number {
+  font-family: 'Lora', serif; font-size: 2rem; font-weight: 700;
+  color: var(--blue-black); letter-spacing: -0.02em; margin-bottom: 8px;
+}
+.cred-card.highlight .cred-number { color: var(--cornflower); }
+.cred-card .cred-label { font-size: 0.85rem; color: var(--dusk-blue); line-height: 1.5; }
+.cred-note {
+  background: var(--white); border: 1px dashed rgba(106,143,253,0.4);
+  border-radius: 12px; padding: 18px 22px; font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.6;
+}
+
+/* Team pod */
+.team-intro { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.6; margin: 30px 0 18px; max-width: 740px; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 880px) { .team-grid { grid-template-columns: 1fr; } }
+.team-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 24px 24px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.team-cap {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 14px;
+}
+.team-person { padding: 12px 0; border-top: 1px dashed rgba(63,76,123,0.14); }
+.team-person:first-of-type { border-top: none; padding-top: 0; }
+.team-person .tp-name { font-family: 'Lora', serif; font-size: 1.02rem; font-weight: 600; color: var(--blue-black); }
+.team-person .tp-role { font-size: 0.78rem; font-weight: 700; color: var(--cornflower); margin: 2px 0 4px; }
+.team-person .tp-cred { font-size: 0.84rem; color: var(--dusk-blue); line-height: 1.5; }
+
+/* Offer */
+.offer-callout {
+  background: linear-gradient(180deg, rgba(192,213,240,0.45) 0%, rgba(192,213,240,0.15) 100%);
+  border: 1.5px solid rgba(106,143,253,0.32); border-left: 6px solid var(--cornflower);
+  border-radius: 16px; padding: 36px 38px; margin-bottom: 32px;
+}
+.offer-callout .label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 14px;
+}
+.offer-callout .commitment {
+  font-family: 'Lora', serif; font-size: clamp(20px, 2.2vw, 28px); font-weight: 500;
+  color: var(--blue-black); line-height: 1.4; margin-bottom: 18px; letter-spacing: -0.015em;
+}
+.offer-callout .clarifier { font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.6; }
+
+.definition-grid h3 { margin-bottom: 18px; }
+.criteria-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 800px) { .criteria-list { grid-template-columns: 1fr; } }
+.criteria-list li {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 12px; padding: 18px 22px;
+}
+.criteria-list li strong { display: block; font-size: 0.95rem; color: var(--blue-black); margin-bottom: 6px; }
+.criteria-list li span { font-size: 0.85rem; color: var(--dusk-blue); line-height: 1.55; }
+
+/* Calculator */
+.bc-shell {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(106,143,253,0.28); border-radius: 18px;
+  overflow: hidden; box-shadow: 0 8px 32px rgba(21,28,51,0.06);
+}
+.bc-header { padding: 26px 32px; border-bottom: 1px solid rgba(106,143,253,0.18); background: rgba(192,213,240,0.18); }
+.bc-header h3 { margin: 0 0 4px; font-family: 'Lora', serif; font-size: 1.4rem; font-weight: 700; }
+.bc-header p { font-size: 0.9rem; color: var(--dusk-blue); }
+.bc-body { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; }
+@media (max-width: 980px) { .bc-body { grid-template-columns: 1fr; } }
+
+.bc-inputs { padding: 28px 32px; border-right: 1px solid rgba(106,143,253,0.18); background: rgba(255,255,255,0.5); }
+@media (max-width: 980px) { .bc-inputs { border-right: none; border-bottom: 1px solid rgba(106,143,253,0.18); } }
+.bc-inputs h4 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 18px; color: var(--blue-black); }
+
+.input-group { margin-bottom: 18px; }
+.input-group label {
+  display: block; font-size: 0.78rem; font-weight: 600; color: var(--dusk-blue);
+  margin-bottom: 6px;
+}
+.input-group input, .input-group select {
+  width: 100%; font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+  padding: 11px 14px; border: 1.5px solid rgba(106,143,253,0.3);
+  border-radius: 10px; background: var(--white); color: var(--blue-black);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input-group input:focus, .input-group select:focus {
+  outline: none; border-color: var(--cornflower);
+  box-shadow: 0 0 0 3px rgba(106,143,253,0.18);
+}
+.input-helper { font-size: 0.72rem; color: var(--dusk-blue); opacity: 0.75; margin-top: 6px; line-height: 1.45; }
+
+.bc-cost-summary {
+  margin-top: 22px; padding: 18px 20px; background: var(--platinum);
+  border-radius: 12px; border: 1px solid rgba(106,143,253,0.18);
+}
+.cost-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; font-size: 0.85rem; color: var(--dusk-blue);
+}
+.cost-row strong { font-family: 'Lora', serif; color: var(--blue-black); font-size: 0.95rem; }
+.cost-row.total { border-top: 1px solid rgba(63,76,123,0.18); margin-top: 8px; padding-top: 12px; font-weight: 600; color: var(--blue-black); }
+.cost-row.total strong { font-size: 1.1rem; }
+.cost-footnote { font-size: 0.7rem; color: var(--dusk-blue); opacity: 0.7; margin-top: 8px; line-height: 1.45; }
+
+.bc-output { padding: 28px 32px; background: rgba(255,255,255,0.4); }
+.scenarios-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 16px; }
+.scenario-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 12px; padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.scenario-card.guaranteed { border-left: 4px solid var(--cornflower); }
+.scenario-card.expected { border-left: 4px solid var(--cornflower); background: linear-gradient(180deg, rgba(106,143,253,0.06), var(--white) 60%); }
+.scenario-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--cornflower);
+}
+.scenario-card.expected .scenario-label { color: var(--cornflower); }
+.scenario-opps {
+  font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600;
+  color: var(--blue-black); line-height: 1.3;
+}
+.math-row, .revenue-row {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.82rem; color: var(--dusk-blue); padding: 4px 0;
+  border-top: 1px dashed rgba(63,76,123,0.14);
+}
+.math-row strong, .revenue-row strong { font-family: 'Lora', serif; color: var(--blue-black); font-size: 0.9rem; }
+.dual-roi { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; padding-top: 10px; border-top: 1px solid rgba(63,76,123,0.14); }
+.roi-block { background: var(--platinum); border-radius: 8px; padding: 10px 12px; text-align: center; }
+.roi-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dusk-blue); margin-bottom: 4px; }
+.roi-value { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.roi-value.green { color: var(--success); }
+.roi-value.amber { color: #B58000; }
+.roi-value.red { color: #C8323C; }
+
+.verdict {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 22px; border-radius: 12px;
+  border: 1.5px solid; margin-bottom: 16px;
+}
+.verdict.green { background: var(--success-100); border-color: rgba(5,193,104,0.4); }
+.verdict.amber { background: var(--warn-100); border-color: rgba(253,189,26,0.5); }
+.verdict.red { background: var(--danger-100); border-color: rgba(255,90,101,0.45); }
+.verdict-light {
+  width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; margin-top: 4px;
+}
+.verdict.green .verdict-light { background: var(--success); }
+.verdict.amber .verdict-light { background: var(--warn); }
+.verdict.red .verdict-light { background: var(--danger); }
+.verdict-text strong { display: block; font-family: 'Lora', serif; font-size: 1.05rem; color: var(--blue-black); margin-bottom: 4px; }
+.verdict-text span { font-size: 0.86rem; color: var(--dusk-blue); line-height: 1.5; }
+.verdict-cta { display: inline-flex; margin-bottom: 16px; }
+.bc-note { font-size: 0.78rem; color: var(--dusk-blue); line-height: 1.6; padding: 14px 16px; background: rgba(192,213,240,0.18); border-radius: 10px; }
+.bc-note a { color: var(--cornflower); }
+
+/* Qualify */
+.qualify-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 880px) { .qualify-grid { grid-template-columns: 1fr; } }
+.qualify-col {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.18);
+  border-radius: 14px; padding: 28px 28px 24px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.qualify-col.fit { border-left: 5px solid var(--success); }
+.qualify-col.notfit { border-left: 5px solid var(--danger); }
+.qualify-col h3 { font-family: 'Lora', serif; font-size: 1.3rem; margin-bottom: 18px; }
+.qualify-col.fit h3 { color: var(--blue-black); }
+.qualify-col.fit h3::before { content: '✓ '; color: var(--success); font-weight: 700; }
+.qualify-col.notfit h3::before { content: '× '; color: var(--danger); font-weight: 700; }
+.qualify-col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.qualify-col li { padding: 12px 0; border-top: 1px dashed rgba(63,76,123,0.14); }
+.qualify-col li:first-child { border-top: none; padding-top: 0; }
+.qualify-col li strong { display: block; font-size: 0.92rem; color: var(--blue-black); margin-bottom: 3px; }
+.qualify-col li div { font-size: 0.82rem; color: var(--dusk-blue); line-height: 1.55; }
+.qualify-col li div span { display: block; }
+
+/* Timeline (How) */
+.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+@media (max-width: 880px) { .timeline { grid-template-columns: 1fr; } }
+.timeline-item {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 24px 22px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.timeline-item:last-child { border-top-color: var(--success); }
+.timeline-marker {
+  width: 34px; height: 34px; border-radius: 50%; background: var(--cornflower); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 14px;
+}
+.timeline-item:last-child .timeline-marker { background: var(--success); }
+.timeline-meta { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cornflower); margin-bottom: 6px; }
+.timeline-item:last-child .timeline-meta { color: var(--success); }
+.timeline-item h4 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 8px; }
+.timeline-item p { font-size: 0.84rem; line-height: 1.55; }
+
+/* Risk reversal */
+.risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 800px) { .risk-grid { grid-template-columns: 1fr; } }
+.risk-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 14px; padding: 24px 26px;
+}
+.risk-card.wide { grid-column: span 2; }
+@media (max-width: 800px) { .risk-card.wide { grid-column: auto; } }
+.risk-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--cornflower); color: #fff;
+  font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+.risk-card h4 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 8px; }
+.risk-card p { font-size: 0.88rem; line-height: 1.55; }
+
+/* Methodology */
+.method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 880px) { .method-grid { grid-template-columns: 1fr; } }
+.method-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 14px; padding: 28px 26px;
+}
+.method-card .num {
+  font-family: 'Lora', serif; font-size: 2.6rem; font-weight: 700;
+  color: var(--cornflower); letter-spacing: -0.03em; line-height: 1; margin-bottom: 14px;
+}
+.method-card h4 { font-family: 'Lora', serif; font-size: 1.15rem; margin-bottom: 10px; }
+.method-card p { font-size: 0.9rem; line-height: 1.6; }
+
+/* Methodology flow */
+.flow { max-width: 860px; margin: 0 auto; }
+.flow-node {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-left: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 24px 28px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.flow-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 8px;
+}
+.flow-node h4 { font-family: 'Lora', serif; font-size: 1.2rem; margin-bottom: 8px; }
+.flow-node p { font-size: 0.9rem; line-height: 1.6; }
+.flow-arrow { display: flex; justify-content: center; padding: 10px 0; }
+.flow-arrow svg { opacity: 0.5; }
+.flow-intel {
+  background: linear-gradient(180deg, rgba(192,213,240,0.42) 0%, rgba(192,213,240,0.12) 100%);
+  border: 1.5px solid rgba(106,143,253,0.32); border-radius: 16px;
+  padding: 26px 26px 28px;
+}
+.flow-intel-head { text-align: center; margin-bottom: 20px; }
+.flow-intel-head h4 { font-family: 'Lora', serif; font-size: 1.3rem; margin: 4px 0 8px; }
+.flow-intel-head p { font-size: 0.9rem; max-width: 520px; margin: 0 auto; }
+.flow-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 720px) { .flow-branches { grid-template-columns: 1fr; } }
+.flow-branch {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 12px; padding: 22px 22px;
+}
+.flow-branch h4 { font-family: 'Lora', serif; font-size: 1.08rem; margin-bottom: 8px; }
+.flow-branch p { font-size: 0.87rem; line-height: 1.55; color: var(--dusk-blue); }
+.flow-stat {
+  display: inline-block; margin-top: 12px; padding: 5px 12px;
+  background: rgba(106,143,253,0.12); border-radius: 100px;
+  font-family: 'Lora', serif; font-size: 0.9rem; font-weight: 700; color: var(--cornflower);
+}
+.flow-note {
+  text-align: center; font-size: 0.84rem; color: var(--dusk-blue);
+  line-height: 1.6; margin: 22px auto 0; max-width: 620px;
+}
+
+/* FAQ (phil-toggle pattern) */
+.phil-toggle {
+  border: 1px solid rgba(106,143,253,0.18); border-radius: 12px;
+  background: rgba(255,255,255,0.7); margin-bottom: 12px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(21,28,51,0.03); backdrop-filter: blur(6px);
+}
+.phil-toggle[open] { border-color: rgba(106,143,253,0.4); box-shadow: 0 2px 10px rgba(21,28,51,0.06); }
+.phil-toggle > summary {
+  list-style: none; cursor: pointer; padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; user-select: none;
+}
+.phil-toggle > summary::-webkit-details-marker { display: none; }
+.phil-toggle > summary:hover { background: rgba(106,143,253,0.04); }
+.phil-toggle .q { font-family: 'Lora', serif; font-size: 1.02rem; font-weight: 600; color: var(--blue-black); line-height: 1.35; }
+.phil-toggle .chev { transition: transform 0.2s ease; color: var(--cornflower); flex-shrink: 0; }
+.phil-toggle[open] .chev { transform: rotate(180deg); }
+.phil-toggle .a { padding: 0 24px 22px; font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.65; }
+
+/* Apply / Process */
+.process-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 40px; }
+@media (max-width: 980px) { .process-flow { grid-template-columns: repeat(2, 1fr); } }
+.process-step {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 18px 18px 16px;
+}
+.process-step:last-child { border-top-color: var(--success); }
+.process-number {
+  font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--cornflower); margin-bottom: 8px; line-height: 1;
+}
+.process-step:last-child .process-number { color: var(--success); }
+.process-time { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dusk-blue); margin-bottom: 4px; }
+.process-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--blue-black); margin-bottom: 4px; }
+.process-desc { font-size: 0.78rem; color: var(--dusk-blue); line-height: 1.5; }
+
+.apply-shell {
+  background: rgba(255,255,255,0.7); backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(106,143,253,0.28); border-radius: 18px;
+  padding: 36px 38px; box-shadow: 0 8px 32px rgba(21,28,51,0.06);
+}
+.apply-shell h3 { font-family: 'Lora', serif; font-size: 1.45rem; margin-bottom: 6px; }
+.apply-lead { font-size: 0.92rem; color: var(--dusk-blue); margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+@media (max-width: 720px) { .form-grid { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; }
+.form-group.full { grid-column: span 2; }
+@media (max-width: 720px) { .form-group.full { grid-column: auto; } }
+.form-group label { font-size: 0.78rem; font-weight: 600; color: var(--dusk-blue); margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  font-family: 'DM Sans', sans-serif; font-size: 0.92rem;
+  padding: 11px 14px; border: 1.5px solid rgba(106,143,253,0.3);
+  border-radius: 10px; background: var(--white); color: var(--blue-black);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.form-group textarea { min-height: 90px; resize: vertical; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--cornflower);
+  box-shadow: 0 0 0 3px rgba(106,143,253,0.18);
+}
+.checkbox-row { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.checkbox-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 16px; background: var(--platinum);
+  border: 1px solid rgba(106,143,253,0.18); border-radius: 10px;
+}
+.checkbox-item input { margin-top: 3px; accent-color: var(--cornflower); }
+.checkbox-item label { font-size: 0.85rem; color: var(--dusk-blue); line-height: 1.5; }
+.btn-submit {
+  grid-column: 1 / -1; justify-self: start;
+  background: var(--cornflower); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 0.98rem; font-weight: 600;
+  padding: 14px 32px; border: none; border-radius: 100px; cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.btn-submit:hover { background: #4D75E8; transform: translateY(-1px); }
+.form-footnote { font-size: 0.78rem; color: var(--dusk-blue); opacity: 0.75; margin-top: 12px; }
+
+/* Footer */
+footer.foot {
+  padding: 32px 24px; text-align: center;
+  border-top: 1px solid rgba(106,143,253,0.18);
+  background: var(--white);
+}
+footer.foot .brand-line {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 6px;
+}
+footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
+
+/* Reduce hero top padding on small screens */
+@media (max-width: 720px) {
+  .hero { padding-top: 150px; }
+  .float-nav .brand { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Floating pill nav -->
+<div class="float-nav-wrap">
+  <nav class="float-nav" aria-label="Section navigation">
+    <div class="brand"><span class="dot"></span>Fill My Funnel</div>
+    <a href="#offer">Offer</a>
+    <a href="#why-fmf">Why FMF</a>
+    <a href="#roi">Pay back?</a>
+    <a href="#qualify">Who qualifies</a>
+    <a href="#how">How</a>
+    <a href="#faq">FAQ</a>
+    <a href="#apply" class="cta">Apply for the cohort</a>
+  </nav>
+</div>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section class="hero" id="hero" data-hero="light">
+  <div class="inner-wide">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="partner-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+          </svg>
+          <div>Official Marketing Partner <span>· EMEA</span></div>
+        </div>
+        <span class="hero-eyebrow">2026 H2 Pipeline Cohort &nbsp;·&nbsp; <span class="hero-scarcity">2 places &nbsp;·&nbsp; Applications close 14 June</span></span>
+        <h1><em>25%</em> more opportunities from LinkedIn in 6 months. Or we refund every penny of our fees.</h1>
+        <div class="hero-cta-row">
+          <a href="#apply" class="btn btn-primary">Apply for the cohort</a>
+          <a href="#roi" class="btn btn-secondary">Calculate if it pays back</a>
+        </div>
+      </div>
+      <div class="hero-video">
+        <div class="video-card">
+          <div class="video-placeholder">
+            <div class="play-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="video-label">Why we are running this cohort</div>
+            <div class="video-meta">Tom Tigwell · Founder, FMF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="targeted-block">
+      <div class="targeted-block-label">Why we approached you</div>
+      <div class="targeted-block-title">Three reasons you stood out for this cohort.</div>
+      <ul class="hero-bullets">
+        <li class="hero-bullet">
+          <span class="hero-bullet-marker">1</span>
+          <span class="hero-bullet-text"><strong>You're running LinkedIn ads.</strong> We pay close attention to which B2B businesses are investing in the channel. You stood out as a fit for this cohort.</span>
+        </li>
+        <li class="hero-bullet">
+          <span class="hero-bullet-marker">2</span>
+          <span class="hero-bullet-text"><strong>We think you're leaving meaningful pipeline on the table.</strong> Most LinkedIn campaigns optimise for engagement metrics, not opportunity volume. The gap is usually 25 to 40 percent of what's possible.</span>
+        </li>
+        <li class="hero-bullet">
+          <span class="hero-bullet-marker">3</span>
+          <span class="hero-bullet-text"><strong>We're willing to put our money behind that conviction.</strong> Hence this cohort and the 25% lift guarantee. If we miss, our management fees come back to you in full.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="hero-meta-strip">
+      <div class="item"><strong>25%</strong><span>Guaranteed lift in 180 days</span></div>
+      <div class="item"><strong>2</strong><span>Cohort places available</span></div>
+      <div class="item"><strong>10</strong><span>Applications accepted maximum</span></div>
+      <div class="item"><strong>100%</strong><span>Management fees refundable</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="down-arrow">
+  <svg width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="#6A8FFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v26M6 22l8 8 8-8"/></svg>
+</div>
+
+<!-- ══════════════════════════ THE PROBLEM ══════════════════════════ -->
+<section class="section">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">The problem</div>
+      <h2 class="section">Most LinkedIn ad accounts struggle to drive <em>reliable, scalable growth.</em></h2>
+      <p class="lead">B2B LinkedIn campaigns optimise for CTR, CPM and engagement rate — numbers that prove the ads ran, not that the channel drives growth. What a marketing leader actually needs is reliable, scalable opportunity volume: consistent quarter-on-quarter and year-on-year. Without it, the budget cannot be defended. <strong>73% of CMOs surveyed</strong> say they cannot produce an attributable LinkedIn pipeline number that would survive a CFO review. Of the <strong>£11bn</strong> spent on B2B LinkedIn ads in 2025, almost none ties back to a CRM opportunity with documented influence — and with enterprise sales cycles averaging <strong>9 months</strong> against 30-day reporting windows, closed-won attribution lands too late to defend in-year budget. The result is a permanent evidence gap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ THE OFFER ══════════════════════════ -->
+<section class="section accent" id="offer">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">The offer</div>
+      <h2 class="section">The commitment, <em>in one sentence.</em></h2>
+      <p class="lead">We move from agency to performance partner. The risk shifts from your budget to our delivery. Paid is the engine — but it runs alongside conversion-optimised landing pages and a LinkedIn outreach layer that turns engagement signals into authentic conversations. Every layer ladders to one number: LinkedIn-influenced opportunities. The case study becomes evidence other CMOs can use.</p>
+    </div>
+    <div class="offer-callout">
+      <div class="label">The guarantee</div>
+      <div class="commitment">We will lift your LinkedIn-influenced opportunities by at least 25% over the trailing 6-month baseline within 180 days, or we refund 100% of our management fees and you keep the data, audiences, creative, and attribution model.</div>
+      <div class="clarifier">No buried clauses. A defined baseline, a defined lift, a defined refund mechanism. The selection process exists so we can stand behind this commitment without hedging.</div>
+    </div>
+    <div class="definition-grid">
+      <h3>What counts as a <em>LinkedIn-influenced opportunity</em></h3>
+      <ul class="criteria-list">
+        <li><div><strong>ICP-matched company</strong><span>Sector, employee size band, geography, and revenue criteria locked at engagement start. No moving targets.</span></div></li>
+        <li><div><strong>Named buying-committee engagement</strong><span>A decision-maker or named buying committee member from a target account engaged with creative or content.</span></div></li>
+        <li><div><strong>LinkedIn touch within 90 days of opportunity creation</strong><span>AND either first-touch on the buying committee member, OR top-2 weighted touch in the attributed journey. Causal proximity, not passive brand exposure.</span></div></li>
+        <li><div><strong>Sales acceptance within SLA</strong><span>Accepted as a qualified opportunity by your sales team within 5 business days of handover. Auditable through your attribution platform.</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ WHY FMF ══════════════════════════ -->
+<section class="section platinum" id="why-fmf">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Who you're working with</div>
+      <h2 class="section">EMEA's only Official LinkedIn <em>Marketing Partner.</em></h2>
+      <p class="lead">LinkedIn awards Marketing Partner status only to vetted agencies that meet rigorous criteria for expertise, delivery quality, and client outcomes at scale. FMF holds the only Official Partner badge in EMEA. The 25% lift guarantee in this cohort is backed by that operational track record.</p>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-card highlight">
+        <div class="cred-number">1 of 1</div>
+        <div class="cred-label">Official LinkedIn Marketing Partner in EMEA</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-number">£500m+</div>
+        <div class="cred-label">LinkedIn ad spend managed since 2019</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-number">150+</div>
+        <div class="cred-label">B2B clients delivered, mid-market to enterprise</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-number">6 years</div>
+        <div class="cred-label">As a LinkedIn Ads specialist agency, founded 2019</div>
+      </div>
+    </div>
+    <p class="team-intro"><strong>The pod on your account.</strong> One integrated team runs your whole LinkedIn engine — strategy, paid delivery, outreach and design — not a hand-off chain of freelancers.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-cap">Strategy</div>
+        <div class="team-person">
+          <div class="tp-name">Tom Tigwell</div>
+          <div class="tp-role">Founder &amp; Strategy Lead</div>
+          <div class="tp-cred">Top-30 global certified marketing expert. LinkedIn Ads expert.</div>
+        </div>
+        <div class="team-person">
+          <div class="tp-name">Brinley</div>
+          <div class="tp-role">Senior Strategist</div>
+          <div class="tp-cred">5 years on LinkedIn Ads, 10+ years in B2B marketing.</div>
+        </div>
+        <div class="team-person">
+          <div class="tp-name">[Strategist name]</div>
+          <div class="tp-role">Strategist</div>
+          <div class="tp-cred">Day-to-day campaign strategy and account execution.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-cap">LinkedIn &amp; email outreach</div>
+        <div class="team-person">
+          <div class="tp-name">Alex</div>
+          <div class="tp-role">Outreach Lead</div>
+          <div class="tp-cred">LinkedIn and email outreach specialist. Turns engagement signals into authentic conversations and booked meetings.</div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-cap">Design &amp; UX</div>
+        <div class="team-person">
+          <div class="tp-name">Patti</div>
+          <div class="tp-role">Design &amp; UX</div>
+          <div class="tp-cred">World-class graphic design and UX across creative and conversion-optimised landing pages.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CALCULATOR ══════════════════════════ -->
+<section class="section roi-bg" id="roi">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">The business case</div>
+      <h2 class="section">Does it <em>pay back</em> for your business?</h2>
+      <p class="lead">Five inputs from your business. The 25% guaranteed lift, modelled against your numbers. Two ROI views (Year 1 cash payback and full customer lifetime). If the maths does not produce a positive return at the guarantee, the cohort is not the right fit and we will say so in the audit phase before any commitment. All defaults are calibrated to mid-market B2B SaaS benchmarks with cited sources at the bottom of the calculator.</p>
+    </div>
+    <div class="bc-shell">
+      <div class="bc-header">
+        <h3>Programme ROI calculator</h3>
+        <p>Five inputs. Real-time output. The maths is transparent because the offer is.</p>
+      </div>
+      <div class="bc-body">
+        <div class="bc-inputs">
+          <h4>Your numbers</h4>
+          <div class="input-group">
+            <label for="current_opps">Current LinkedIn-influenced opportunities</label>
+            <input type="number" id="current_opps" value="30" min="0" step="2">
+            <div class="input-helper">Trailing 6 months from your attribution platform. Cohort minimum is 8.</div>
+          </div>
+          <div class="input-group">
+            <label for="acv">Average annual contract value (£)</label>
+            <input type="number" id="acv" value="75000" min="10000" step="5000">
+            <div class="input-helper">First-year contract value per closed deal</div>
+          </div>
+          <div class="input-group">
+            <label for="close_rate">Opportunity-to-close rate (%)</label>
+            <input type="number" id="close_rate" value="25" min="5" max="60" step="1">
+            <div class="input-helper">B2B avg 19–22%. Multi-stakeholder accounts +42%. Tightly-qualified opps typically 25–30%.</div>
+          </div>
+          <div class="input-group">
+            <label for="ltv_years">Customer lifetime (years)</label>
+            <input type="number" id="ltv_years" value="3" min="1" max="7" step="1">
+            <div class="input-helper">Year 1 only = 1. B2B SaaS average lifespan = 3–5 years. Mature enterprise = 5+.</div>
+          </div>
+          <div class="input-group">
+            <label for="budget">Monthly LinkedIn ad budget (£)</label>
+            <input type="number" id="budget" value="10000" min="8000" step="1000">
+            <div class="input-helper">Programme minimum £8k/month. Cap above your normal spend lifts opportunity volume.</div>
+          </div>
+          <div class="bc-cost-summary">
+            <div class="cost-row"><span>Management fees (6 months)</span><strong>£27,000</strong></div>
+            <div class="cost-row"><span>Ad spend (6 months)</span><strong id="cost_spend">£60,000</strong></div>
+            <div class="cost-row total"><span>Total programme cost</span><strong id="cost_total">£87,000</strong></div>
+            <div class="cost-footnote">Ad spend paid directly to LinkedIn. Management fees are 100% refundable if guarantee missed.</div>
+          </div>
+        </div>
+        <div class="bc-output">
+          <div class="scenarios-grid" id="bc_scenarios"></div>
+          <div id="verdict_bar"></div>
+          <div class="bc-note">
+            <strong>Two ROI views, both legitimate.</strong> Year 1 ROI is what the CFO scrutinises for cash payback. LTV ROI is what the CMO uses for strategic justification. We show both, modelled on the 25% guaranteed lift.<br><br>
+            <strong>Benchmark sources:</strong> Win rate ranges from <a href="https://optif.ai/learn/questions/b2b-saas-win-rate-by-deal-size/" target="_blank" rel="noopener">Optifai B2B SaaS Sales Ops Benchmark 2026 (n=939)</a>. Multi-stakeholder uplift from <a href="https://www.ebsta.com/wp-content/uploads/2024/02/B2B-Sales-Benchmarks-2024_.pdf" target="_blank" rel="noopener">Ebsta x Pavilion 2025 B2B Sales Benchmarks</a>. B2B average win rate from <a href="https://www.hubspot.com/state-of-marketing" target="_blank" rel="noopener">HubSpot 2024 Sales Trends Report</a>. LTV economics from <a href="https://optif.ai/learn/questions/b2b-saas-ltv-benchmark/" target="_blank" rel="noopener">Optifai LTV Benchmarks 2026</a>. Customer lifespan ranges follow median B2B SaaS churn rates of 2–3.5% monthly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ WHO THIS IS FOR ══════════════════════════ -->
+<section class="section platinum" id="qualify">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Cohort selection</div>
+      <h2 class="section">The two businesses we are <em>looking for.</em></h2>
+      <p class="lead">The guarantee is real, which means selection is tight. We pick businesses where the audience math supports the commitment, the operational foundation exists, and the category context creates conditions for compound growth. We turn down more applications than we accept.</p>
+    </div>
+    <div class="qualify-grid">
+      <div class="qualify-col fit">
+        <h3>You are a strong fit if</h3>
+        <ul>
+          <li><div><strong>Growing category (10%+ YoY)</strong><span>Verifiable through Gartner, Forrester, IDC or comparable analyst data, or recent capital formation in the space.</span></div></li>
+          <li><div><strong>ACV £30k+</strong><span>The unit economics need to support the work. Below £30k the conversion mechanics break.</span></div></li>
+          <li><div><strong>Minimum 8 LinkedIn-influenced opportunities in trailing 6 months</strong><span>This is the baseline floor. A 25% lift only becomes statistically meaningful above this volume.</span></div></li>
+          <li><div><strong>£10k+/month LinkedIn budget committed</strong><span>For 6 months minimum. Spend goes to LinkedIn, not to us.</span></div></li>
+          <li><div><strong>Attribution platform installed or willing to install</strong><span>Dreamdata, HockeyStack, Demandbase, or equivalent. This is the audit trail.</span></div></li>
+          <li><div><strong>Sales capacity for opportunity follow-up</strong><span>SDR or AE team capable of actioning incremental qualified opportunities through the engagement.</span></div></li>
+          <li><div><strong>Willing to publish a case study</strong><span>The public case study is the value exchange. Your name attached.</span></div></li>
+        </ul>
+      </div>
+      <div class="qualify-col notfit">
+        <h3>You are not a fit if</h3>
+        <ul>
+          <li><div><strong>Sales cycle longer than 12 months</strong><span>We can demonstrate channel performance, but closed-won evidence sits outside the programme window.</span></div></li>
+          <li><div><strong>Cannot install attribution infrastructure</strong><span>Without it, the guarantee cannot be measured fairly. We will not run on faith.</span></div></li>
+          <li><div><strong>Marketing and sales misaligned</strong><span>If your sales team will not action opportunities, we cannot deliver against the metric.</span></div></li>
+          <li><div><strong>Need closed-won evidence in 6 months</strong><span>Most £30k+ ACV deals close in months 6–15. Your model needs to accept that.</span></div></li>
+          <li><div><strong>Need to control creative line by line</strong><span>We bring our creative methodology. You bring product truth and customer intelligence.</span></div></li>
+          <li><div><strong>Looking for last-click attribution</strong><span>That is not how B2B buyers buy and we will not pretend it is.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ HOW IT WORKS ══════════════════════════ -->
+<section class="section" id="how">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2 class="section">180 days, five phases, <em>two real off-ramps.</em></h2>
+      <p class="lead">Two genuine off-ramps before you are ever locked in: the refundable Day 0–14 paid audit, and a month-3 exit on 30 days notice. Everything between is the work that makes the guarantee hold.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-marker">1</div>
+        <div class="timeline-meta">Day 0–14</div>
+        <h4>Paid audit</h4>
+        <p>We confirm the guarantee can be honoured for your business. Audit fee fully refundable if it cannot.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">2</div>
+        <div class="timeline-meta">Month 1</div>
+        <h4>Foundation</h4>
+        <p>Strategy, audience build and creative assets. The trailing 6-month baseline locked in writing.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">3</div>
+        <div class="timeline-meta">Months 2–4</div>
+        <h4>Multivariant testing</h4>
+        <p>Targeting, creative and copy tested in parallel. We find the message, format and audience that get traction.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">4</div>
+        <div class="timeline-meta">End of month 4</div>
+        <h4>Analysis</h4>
+        <p>A 5-day inflection point. We read the winners from testing and set the plan to scale them.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-marker">5</div>
+        <div class="timeline-meta">Months 5–6</div>
+        <h4>Scale &amp; capture</h4>
+        <p>We scale what works and capture the opportunity volume that delivers the guaranteed lift.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ RISK REVERSAL ══════════════════════════ -->
+<section class="section accent">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Risk reversal</div>
+      <h2 class="section">Five clauses that put <em>our skin in the game.</em></h2>
+      <p class="lead">A guarantee is only as strong as the mechanics behind it. These are the specific terms that make the commitment defensible, audit-trail backed, and CMO-readable.</p>
+    </div>
+    <div class="risk-grid">
+      <div class="risk-card">
+        <div class="risk-icon">A</div>
+        <h4>Paid audit, refundable</h4>
+        <p>£2.5k audit fee, refunded in full if we determine we cannot honour the guarantee for your specific profile. Most agencies will take any money. We turn down profiles where the math does not work. The audit fee is real money on our line.</p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-icon">B</div>
+        <h4>100% management fee refund</h4>
+        <p>If we miss the 25% lift over the trailing 6-month baseline in 180 days, every penny of management fees returns to you within 30 days of programme end. Ad spend belongs to LinkedIn and cannot be refunded by us, but our fees are entirely on our line.</p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-icon">C</div>
+        <h4>Month 3 exit with 30 days notice</h4>
+        <p>If the partnership is not working, either side can exit at month 3 with no further fees owed. Most agencies bury this. We state it openly because trust starts with no surprises.</p>
+      </div>
+      <div class="risk-card">
+        <div class="risk-icon">D</div>
+        <h4>You own everything</h4>
+        <p>Audiences, creative assets, attribution model, playbooks, learnings. All yours at programme end. If you take it in-house at month 7, you can. The case study has right-of-approval before publication.</p>
+      </div>
+      <div class="risk-card wide">
+        <div class="risk-icon">E</div>
+        <h4>Outperformance bonus, optional</h4>
+        <p>If we lift LinkedIn-influenced opportunities by 50% or more over the baseline, you have the option to pay a 5% bonus on the trailing six-month ad spend. This is voluntary, agreed in advance, and exists because we want skin in the game on the upside too, not just the downside.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ METHODOLOGY ══════════════════════════ -->
+<section class="section">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Methodology</div>
+      <h2 class="section">What FMF does that <em>other agencies don't.</em></h2>
+      <p class="lead">Not a stack of services — one connected system. After 150+ B2B clients and £500m+ of managed LinkedIn spend, it runs end to end: paid media activates your content, engagement becomes intent, and intent becomes conversations and conversions. Here is how a target account moves to pipeline.</p>
+    </div>
+    <div class="flow">
+      <div class="flow-node">
+        <div class="flow-label">Step 1 · Activate</div>
+        <h4>LinkedIn Ads to your target accounts</h4>
+        <p>We turn your content strategy into paid media aimed at named key accounts — the right message in front of the right buying committees, in-feed.</p>
+      </div>
+
+      <div class="flow-arrow">
+        <svg width="24" height="30" viewBox="0 0 28 36" fill="none" stroke="#6A8FFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v26M6 22l8 8 8-8"/></svg>
+      </div>
+
+      <div class="flow-node">
+        <div class="flow-label">Step 2 · Engage</div>
+        <h4>Engagement becomes a signal</h4>
+        <p>Decision-makers engage with the content. Most agencies report that as a vanity metric. We treat every engagement as an intent signal worth acting on.</p>
+      </div>
+
+      <div class="flow-arrow">
+        <svg width="24" height="30" viewBox="0 0 28 36" fill="none" stroke="#6A8FFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v26M6 22l8 8 8-8"/></svg>
+      </div>
+
+      <div class="flow-intel">
+        <div class="flow-intel-head">
+          <div class="flow-label">Step 3 · The Intel Layer</div>
+          <h4>We read intent — and act on it two ways</h4>
+          <p>Tracking engagement in-feed and on your site, the Intel Layer spots which accounts are warming up and triggers the right move.</p>
+        </div>
+        <div class="flow-branches">
+          <div class="flow-branch">
+            <div class="flow-label">Path A · Conversations</div>
+            <h4>Authentic LinkedIn outreach</h4>
+            <p>We reach out on LinkedIn referencing the exact content the account engaged with — specific, human, never templated. Real conversations start.</p>
+          </div>
+          <div class="flow-branch">
+            <div class="flow-label">Path B · Conversion</div>
+            <h4>Retarget to a CRO landing page</h4>
+            <p>When intent spikes, we retarget the account to a conversion-optimised landing page we build for a focused offer.</p>
+            <span class="flow-stat">5–10% conversion rate</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-arrow">
+        <svg width="24" height="30" viewBox="0 0 28 36" fill="none" stroke="#6A8FFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v26M6 22l8 8 8-8"/></svg>
+      </div>
+
+      <div class="flow-node">
+        <div class="flow-label">Step 4 · Capture</div>
+        <h4>Meetings booked, pipeline created</h4>
+        <p>We follow up on every conversation and conversion and book the meeting — new early-stage pipeline handed to your sales team, attributed to LinkedIn.</p>
+      </div>
+
+      <p class="flow-note">Every step is measured against the baseline locked in your contract — the same number the 25% guarantee is held to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FAQ ══════════════════════════ -->
+<section class="section accent" id="faq">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Questions, answered</div>
+      <h2 class="section">The things every CMO asks <em>before applying.</em></h2>
+      <p class="lead">If your question is not here, we will answer it in the application response within 3 business days. We try not to bury anything.</p>
+    </div>
+
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">What if our pipeline shrinks for reasons unrelated to LinkedIn?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">The guarantee is measured against your <strong>LinkedIn-influenced opportunity count</strong> specifically, not total pipeline. If your wider business shrinks but LinkedIn-influenced opportunities grow by 25% over the baseline, we have honoured the guarantee. If LinkedIn-influenced opportunities themselves shrink because of broader market conditions, our methodology and creative work should counteract that by capturing share, but ultimately we wear that risk through the fee refund. This is precisely why we only select cohort members in growing categories: it reduces the probability of category-wide demand collapse mid-engagement.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">How is the baseline calculated?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Trailing 6 months of LinkedIn-influenced opportunities, measured from the day before campaigns go live. Pulled from your attribution platform using a definition agreed in writing during the foundation phase: <strong>LinkedIn touch within 90 days of opportunity creation, AND either first-touch on the buying committee member, OR top-2 weighted in the attributed journey.</strong> This filters out passive brand exposure and forces causal proximity. The baseline is locked and signed. No moving targets, no end-of-engagement disputes about what counted.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">What if our sales team does not follow up on the opportunities we generate?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">We agree opportunity-acceptance criteria in writing during the foundation phase. If a LinkedIn-influenced opportunity is handed over and your sales team does not action it within the agreed SLA (typically 5 business days), the opportunity still counts toward the lift calculation. Our delivery sits at the point of qualified handover. Your sales team's conversion performance is a separate variable we report on but do not guarantee.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">Why lift in opportunities and not closed-won revenue?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">For ACVs of £30k+, sales cycles run 6 to 15 months. A 180-day programme cannot fairly guarantee closed-won revenue because most of those deals close after the programme ends. We commit to the leading indicator we control (lift in qualified, LinkedIn-influenced opportunities). The closed-won evidence builds in months 6 to 18, and we provide a follow-up analysis at month 12 free of charge to show how the lifted opportunities converted.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">Why 25% lift and not an absolute opportunity number?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">An absolute number ignores your starting point. Guaranteeing "25 opportunities" is trivial for a business currently generating 60 from LinkedIn and impossible for one generating 4. A percentage lift scales to your actual baseline, which is the only honest way to express growth across different business sizes. The trade-off is that we need a meaningful baseline to lift from, which is why the cohort requires a minimum of 8 LinkedIn-influenced opportunities in the trailing 6 months. Below that threshold the lift is not statistically meaningful and the case study would not survive scrutiny.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">What does "LinkedIn-influenced opportunity" mean in practice?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Four criteria, all agreed in writing during the foundation phase: (1) ICP-matched company by sector, employee size, and geography, (2) named buying committee member engaged with creative or content, (3) LinkedIn touch within 90 days of opportunity creation and either first-touch or top-2 weighted in the attribution journey, (4) accepted by your sales team within 5 business days. All four must be present. Every opportunity is logged in your CRM and attribution platform with audit trail. The 25% lift is calculated on this exact definition applied to both the trailing 6-month baseline and the engagement period.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">Why are you doing this?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Two reasons. First, we are investing in two case studies for 2026 that prove LinkedIn drives pipeline in growing categories. That evidence becomes the asset we use to acquire higher-value clients in 2027. Second, our methodology after 150+ clients and £500m in managed spend has reached the point where we believe a guarantee is defensible. The cohort lets us prove it without diluting the offer to the wider market.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">Can we exit early if it is not working?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Yes. The month 3 exit clause allows either party to end the engagement with 30 days notice. No further management fees due. Ad spend already committed to LinkedIn cannot be refunded by us. You keep audiences, creative, and learnings produced to that point.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">How is selection actually decided?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">We accept a maximum of 10 applications. Each is reviewed against the fit criteria by our senior strategy team. Five progress to a 30-minute conversation. Two are offered the paid audit. The audit determines final cohort selection. We have turned down well-known brands when the math did not support delivery. Selection rigour is the foundation of the guarantee.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">What are the management fees?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Cohort management fees are £4,500 per month for the 6-month programme. £27,000 total. All refundable if the guarantee is missed. Ad spend is separate and paid directly to LinkedIn. The paid audit is £2,500, refundable if we determine the engagement cannot proceed, credited toward the first month's fee if it does.</div>
+    </details>
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">Who owns the data and assets at the end?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">You do. All audience data, creative assets, attribution dashboards, playbooks, and engagement reports remain your property. If you take the work in-house at month 7, the entire system transfers cleanly. The only thing we retain rights to is publishing the case study, with your right-of-approval on every claim before publication.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════════════════════ APPLY ══════════════════════════ -->
+<section class="section platinum" id="apply">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">The process</div>
+      <h2 class="section">From application to <em>programme launch</em> in five steps.</h2>
+      <p class="lead">We respond personally to every applicant within 3 business days. No automated nurture sequences, no drip campaigns, no surprise contract clauses. If you are a fit, we will tell you. If you are not, we will tell you why. Cohort starts 1 July 2026.</p>
+    </div>
+
+    <div class="process-flow">
+      <div class="process-step">
+        <div class="process-number">01</div>
+        <div class="process-time">3 minutes</div>
+        <div class="process-title">Apply for the cohort</div>
+        <div class="process-desc">Complete the application below. Ten questions, three minutes. Auditable inputs only.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-number">02</div>
+        <div class="process-time">Within 3 days</div>
+        <div class="process-title">Application review</div>
+        <div class="process-desc">We assess your submission against cohort criteria. Every applicant gets a personal response, call invitation or direct decline with reasoning.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-number">03</div>
+        <div class="process-time">45 minutes</div>
+        <div class="process-title">Discovery call</div>
+        <div class="process-desc">Methodology walkthrough, baseline approach, your questions. Mutual fit assessment. No sales pitch, no follow-up sequences.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-number">04</div>
+        <div class="process-time">1 to 2 weeks</div>
+        <div class="process-title">Contract and planning</div>
+        <div class="process-desc">Engagement contract signed. Baseline lock, sales team alignment workshop, audience and creative kick-off planning.</div>
+      </div>
+      <div class="process-step">
+        <div class="process-number">05</div>
+        <div class="process-time">1 July 2026</div>
+        <div class="process-title">Programme launches</div>
+        <div class="process-desc">Six months of guaranteed 25% pipeline lift work commences. Final delivery and case study by 31 December.</div>
+      </div>
+    </div>
+
+    <div class="apply-shell">
+      <h3>Cohort application</h3>
+      <p class="apply-lead">Ten quick questions. Three minutes. We verify a few extra details with you after this.</p>
+      <form class="form-grid" name="cohort-application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="cohort-application">
+        <p style="display:none;"><label>Do not fill this in: <input name="bot-field"></label></p>
+        <div class="form-group"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="First and last name" required></div>
+        <div class="form-group"><label for="role">Role</label><input type="text" id="role" name="role" placeholder="CMO, Head of Marketing, etc." required></div>
+        <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Your company name" required></div>
+        <div class="form-group"><label for="email">Work email</label><input type="email" id="email" name="email" placeholder="name@company.com" required></div>
+        <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="+44 7700 900000" required></div>
+        <div class="form-group"><label for="acv_form">Average contract value</label><select id="acv_form" name="acv_form"><option>Below £30k</option><option>£30k to £75k</option><option>£75k to £200k</option><option>£200k+</option></select></div>
+        <div class="form-group"><label for="spend">Current monthly LinkedIn spend</label><select id="spend" name="spend"><option>Below £5k</option><option>£5k to £10k</option><option>£10k to £20k</option><option>£20k+</option></select></div>
+        <div class="form-group"><label for="current_opps_form">Current LinkedIn-influenced opportunities (trailing 6 months)</label><select id="current_opps_form" name="current_opps_form"><option>Below 8 (minimum required for cohort)</option><option>8 to 15</option><option>16 to 30</option><option>31 to 60</option><option>60+</option></select></div>
+        <div class="form-group"><label for="cycle">Typical sales cycle length</label><select id="cycle" name="cycle"><option>Under 3 months</option><option>3 to 6 months</option><option>6 to 12 months</option><option>Over 12 months</option></select></div>
+        <div class="form-group"><label for="attribution">Attribution platform</label><select id="attribution" name="attribution"><option>Dreamdata</option><option>HockeyStack</option><option>Demandbase</option><option>Other platform installed</option><option>None, willing to install</option><option>None, unwilling to install</option></select></div>
+        <button class="btn-submit" type="submit">Apply for the cohort</button>
+      </form>
+
+      <p class="form-footnote">Applications close 14 June 2026. Programme starts 1 July. Response within 3 business days, every time, by email.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer class="foot">
+  <p class="brand-line">Fill My Funnel · EMEA's only LinkedIn Ads Official Marketing Partner</p>
+  <p>The 2026 H2 Pipeline Cohort · Applications open until 14 June 2026 · Confidential</p>
+</footer>
+
+<script>
+// ── ROI calculator ──
+function calculateROI() {
+  const currentOpps = parseFloat(document.getElementById('current_opps').value) || 0;
+  const acv = parseFloat(document.getElementById('acv').value) || 0;
+  const closeRate = parseFloat(document.getElementById('close_rate').value) / 100 || 0;
+  const ltvYears = parseFloat(document.getElementById('ltv_years').value) || 1;
+  const budget = parseFloat(document.getElementById('budget').value) || 0;
+
+  const adSpend = budget * 6;
+  const fees = 27000;
+  const totalCost = adSpend + fees;
+
+  function scenario(liftPct) {
+    const newOpps = Math.floor(currentOpps * liftPct);
+    const newDeals = newOpps * closeRate;
+    const year1Revenue = newDeals * acv;
+    const ltvRevenue = newDeals * acv * ltvYears;
+    const year1ROI = totalCost > 0 ? year1Revenue / totalCost : 0;
+    const ltvROI = totalCost > 0 ? ltvRevenue / totalCost : 0;
+    return { newOpps, newDeals, year1Revenue, ltvRevenue, year1ROI, ltvROI };
+  }
+
+  const guarantee = scenario(0.25);
+
+  const fmtGBP = n => '£' + Math.round(n).toLocaleString();
+  const fmtDeals = n => n.toFixed(2);
+  const roiColorClass = roi => roi >= 3 ? 'green' : roi >= 1.5 ? 'amber' : 'red';
+
+  document.getElementById('cost_spend').textContent = fmtGBP(adSpend);
+  document.getElementById('cost_total').textContent = fmtGBP(totalCost);
+
+  function renderCard(s, label, type, opportunityText) {
+    return `
+      <div class="scenario-card ${type}">
+        <div class="scenario-label">${label}</div>
+        <div class="scenario-opps">${opportunityText}</div>
+        <div class="math-row"><span>× ${(closeRate * 100).toFixed(0)}% close rate</span><strong>${fmtDeals(s.newDeals)} new deals</strong></div>
+        <div class="revenue-row"><span>Year 1 revenue</span><strong>${fmtGBP(s.year1Revenue)}</strong></div>
+        <div class="revenue-row"><span>${ltvYears}-year LTV revenue</span><strong>${fmtGBP(s.ltvRevenue)}</strong></div>
+        <div class="dual-roi">
+          <div class="roi-block"><div class="roi-label">Year 1 ROI</div><div class="roi-value ${roiColorClass(s.year1ROI)}">${s.year1ROI.toFixed(1)}x</div></div>
+          <div class="roi-block"><div class="roi-label">LTV ROI</div><div class="roi-value ${roiColorClass(s.ltvROI)}">${s.ltvROI.toFixed(1)}x</div></div>
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById('bc_scenarios').innerHTML =
+    renderCard(guarantee, 'Guaranteed (25% lift)', 'guaranteed', `${currentOpps} current × 25% = ${guarantee.newOpps} new opps`);
+
+  let verdictClass, verdictLabel, verdictMsg;
+  if (currentOpps < 8) {
+    verdictClass = 'red';
+    verdictLabel = 'Baseline too low for the cohort.';
+    verdictMsg = 'Below 8 LinkedIn-influenced opportunities in trailing 6 months, the 25% lift is not statistically meaningful. The cohort requires a minimum baseline to lift from. The cohort is not the right fit. We run other engagement models that may suit you. Email us.';
+  } else if (guarantee.newOpps < 2) {
+    verdictClass = 'red';
+    verdictLabel = 'Lift produces too few new opportunities.';
+    verdictMsg = 'At your baseline, the 25% guarantee delivers fewer than 2 new opportunities. Even at strong unit economics this is insufficient volume to justify the programme. Either increase baseline (typically possible by month 3 of a longer engagement) or this cohort is not the right fit.';
+  } else if (guarantee.ltvROI >= 3) {
+    verdictClass = 'green';
+    verdictLabel = 'Strong fit. Apply.';
+    verdictMsg = `LTV ROI of ${guarantee.ltvROI.toFixed(1)}x at the guaranteed 25% lift. Year 1 ROI ${guarantee.year1ROI.toFixed(1)}x. Unit economics are robust. This is the profile the cohort is designed for.`;
+  } else if (guarantee.ltvROI >= 1.5) {
+    verdictClass = 'amber';
+    verdictLabel = 'Marginal fit. Worth a conversation.';
+    verdictMsg = `LTV ROI of ${guarantee.ltvROI.toFixed(1)}x at the guaranteed lift. Year 1 cash payback is tight (${guarantee.year1ROI.toFixed(1)}x at guarantee). Higher ACV, longer customer lifetime, or stronger close rate would move you to green. Apply if you have conviction your numbers are stronger than the conservative defaults.`;
+  } else {
+    verdictClass = 'red';
+    verdictLabel = 'Unit economics do not support the engagement.';
+    verdictMsg = `Even with ${ltvYears}-year LTV factored in, ROI at the guaranteed lift is ${guarantee.ltvROI.toFixed(1)}x. The cohort is built for businesses where the maths works at the conservative floor. Levers: increase baseline (>20 current opps), increase ACV (£100k+), or extend customer lifetime. If these are realistic for you, talk to us. Otherwise this cohort is not the right fit.`;
+  }
+
+  const verdictCTA = (verdictClass === 'green' || verdictClass === 'amber')
+    ? `<a href="#apply" class="btn btn-primary verdict-cta">Apply for the cohort</a>`
+    : '';
+
+  document.getElementById('verdict_bar').innerHTML = `
+    <div class="verdict ${verdictClass}">
+      <div class="verdict-light"></div>
+      <div class="verdict-text">
+        <strong>${verdictLabel}</strong>
+        <span>${verdictMsg}</span>
+      </div>
+    </div>
+    ${verdictCTA}
+  `;
+}
+
+document.querySelectorAll('.bc-inputs input').forEach(input => {
+  input.addEventListener('input', calculateROI);
+});
+
+calculateROI();
+
+// ── Cohort application form (Netlify Forms, AJAX submission) ──
+const cohortForm = document.querySelector('form[name="cohort-application"]');
+if (cohortForm) {
+  cohortForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const submitBtn = cohortForm.querySelector('.btn-submit');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+    const data = new FormData(cohortForm);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    }).then(function(response) {
+      if (!response.ok) throw new Error('Network response was not ok');
+      const shell = cohortForm.closest('.apply-shell');
+      shell.innerHTML = '<div style="text-align:center;padding:60px 24px;">' +
+        '<div style="font-family:\'Lora\',serif;font-size:1.6rem;font-weight:700;color:#0C101D;margin-bottom:16px;">Application received.</div>' +
+        '<p style="font-size:1rem;color:#3F4C7B;line-height:1.6;max-width:480px;margin:0 auto;">We respond personally to every applicant within 3 business days by email. No automated sequences — a real reply from our senior strategy team.</p>' +
+        '</div>';
+    }).catch(function() {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Apply for the cohort'; }
+      alert('Something went wrong submitting the form. Please email us directly at marketing@fillmyfunnel.co.uk');
+    });
+  });
+}
+</script>
+
+</body>
+</html>
