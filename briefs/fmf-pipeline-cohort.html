@@ -298,16 +298,15 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 
 /* Team bio panels */
 .team-intro { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.6; margin: 30px 0 22px; max-width: 740px; }
-.team-panels { display: flex; flex-direction: column; gap: 18px; }
+.team-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 880px) { .team-panels { grid-template-columns: 1fr; } }
 .bio-panel {
-  display: grid; grid-template-columns: 280px 1fr; gap: 34px;
+  display: flex; flex-direction: column; gap: 16px;
   background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
-  border-radius: 18px; padding: 26px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
-  align-items: center;
+  border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
 }
-@media (max-width: 760px) { .bio-panel { grid-template-columns: 1fr; gap: 22px; } }
 .bio-photo {
-  position: relative; border-radius: 14px; overflow: hidden;
+  position: relative; border-radius: 12px; overflow: hidden;
   aspect-ratio: 4 / 5; background: linear-gradient(155deg, var(--pale-sky) 0%, var(--cornflower) 100%);
 }
 .bio-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -322,11 +321,11 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 .bio-shape.s1 { width: 34px; height: 150px; border-radius: 100px; top: 16px; right: 46px; transform: rotate(28deg); }
 .bio-shape.s2 { width: 124px; height: 50px; border-radius: 16px; top: 116px; right: 14px; transform: rotate(12deg); }
 .bio-shape.s3 { width: 40px; height: 124px; border-radius: 14px; bottom: 26px; right: 34px; transform: rotate(20deg); }
-.bio-eyebrow { font-size: 0.82rem; font-weight: 700; color: var(--blue-black); margin-bottom: 12px; }
-.bio-text h3 { font-family: 'Lora', serif; font-size: 1.7rem; font-weight: 700; color: var(--blue-black); margin-bottom: 10px; }
-.bio-desc { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.65; }
+.bio-eyebrow { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; color: var(--blue-black); margin-bottom: 6px; }
+.bio-text h3 { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 700; color: var(--blue-black); margin-bottom: 8px; }
+.bio-desc { font-size: 0.86rem; color: var(--dusk-blue); line-height: 1.6; }
 .bio-pending {
-  display: inline-block; margin-top: 12px; font-size: 0.74rem; font-weight: 700;
+  display: inline-block; margin-top: 10px; font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.06em; text-transform: uppercase; color: var(--cornflower);
 }
 
