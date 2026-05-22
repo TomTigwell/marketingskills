@@ -296,24 +296,39 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
   border-radius: 12px; padding: 18px 22px; font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.6;
 }
 
-/* Team pod */
-.team-intro { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.6; margin: 30px 0 18px; max-width: 740px; }
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-@media (max-width: 880px) { .team-grid { grid-template-columns: 1fr; } }
-.team-card {
+/* Team bio panels */
+.team-intro { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.6; margin: 30px 0 22px; max-width: 740px; }
+.team-panels { display: flex; flex-direction: column; gap: 18px; }
+.bio-panel {
+  display: grid; grid-template-columns: 280px 1fr; gap: 34px;
   background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
-  border-top: 4px solid var(--cornflower); border-radius: 14px;
-  padding: 24px 24px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+  border-radius: 18px; padding: 26px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+  align-items: center;
 }
-.team-cap {
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--cornflower); margin-bottom: 14px;
+@media (max-width: 760px) { .bio-panel { grid-template-columns: 1fr; gap: 22px; } }
+.bio-photo {
+  position: relative; border-radius: 14px; overflow: hidden;
+  aspect-ratio: 4 / 5; background: linear-gradient(155deg, var(--pale-sky) 0%, var(--cornflower) 100%);
 }
-.team-person { padding: 12px 0; border-top: 1px dashed rgba(63,76,123,0.14); }
-.team-person:first-of-type { border-top: none; padding-top: 0; }
-.team-person .tp-name { font-family: 'Lora', serif; font-size: 1.02rem; font-weight: 600; color: var(--blue-black); }
-.team-person .tp-role { font-size: 0.78rem; font-weight: 700; color: var(--cornflower); margin: 2px 0 4px; }
-.team-person .tp-cred { font-size: 0.84rem; color: var(--dusk-blue); line-height: 1.5; }
+.bio-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bio-initials {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif; font-size: 4.6rem; font-weight: 600; color: rgba(255,255,255,0.94);
+}
+.bio-shape {
+  position: absolute; background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(2px);
+}
+.bio-shape.s1 { width: 34px; height: 150px; border-radius: 100px; top: 16px; right: 46px; transform: rotate(28deg); }
+.bio-shape.s2 { width: 124px; height: 50px; border-radius: 16px; top: 116px; right: 14px; transform: rotate(12deg); }
+.bio-shape.s3 { width: 40px; height: 124px; border-radius: 14px; bottom: 26px; right: 34px; transform: rotate(20deg); }
+.bio-eyebrow { font-size: 0.82rem; font-weight: 700; color: var(--blue-black); margin-bottom: 12px; }
+.bio-text h3 { font-family: 'Lora', serif; font-size: 1.7rem; font-weight: 700; color: var(--blue-black); margin-bottom: 10px; }
+.bio-desc { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.65; }
+.bio-pending {
+  display: inline-block; margin-top: 12px; font-size: 0.74rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--cornflower);
+}
 
 /* Offer */
 .offer-callout {
@@ -794,40 +809,47 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         <div class="cred-label">As a LinkedIn Ads specialist agency, founded 2019</div>
       </div>
     </div>
-    <p class="team-intro"><strong>The pod on your account.</strong> One integrated team runs your whole LinkedIn engine — strategy, paid delivery, outreach and design — not a hand-off chain of freelancers.</p>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-cap">Strategy</div>
-        <div class="team-person">
-          <div class="tp-name">Tom Tigwell</div>
-          <div class="tp-role">Founder &amp; Strategy Lead</div>
-          <div class="tp-cred">Top-30 global certified marketing expert. LinkedIn Ads expert.</div>
+    <p class="team-intro"><strong>The pod on your account.</strong> One integrated team runs your whole LinkedIn engine — strategy, paid delivery and outreach — not a hand-off chain of freelancers.</p>
+    <div class="team-panels">
+      <div class="bio-panel">
+        <div class="bio-photo">
+          <div class="bio-initials">TT</div>
+          <span class="bio-shape s1"></span>
+          <span class="bio-shape s2"></span>
+          <span class="bio-shape s3"></span>
         </div>
-        <div class="team-person">
-          <div class="tp-name">Brinley</div>
-          <div class="tp-role">Senior Strategist</div>
-          <div class="tp-cred">5 years on LinkedIn Ads, 10+ years in B2B marketing.</div>
-        </div>
-        <div class="team-person">
-          <div class="tp-name">[Strategist name]</div>
-          <div class="tp-role">Strategist</div>
-          <div class="tp-cred">Day-to-day campaign strategy and account execution.</div>
+        <div class="bio-text">
+          <div class="bio-eyebrow">Founder &amp; Strategy Lead</div>
+          <h3>Tom Tigwell</h3>
+          <p class="bio-desc">Tom founded Fill My Funnel over 6 years ago and built it into a LinkedIn Marketing Partner — the only one of its kind in EMEA. In 2023, he was selected as one of just 70 globally certified LinkedIn Marketing Experts.</p>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-cap">LinkedIn &amp; email outreach</div>
-        <div class="team-person">
-          <div class="tp-name">Alex</div>
-          <div class="tp-role">Outreach Lead</div>
-          <div class="tp-cred">LinkedIn and email outreach specialist. Turns engagement signals into authentic conversations and booked meetings.</div>
+      <div class="bio-panel">
+        <div class="bio-photo">
+          <div class="bio-initials">B</div>
+          <span class="bio-shape s1"></span>
+          <span class="bio-shape s2"></span>
+          <span class="bio-shape s3"></span>
+        </div>
+        <div class="bio-text">
+          <div class="bio-eyebrow">Senior Strategist</div>
+          <h3>Brinley</h3>
+          <p class="bio-desc">Brinley runs day-to-day campaign strategy across cohort accounts — five years dedicated to LinkedIn Ads and over a decade in B2B marketing. The strategic detail behind every campaign decision.</p>
+          <span class="bio-pending">Photo to follow</span>
         </div>
       </div>
-      <div class="team-card">
-        <div class="team-cap">Design &amp; UX</div>
-        <div class="team-person">
-          <div class="tp-name">Patti</div>
-          <div class="tp-role">Design &amp; UX</div>
-          <div class="tp-cred">World-class graphic design and UX across creative and conversion-optimised landing pages.</div>
+      <div class="bio-panel">
+        <div class="bio-photo">
+          <div class="bio-initials">A</div>
+          <span class="bio-shape s1"></span>
+          <span class="bio-shape s2"></span>
+          <span class="bio-shape s3"></span>
+        </div>
+        <div class="bio-text">
+          <div class="bio-eyebrow">LinkedIn Outreach Lead</div>
+          <h3>Alex</h3>
+          <p class="bio-desc">Alex leads the LinkedIn and email outreach layer — turning engagement signals from your campaigns into authentic conversations and booked meetings. Where interest becomes pipeline.</p>
+          <span class="bio-pending">Photo to follow</span>
         </div>
       </div>
     </div>
