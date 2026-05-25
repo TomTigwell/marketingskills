@@ -178,10 +178,10 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 
 .hero-eyebrow { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 20px; }
 .hero-scarcity { color: var(--danger); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
-.hero h1 { margin-bottom: 32px; max-width: 720px; }
+.hero h1 { margin-bottom: 32px; max-width: 840px; font-size: clamp(38px, 5.1vw, 66px); }
 
 .hero-grid {
-  display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px;
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px;
   align-items: center; margin-bottom: 56px;
 }
 @media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
@@ -222,6 +222,7 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 .video-card {
   border: 1.5px solid; border-radius: 18px; padding: 14px;
   backdrop-filter: blur(8px);
+  max-width: 460px; margin-left: auto; width: 100%;
 }
 .video-placeholder {
   aspect-ratio: 16 / 10; border-radius: 12px;
@@ -599,6 +600,61 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 .case-pending {
   display: inline-block; margin-top: 14px; font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.06em; text-transform: uppercase; color: var(--cornflower);
+}
+
+/* Results — hero case study (Retain) */
+.case-hero {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 18px;
+  padding: 36px 36px 40px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+  margin-bottom: 36px;
+}
+.case-hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center; }
+@media (max-width: 880px) { .case-hero-grid { grid-template-columns: 1fr; gap: 28px; } }
+.case-hero-headline { font-family: 'Lora', serif; font-size: 3.4rem; font-weight: 700; color: var(--cornflower); line-height: 1; margin: 6px 0 6px; }
+.case-hero-sub { font-size: 0.98rem; color: var(--dusk-blue); line-height: 1.55; max-width: 480px; margin-bottom: 22px; }
+.case-chart-svg { width: 100%; height: auto; display: block; margin: 8px 0 18px; }
+.case-chart-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.case-tile {
+  background: rgba(192,213,240,0.22); border: 1px solid rgba(106,143,253,0.22);
+  border-radius: 12px; padding: 12px 14px;
+}
+.case-tile-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cornflower); }
+.case-tile-value { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; color: var(--blue-black); margin-top: 2px; }
+.case-chart-caption { font-size: 0.84rem; color: var(--dusk-blue); line-height: 1.55; }
+.case-video-cap { display: block; margin-top: 10px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--dusk-blue); text-align: center; }
+
+/* Results — divider + 12-card mini grid */
+.results-divider {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cornflower); margin: 10px 0 18px;
+}
+.results-divider::before, .results-divider::after { content: ''; flex: 1; height: 1px; background: rgba(106,143,253,0.28); }
+.results-grid-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 980px) { .results-grid-mini { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .results-grid-mini { grid-template-columns: 1fr; } }
+.mini-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 14px; padding: 20px 22px;
+  display: flex; flex-direction: column;
+}
+.mini-industry { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cornflower); margin-bottom: 8px; }
+.mini-client { font-family: 'Lora', serif; font-size: 1.12rem; font-weight: 700; color: var(--blue-black); margin-bottom: 12px; }
+.mini-stat { font-family: 'Lora', serif; font-size: 2.4rem; font-weight: 700; color: var(--cornflower); line-height: 1; }
+.mini-metric { font-size: 0.84rem; color: var(--dusk-blue); line-height: 1.5; margin-top: 6px; }
+.mini-period { display: inline-block; margin-top: 8px; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(106,143,253,0.78); }
+
+/* Industries chip strip */
+.industries-chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px;
+  justify-content: center;
+}
+.industries-chips .chip {
+  background: var(--white); border: 1px solid rgba(106,143,253,0.28);
+  border-radius: 100px; padding: 6px 14px;
+  font-size: 0.74rem; font-weight: 700; color: var(--dusk-blue);
+  letter-spacing: 0.02em;
 }
 
 /* FAQ (phil-toggle pattern) */
@@ -1140,22 +1196,148 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
       <h2 class="section">The same system, <em>already generating pipeline.</em></h2>
       <p class="lead">You don't have to take the methodology on faith. It is the exact programme already running for B2B companies — turning LinkedIn spend into attributed, sales-ready pipeline.</p>
     </div>
-    <div class="results-grid">
-      <div class="case-card">
-        <div class="case-industry">Resource &amp; capacity management software</div>
-        <div class="case-client">Retain</div>
-        <div class="case-stat">£4.4M</div>
-        <div class="case-stat-label">in revenue pipeline generated in the last 12 months</div>
-        <p class="case-desc">LinkedIn-attributed pipeline built from one connected programme — paid activation into named accounts, intent-led outreach, and conversion-optimised retargeting.</p>
+    <!-- Featured case study: Retain -->
+    <div class="case-hero">
+      <div class="case-hero-grid">
+        <div>
+          <div class="case-industry">Resource &amp; capacity management software</div>
+          <div class="case-client">Retain</div>
+          <div class="case-hero-headline">£5.6M</div>
+          <p class="case-hero-sub">LinkedIn-attributed pipeline over 3 years — from a standing start to a programme that compounds. All from the same connected system.</p>
+          <svg class="case-chart-svg" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" aria-label="Retain pipeline growth, Year 0 to Year 3" role="img">
+            <line x1="40" y1="160" x2="350" y2="160" stroke="rgba(63,76,123,0.18)" stroke-width="1"/>
+            <path d="M 40 160 C 80 160 100 150 140 134 C 190 115 200 110 240 102 C 290 80 310 50 340 30 L 340 160 L 40 160 Z" fill="rgba(106,143,253,0.18)"/>
+            <path d="M 40 160 C 80 160 100 150 140 134 C 190 115 200 110 240 102 C 290 80 310 50 340 30" fill="none" stroke="#6A8FFD" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="40" cy="160" r="4" fill="#6A8FFD"/>
+            <circle cx="140" cy="134" r="5" fill="#fff" stroke="#6A8FFD" stroke-width="2.5"/>
+            <circle cx="240" cy="102" r="4" fill="#6A8FFD" opacity="0.45"/>
+            <circle cx="340" cy="30" r="6" fill="#6A8FFD"/>
+            <text x="140" y="120" text-anchor="middle" font-family="Lora,serif" font-size="13" font-weight="700" fill="#151C33">£1.1M</text>
+            <text x="340" y="20" text-anchor="middle" font-family="Lora,serif" font-size="14" font-weight="700" fill="#151C33">£5.6M</text>
+            <text x="40" y="180" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#3F4C7B">Year 0</text>
+            <text x="140" y="180" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#3F4C7B">Year 1</text>
+            <text x="240" y="180" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#3F4C7B" opacity="0.55">Year 2</text>
+            <text x="340" y="180" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#3F4C7B">Year 3</text>
+          </svg>
+          <div class="case-chart-tiles">
+            <div class="case-tile">
+              <div class="case-tile-label">Year 1</div>
+              <div class="case-tile-value">£1.1M</div>
+            </div>
+            <div class="case-tile">
+              <div class="case-tile-label">Years 1–3 total</div>
+              <div class="case-tile-value">£5.6M</div>
+            </div>
+          </div>
+          <p class="case-chart-caption">LinkedIn-attributed pipeline. Same connected programme — paid activation into named accounts, intent-led outreach, conversion-optimised retargeting.</p>
+        </div>
+        <div>
+          <div class="video-card" style="border-color: rgba(106,143,253,0.30); background: rgba(255,255,255,0.7);">
+            <div class="video-placeholder" style="background: linear-gradient(135deg, rgba(192,213,240,0.45), rgba(106,143,253,0.15)); color: var(--blue-black);">
+              <div class="play-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div class="video-label">Retain on running the programme</div>
+            </div>
+            <span class="case-video-cap">Client testimonial · 2 min</span>
+          </div>
+        </div>
       </div>
-      <div class="case-card">
-        <div class="case-industry">Financial services</div>
-        <div class="case-client">Thunes</div>
-        <div class="case-stat-tbc">Results being finalised</div>
-        <div class="case-stat-label">full pipeline figures verified and published shortly</div>
-        <p class="case-desc">A cross-border payments business running the same end-to-end LinkedIn pipeline system. Headline numbers are being confirmed for publication.</p>
-        <span class="case-pending">Numbers to follow</span>
+    </div>
+
+    <!-- Across-industries grid -->
+    <div class="results-divider"><span>And across very different industries</span></div>
+    <div class="results-grid-mini">
+      <div class="mini-card">
+        <div class="mini-industry">Professional services · accounting</div>
+        <div class="mini-client">ACCA</div>
+        <div class="mini-stat">190%</div>
+        <div class="mini-metric">QoQ growth · eCommerce checkouts via LinkedIn Ads</div>
+        <span class="mini-period">Over 12 months</span>
       </div>
+      <div class="mini-card">
+        <div class="mini-industry">Geospatial · network software</div>
+        <div class="mini-client">IQGeo</div>
+        <div class="mini-stat">350%</div>
+        <div class="mini-metric">QoQ growth · Inbound leads</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">GRC · compliance SaaS</div>
+        <div class="mini-client">CoreStream</div>
+        <div class="mini-stat">300%</div>
+        <div class="mini-metric">QoQ surge · Inbound leads</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Research participant platform</div>
+        <div class="mini-client">Prolific</div>
+        <div class="mini-stat">270%</div>
+        <div class="mini-metric">QoQ growth · Inbound conversions</div>
+        <span class="mini-period">Over 12 months</span>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Healthcare analytics</div>
+        <div class="mini-client">CHKS</div>
+        <div class="mini-stat">260%</div>
+        <div class="mini-metric">QoQ growth · MQLs</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Data governance SaaS</div>
+        <div class="mini-client">dScribe</div>
+        <div class="mini-stat">233%</div>
+        <div class="mini-metric">QoQ growth · MQLs</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">B2B equipment rental</div>
+        <div class="mini-client">Hire Intelligence</div>
+        <div class="mini-stat">150%</div>
+        <div class="mini-metric">QoQ surge · Inbound demo bookings</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">ESG · sustainability reporting</div>
+        <div class="mini-client">Greenomy</div>
+        <div class="mini-stat">126%</div>
+        <div class="mini-metric">QoQ growth · Inbound demo bookings</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Contingent workforce SaaS</div>
+        <div class="mini-client">Bubty</div>
+        <div class="mini-stat">100%</div>
+        <div class="mini-metric">QoQ growth · Inbound demo bookings</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Fintech · cross-border payments</div>
+        <div class="mini-client">Thunes</div>
+        <div class="mini-stat">82%</div>
+        <div class="mini-metric">QoQ growth · Influenced opportunities</div>
+        <span class="mini-period">Over 15 months</span>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Tech education · bootcamp</div>
+        <div class="mini-client">Makers</div>
+        <div class="mini-stat">43%</div>
+        <div class="mini-metric">QoQ growth · Inbound B2B calls booked</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">B2B SaaS</div>
+        <div class="mini-client">Gaia</div>
+        <div class="mini-stat">42%</div>
+        <div class="mini-metric">QoQ growth · Inbound demos</div>
+      </div>
+    </div>
+
+    <div class="industries-chips">
+      <span class="chip">Fintech &amp; Payments</span>
+      <span class="chip">ESG</span>
+      <span class="chip">GRC &amp; Compliance</span>
+      <span class="chip">Healthcare</span>
+      <span class="chip">Education</span>
+      <span class="chip">Workforce</span>
+      <span class="chip">Geospatial</span>
+      <span class="chip">Data</span>
+      <span class="chip">Research</span>
+      <span class="chip">Professional services</span>
+      <span class="chip">B2B SaaS</span>
+      <span class="chip">B2B services</span>
     </div>
   </div>
 </section>
