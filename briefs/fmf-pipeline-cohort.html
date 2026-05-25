@@ -642,6 +642,24 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
   letter-spacing: 0.06em; text-transform: uppercase; color: var(--cornflower);
 }
 
+/* Cost of inaction tiles */
+.cost-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
+@media (max-width: 880px) { .cost-grid { grid-template-columns: 1fr; } }
+.cost-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 26px 26px 28px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.cost-stat {
+  font-family: 'Lora', serif; font-size: 2.6rem; font-weight: 700;
+  color: var(--cornflower); line-height: 1; margin-bottom: 6px;
+}
+.cost-label {
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+  color: var(--blue-black); margin-bottom: 14px;
+}
+.cost-desc { font-size: 0.88rem; color: var(--dusk-blue); line-height: 1.6; }
+
 /* Results — hero case study (Retain) */
 .case-hero {
   background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
@@ -902,9 +920,27 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
 <section class="section">
   <div class="inner">
     <div class="section-head">
-      <div class="eyebrow">The problem</div>
-      <h2 class="section">Most LinkedIn ad accounts struggle to drive <em>reliable, scalable growth.</em></h2>
-      <p class="lead">B2B LinkedIn campaigns optimise for CTR, CPM and engagement rate — numbers that prove the ads ran, not that the channel drives growth. What a marketing leader actually needs is reliable, scalable opportunity volume: consistent quarter-on-quarter and year-on-year. Without it, the budget cannot be defended. <strong>73% of CMOs surveyed</strong> say they cannot produce an attributable LinkedIn pipeline number that would survive a CFO review. Of the <strong>£11bn</strong> spent on B2B LinkedIn ads in 2025, almost none ties back to a CRM opportunity with documented influence — and with enterprise sales cycles averaging <strong>9 months</strong> against 30-day reporting windows, closed-won attribution lands too late to defend in-year budget. The result is a permanent evidence gap.</p>
+      <div class="eyebrow">The cost of inaction</div>
+      <h2 class="section">Most LinkedIn budgets aren't underperforming. <em>They're leaking pipeline.</em></h2>
+      <p class="lead">B2B LinkedIn campaigns optimise for CTR, CPM and engagement rate — numbers that prove the ads ran, not that the channel drove growth. Here is what the gap actually costs in pipeline, revenue and budget defensibility — <strong>denominated, not described.</strong></p>
+    </div>
+
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="cost-stat">~£560k</div>
+        <div class="cost-label">in pipeline left on the table · every 6 months</div>
+        <p class="cost-desc">For the median cohort applicant — 30 trailing-6-month LinkedIn-influenced opportunities at a £75k ACV — a 25% underperformance gap equals <strong>£562k of pipeline</strong> that never enters the CRM. At a 25% close rate that becomes <strong>~£140k of year-1 revenue and ~£420k across the 3-year customer lifetime.</strong> Gone, every cohort window missed.</p>
+      </div>
+      <div class="cost-card">
+        <div class="cost-stat">9 vs 30</div>
+        <div class="cost-label">months sales cycle · vs days of reporting</div>
+        <p class="cost-desc">Enterprise sales cycles average 9 months. Most LinkedIn dashboards report on 30-day windows. Closed-won attribution lands too late to defend in-year budget — so the channel gets cut before pipeline matures. <strong>Every CMO running unattributed LinkedIn spend is one CFO review away from losing the channel entirely</strong> — including the campaigns that were actually working.</p>
+      </div>
+      <div class="cost-card">
+        <div class="cost-stat">73%</div>
+        <div class="cost-label">of CMOs can't show a CFO-defensible LinkedIn number</div>
+        <p class="cost-desc">Of the <strong>£11bn</strong> spent on B2B LinkedIn ads in 2025, almost none ties back to a CRM opportunity with documented influence. The result: channel spend on faith, not on a number. In a budget review, the channels that survive are the ones with attribution — not the ones with the best reach.</p>
+      </div>
     </div>
   </div>
 </section>
