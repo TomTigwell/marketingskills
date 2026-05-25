@@ -65,6 +65,29 @@ section.section { padding: 96px 24px; }
 
 section.accent { background: linear-gradient(180deg, rgba(192,213,240,0.32) 0%, rgba(192,213,240,0.08) 100%); }
 section.platinum { background: var(--platinum); }
+
+/* Logo strip */
+.logo-strip { padding: 36px 24px 40px; background: var(--white); border-top: 1px solid rgba(106,143,253,0.14); border-bottom: 1px solid rgba(106,143,253,0.14); }
+.logo-strip-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
+.logo-strip-label {
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 18px;
+}
+.logo-strip-row {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 14px 28px; row-gap: 12px;
+}
+.logo-strip-item {
+  font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600;
+  color: var(--blue-black); opacity: 0.78; letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.logo-strip-item:hover { opacity: 1; }
+@media (max-width: 720px) {
+  .logo-strip { padding: 28px 20px 30px; }
+  .logo-strip-row { gap: 10px 20px; }
+  .logo-strip-item { font-size: 0.95rem; }
+}
 section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, rgba(106,143,253,0.15) 100%); }
 
 /* ── Floating pill nav ──────────────────────────── */
@@ -828,6 +851,28 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
       <div class="item"><strong>2</strong><span>Cohort places available</span></div>
       <div class="item"><strong>10</strong><span>Applications accepted maximum</span></div>
       <div class="item"><strong>100%</strong><span>Management fees refundable</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ LOGO STRIP ══════════════════════════ -->
+<section class="logo-strip" aria-label="Clients">
+  <div class="logo-strip-inner">
+    <div class="logo-strip-label">Trusted by B2B teams at</div>
+    <div class="logo-strip-row">
+      <span class="logo-strip-item">Retain</span>
+      <span class="logo-strip-item">Thunes</span>
+      <span class="logo-strip-item">ACCA</span>
+      <span class="logo-strip-item">IQGeo</span>
+      <span class="logo-strip-item">Prolific</span>
+      <span class="logo-strip-item">CoreStream</span>
+      <span class="logo-strip-item">Greenomy</span>
+      <span class="logo-strip-item">Gaia</span>
+      <span class="logo-strip-item">Makers</span>
+      <span class="logo-strip-item">dScribe</span>
+      <span class="logo-strip-item">Bubty</span>
+      <span class="logo-strip-item">CHKS</span>
+      <span class="logo-strip-item">Hire Intelligence</span>
     </div>
   </div>
 </section>
