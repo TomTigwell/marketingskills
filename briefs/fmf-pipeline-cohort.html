@@ -66,6 +66,23 @@ section.section { padding: 96px 24px; }
 section.accent { background: linear-gradient(180deg, rgba(192,213,240,0.32) 0%, rgba(192,213,240,0.08) 100%); }
 section.platinum { background: var(--platinum); }
 
+/* NAVY section variant — for high-contrast focal sections */
+section.navy { background: var(--blue-black); color: var(--pale-sky); }
+section.navy h1, section.navy h2, section.navy h3, section.navy h4 { color: var(--white); }
+section.navy h1 em, section.navy h2 em, section.navy h3 em, section.navy h4 em { color: var(--cornflower); }
+section.navy p, section.navy .lead { color: var(--pale-sky); }
+section.navy .eyebrow { color: var(--cornflower); }
+section.navy strong { color: var(--white); }
+section.navy .process-step { background: rgba(255,255,255,0.04); border-color: rgba(192,213,240,0.18); }
+section.navy .process-title { color: var(--white); }
+section.navy .process-desc { color: rgba(192,213,240,0.78); }
+section.navy .process-time { color: var(--pale-sky); }
+section.navy .apply-shell { background: var(--white); border-color: rgba(255,255,255,0.18); box-shadow: 0 14px 48px rgba(0,0,0,0.32); }
+section.navy .apply-shell h3 { color: var(--blue-black); }
+section.navy .apply-shell .apply-lead { color: var(--dusk-blue); }
+section.navy .form-group label { color: var(--dusk-blue); }
+section.navy .form-footnote { color: var(--dusk-blue); }
+
 /* Logo strip */
 .logo-strip { padding: 36px 24px 40px; background: var(--white); border-top: 1px solid rgba(106,143,253,0.14); border-bottom: 1px solid rgba(106,143,253,0.14); }
 .logo-strip-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
@@ -1474,7 +1491,7 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
 </section>
 
 <!-- ══════════════════════════ APPLY ══════════════════════════ -->
-<section class="section platinum" id="apply">
+<section class="section navy" id="apply">
   <div class="inner">
     <div class="section-head">
       <div class="eyebrow">The process</div>
