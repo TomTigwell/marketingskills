@@ -218,7 +218,53 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 
 .hero-eyebrow { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 20px; }
 .hero-scarcity { color: var(--danger); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
-.hero h1 { margin-bottom: 32px; max-width: 960px; font-size: clamp(40px, 5.7vw, 76px); }
+.hero h1 { margin-bottom: 14px; max-width: 960px; font-size: clamp(40px, 5.7vw, 76px); }
+.hero-subheadline {
+  font-size: clamp(15px, 1.18vw, 18px); color: var(--dusk-blue);
+  line-height: 1.5; max-width: 700px; margin: 0 0 30px;
+  font-weight: 500;
+}
+.hero[data-hero="navy"] .hero-subheadline { color: var(--pale-sky); }
+
+/* Guarantee chip near primary CTAs */
+.guarantee-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 10px; padding: 5px 12px;
+  background: var(--success-100); color: var(--success);
+  font-family: 'DM Sans', sans-serif; font-size: 0.74rem; font-weight: 700;
+  letter-spacing: 0.04em; border-radius: 100px;
+  border: 1px solid rgba(5,193,104,0.3); white-space: nowrap;
+}
+.guarantee-chip::before {
+  content: ''; display: inline-block; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--success);
+}
+.cta-cluster { display: flex; flex-direction: column; align-items: flex-start; }
+.cta-cluster.center { align-items: center; }
+
+/* Two-step form */
+.form-step-header {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--cornflower);
+  margin-bottom: 18px;
+}
+.form-step-header .step-pip {
+  display: inline-block; padding: 3px 10px; border-radius: 100px;
+  background: rgba(106,143,253,0.15); font-size: 0.7rem;
+}
+.form-step-header .step-label { color: var(--dusk-blue); font-weight: 600; letter-spacing: 0.04em; text-transform: none; font-size: 0.86rem; }
+.form-step-hint { font-size: 0.84rem; color: var(--dusk-blue); margin-bottom: 16px; line-height: 1.5; }
+.btn-step-next {
+  display: inline-block; margin-top: 6px;
+  background: var(--cornflower); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 0.96rem; font-weight: 600;
+  padding: 13px 28px; border: none; border-radius: 100px; cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.btn-step-next:hover { background: #4D75E8; transform: translateY(-1px); }
+.form-group input.invalid, .form-group select.invalid { border-color: #DC2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.12); }
+.cohort-lead-form { position: absolute; left: -9999px; visibility: hidden; }
 
 .hero-grid {
   display: grid; grid-template-columns: 1.75fr 0.9fr; gap: 48px;
@@ -363,7 +409,9 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 .bio-shape.s2 { width: 124px; height: 50px; border-radius: 16px; top: 116px; right: 14px; transform: rotate(12deg); }
 .bio-shape.s3 { width: 40px; height: 124px; border-radius: 14px; bottom: 26px; right: 34px; transform: rotate(20deg); }
 .bio-eyebrow { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; color: var(--blue-black); margin-bottom: 6px; }
-.bio-text h3 { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 700; color: var(--blue-black); margin-bottom: 8px; }
+.bio-text h3 { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 700; color: var(--blue-black); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.bio-li { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; background: rgba(106,143,253,0.12); color: var(--cornflower); transition: background 0.15s, color 0.15s; }
+.bio-li:hover { background: var(--cornflower); color: #fff; }
 .bio-desc { font-size: 0.86rem; color: var(--dusk-blue); line-height: 1.6; }
 .bio-pending {
   display: inline-block; margin-top: 10px; font-size: 0.7rem; font-weight: 700;
@@ -981,8 +1029,12 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         </div>
         <span class="hero-eyebrow">2026 H2 Pipeline Cohort &nbsp;·&nbsp; <span class="hero-scarcity">2 places &nbsp;·&nbsp; Applications close 14 June</span></span>
         <h1><em>25%</em> more opportunities from LinkedIn in 6 months. Or we refund every penny of our fees.</h1>
+        <p class="hero-subheadline">For B2B companies running £5k+/month on LinkedIn with £30k+ ACVs serious about turning spend into pipeline.</p>
         <div class="hero-cta-row">
-          <a href="#apply" class="btn btn-primary">Apply for the cohort</a>
+          <div class="cta-cluster">
+            <a href="#apply" class="btn btn-primary">Apply for the cohort</a>
+            <span class="guarantee-chip">Backed by 100% fee refund</span>
+          </div>
           <a href="#roi" class="btn btn-secondary">Calculate if it pays back</a>
         </div>
         <a href="#calendly" class="hero-soft-cta">Not ready to apply? Book a 15-min cohort call →</a>
@@ -1279,7 +1331,7 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         </div>
         <div class="bio-text">
           <div class="bio-eyebrow">Founder &amp; Strategy Lead</div>
-          <h3>Tom Tigwell</h3>
+          <h3>Tom Tigwell <a href="https://www.linkedin.com/in/tomtigwell/" target="_blank" rel="noopener" class="bio-li" aria-label="Tom Tigwell on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a></h3>
           <p class="bio-desc">Tom founded Fill My Funnel over 6 years ago and built it into a LinkedIn Marketing Partner — the only one of its kind in EMEA. In 2023, he was selected as one of just 70 globally certified LinkedIn Marketing Experts.</p>
         </div>
       </div>
@@ -1816,21 +1868,49 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
 
     <div class="apply-shell">
       <h3>Cohort application</h3>
-      <p class="apply-lead">Ten quick questions. Three minutes. We verify a few extra details with you after this.</p>
-      <form class="form-grid" name="cohort-application" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <p class="apply-lead">Two short steps. Step 1 = who you are. Step 2 = your numbers. We respond personally within 3 business days.</p>
+      <form name="cohort-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="cohort_form">
         <input type="hidden" name="form-name" value="cohort-application">
         <p style="display:none;"><label>Do not fill this in: <input name="bot-field"></label></p>
-        <div class="form-group"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="First and last name" required></div>
-        <div class="form-group"><label for="role">Role</label><input type="text" id="role" name="role" placeholder="CMO, Head of Marketing, etc." required></div>
-        <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Your company name" required></div>
-        <div class="form-group"><label for="email">Work email</label><input type="email" id="email" name="email" placeholder="name@company.com" required></div>
-        <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="+44 7700 900000" required></div>
-        <div class="form-group"><label for="acv_form">Average contract value</label><select id="acv_form" name="acv_form"><option>Below £30k</option><option>£30k to £75k</option><option>£75k to £200k</option><option>£200k+</option></select></div>
-        <div class="form-group"><label for="spend">Current monthly LinkedIn spend</label><select id="spend" name="spend"><option>Below £5k</option><option>£5k to £10k</option><option>£10k to £20k</option><option>£20k+</option></select></div>
-        <div class="form-group"><label for="current_opps_form">Current LinkedIn-influenced opportunities (trailing 6 months)</label><select id="current_opps_form" name="current_opps_form"><option>Below 8 (minimum required for cohort)</option><option>8 to 15</option><option>16 to 30</option><option>31 to 60</option><option>60+</option></select></div>
-        <div class="form-group"><label for="cycle">Typical sales cycle length</label><select id="cycle" name="cycle"><option>Under 3 months</option><option>3 to 6 months</option><option>6 to 12 months</option><option>Over 12 months</option></select></div>
-        <div class="form-group"><label for="attribution">Attribution platform</label><select id="attribution" name="attribution"><option>Dreamdata</option><option>HockeyStack</option><option>Demandbase</option><option>Other platform installed</option><option>None, willing to install</option><option>None, unwilling to install</option></select></div>
-        <button class="btn-submit" type="submit">Apply for the cohort</button>
+
+        <div class="form-step" id="form_step_1">
+          <div class="form-step-header"><span class="step-pip">Step 1 of 2</span><span class="step-label">Tell us about you</span></div>
+          <p class="form-step-hint">Four quick fields — about 20 seconds. We'll save your progress before showing the qualifying questions.</p>
+          <div class="form-grid">
+            <div class="form-group"><label for="name">Your name</label><input type="text" id="name" name="name" placeholder="First and last name" required></div>
+            <div class="form-group"><label for="role">Role</label><input type="text" id="role" name="role" placeholder="CMO, Head of Marketing, etc." required></div>
+            <div class="form-group"><label for="company">Company</label><input type="text" id="company" name="company" placeholder="Your company name" required></div>
+            <div class="form-group"><label for="email">Work email</label><input type="email" id="email" name="email" placeholder="name@company.com" required></div>
+          </div>
+          <button type="button" class="btn-step-next" id="step1_next">Continue to step 2 →</button>
+        </div>
+
+        <div class="form-step" id="form_step_2" style="display:none">
+          <div class="form-step-header"><span class="step-pip">Step 2 of 2</span><span class="step-label">Qualifying details</span></div>
+          <p class="form-step-hint">Six fields to assess fit for the cohort guarantee. Auditable inputs only — estimates are fine where you don't have exact numbers.</p>
+          <div class="form-grid">
+            <div class="form-group"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="+44 7700 900000" required></div>
+            <div class="form-group"><label for="acv_form">Average contract value</label><select id="acv_form" name="acv_form"><option>Below £30k</option><option>£30k to £75k</option><option>£75k to £200k</option><option>£200k+</option></select></div>
+            <div class="form-group"><label for="spend">Current monthly LinkedIn spend</label><select id="spend" name="spend"><option>Below £5k</option><option>£5k to £10k</option><option>£10k to £20k</option><option>£20k+</option></select></div>
+            <div class="form-group"><label for="current_opps_form">Current LinkedIn-influenced opportunities (trailing 6 months)</label><select id="current_opps_form" name="current_opps_form"><option>Below 8 (minimum required for cohort)</option><option>8 to 15</option><option>16 to 30</option><option>31 to 60</option><option>60+</option></select></div>
+            <div class="form-group"><label for="cycle">Typical sales cycle length</label><select id="cycle" name="cycle"><option>Under 3 months</option><option>3 to 6 months</option><option>6 to 12 months</option><option>Over 12 months</option></select></div>
+            <div class="form-group"><label for="attribution">Attribution platform</label><select id="attribution" name="attribution"><option>Dreamdata</option><option>HockeyStack</option><option>Demandbase</option><option>Other platform installed</option><option>None, willing to install</option><option>None, unwilling to install</option></select></div>
+          </div>
+          <div class="cta-cluster">
+            <button class="btn-submit" type="submit">Apply for the cohort</button>
+            <span class="guarantee-chip">Backed by 100% fee refund</span>
+          </div>
+        </div>
+      </form>
+
+      <!-- Hidden Netlify-detection form for lead-only capture from step 1 -->
+      <form name="cohort-application-lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cohort-lead-form" aria-hidden="true" tabindex="-1">
+        <input type="hidden" name="form-name" value="cohort-application-lead">
+        <input type="text" name="name">
+        <input type="text" name="role">
+        <input type="text" name="company">
+        <input type="email" name="email">
+        <p><label>Do not fill this in: <input name="bot-field"></label></p>
       </form>
 
       <p class="form-footnote">Applications close 14 June 2026. Programme starts 1 July. Response within 3 business days, every time, by email.</p>
@@ -1919,7 +1999,7 @@ function calculateROI() {
   }
 
   const verdictCTA = (verdictClass === 'green' || verdictClass === 'amber')
-    ? `<a href="#apply" class="btn btn-primary verdict-cta">Apply for the cohort</a>`
+    ? `<div class="cta-cluster"><a href="#apply" class="btn btn-primary verdict-cta">Apply for the cohort</a><span class="guarantee-chip">Backed by 100% fee refund</span></div>`
     : '';
 
   document.getElementById('verdict_bar').innerHTML = `
@@ -1970,6 +2050,46 @@ if (bcForm) {
 
 calculateROI();
 syncBusinessCaseInputs();
+
+// ── Two-step cohort application: step 1 capture-and-reveal ──
+const step1Next = document.getElementById('step1_next');
+const formStep1 = document.getElementById('form_step_1');
+const formStep2 = document.getElementById('form_step_2');
+if (step1Next && formStep1 && formStep2) {
+  step1Next.addEventListener('click', function() {
+    const requiredInputs = formStep1.querySelectorAll('input[required]');
+    let valid = true;
+    requiredInputs.forEach(input => {
+      const ok = input.checkValidity() && input.value.trim() !== '';
+      if (!ok) { input.classList.add('invalid'); valid = false; } else { input.classList.remove('invalid'); }
+    });
+    if (!valid) {
+      const firstInvalid = formStep1.querySelector('input.invalid');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+    const leadData = new URLSearchParams({
+      'form-name': 'cohort-application-lead',
+      name: document.getElementById('name').value,
+      role: document.getElementById('role').value,
+      company: document.getElementById('company').value,
+      email: document.getElementById('email').value
+    });
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: leadData.toString()
+    }).catch(() => {});
+    formStep1.style.display = 'none';
+    formStep2.style.display = '';
+    const firstStep2 = formStep2.querySelector('input, select');
+    if (firstStep2) setTimeout(() => firstStep2.focus(), 80);
+    formStep2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  formStep1.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', () => input.classList.remove('invalid'));
+  });
+}
 
 // ── Cohort application form (Netlify Forms, AJAX submission) ──
 const cohortForm = document.querySelector('form[name="cohort-application"]');
