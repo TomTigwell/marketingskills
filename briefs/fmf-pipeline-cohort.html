@@ -830,6 +830,26 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 .phil-toggle[open] .chev { transform: rotate(180deg); }
 .phil-toggle .a { padding: 0 24px 22px; font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.65; }
 
+/* Why we approached you — three reasons grid */
+.reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 880px) { .reasons-grid { grid-template-columns: 1fr; } }
+.reason-card {
+  display: flex; flex-direction: column;
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 16px;
+  padding: 34px 30px 30px; box-shadow: 0 2px 14px rgba(21,28,51,0.04);
+}
+.reason-number {
+  font-family: 'Lora', serif; font-size: 3.4rem; font-weight: 700;
+  color: var(--cornflower); line-height: 0.9; margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.reason-card h3 {
+  font-family: 'Lora', serif; font-size: 1.32rem; font-weight: 700;
+  color: var(--blue-black); line-height: 1.3; margin-bottom: 12px;
+}
+.reason-card p { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.6; }
+
 /* Section-level collapsible toggle (Qualify / How / Clauses) */
 .section-toggle {
   background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
@@ -1052,30 +1072,33 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
       </div>
     </div>
 
-    <div class="targeted-block">
-      <div class="targeted-block-label">Why we approached you</div>
-      <div class="targeted-block-title">Three reasons you stood out for this cohort.</div>
-      <ul class="hero-bullets">
-        <li class="hero-bullet">
-          <span class="hero-bullet-marker">1</span>
-          <span class="hero-bullet-text"><strong>You're running LinkedIn ads.</strong> We pay close attention to which B2B businesses are investing in the channel. You stood out as a fit for this cohort.</span>
-        </li>
-        <li class="hero-bullet">
-          <span class="hero-bullet-marker">2</span>
-          <span class="hero-bullet-text"><strong>We've looked at your ads and we're confident in the lift.</strong> We reviewed your activity in the LinkedIn Ad Library — the volume is there, and we believe a focused strategy can deliver the 25% pipeline lift through H2 2026.</span>
-        </li>
-        <li class="hero-bullet">
-          <span class="hero-bullet-marker">3</span>
-          <span class="hero-bullet-text"><strong>We're willing to put our money behind that conviction.</strong> Hence this cohort and the 25% lift guarantee. If we miss, our management fees come back to you in full.</span>
-        </li>
-      </ul>
-    </div>
+  </div>
+</section>
 
-    <div class="hero-meta-strip">
-      <div class="item"><strong>25%</strong><span>Guaranteed lift in 180 days</span></div>
-      <div class="item"><strong>2</strong><span>Cohort places available</span></div>
-      <div class="item"><strong>10</strong><span>Applications accepted maximum</span></div>
-      <div class="item"><strong>100%</strong><span>Management fees refundable</span></div>
+<!-- ══════════════════════════ WHY WE APPROACHED YOU ══════════════════════════ -->
+<section class="section" id="why-you">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Why we approached you</div>
+      <h2 class="section">Three reasons we targeted <em>your company.</em></h2>
+      <p class="lead">You did not land on this page by accident. We chose your business because the signal is already in your activity — and we are confident in our ability to lift it.</p>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-number">01</div>
+        <h3>You're running LinkedIn ads</h3>
+        <p>We pay close attention to which B2B businesses are investing in the channel. Your activity stood out as a fit for this cohort — the budget, the audience, the intent.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">02</div>
+        <h3>We've looked at your ads and we're confident in the lift</h3>
+        <p>We reviewed your activity in the LinkedIn Ad Library — the volume is there, and we believe a focused strategy can deliver the 25% pipeline lift through H2 2026.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">03</div>
+        <h3>We're willing to put our money behind that conviction</h3>
+        <p>Hence this cohort and the 25% lift guarantee. If we miss the lift, every penny of our management fees comes back to you in full.</p>
+      </div>
     </div>
   </div>
 </section>
