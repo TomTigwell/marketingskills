@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build the LinkedIn business case for your CFO · Fill My Funnel</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Main */
+  --cornflower: #6A8FFD;
+  --pale-sky: #C0D5F0;
+  /* Secondary */
+  --dusk-blue: #3F4C7B;
+  --electric: #2068FF;
+  /* Neutral */
+  --blue-black: #0C101D;
+  --prussian: #151C33;
+  --pale-slate: #C1C9D4;
+  --alice-blue: #E7ECF3;
+  --platinum: #F2F5F8;
+  --white: #FFFFFF;
+  /* Status — used semantically only */
+  --success: #05C168;
+  --success-100: #DEF2E6;
+  --warn: #FDBD1A;
+  --warn-100: #FFF6E4;
+  --danger: #FF5A65;
+  --danger-100: #FFEFF0;
+  --cold-blue: #1D8BFE;
+  --cold-bg: #EAF4FF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--white);
+  color: var(--blue-black);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography ──────────────────────────── */
+h1, h2, h3, h4 { font-family: 'Lora', serif; color: var(--blue-black); letter-spacing: -0.02em; line-height: 1.15; }
+h1 { font-size: clamp(34px, 4.6vw, 60px); font-weight: 700; }
+h2.section { font-size: clamp(36px, 4.4vw, 60px); font-weight: 700; line-height: 1.12; }
+h3 { font-size: clamp(22px, 2.2vw, 32px); font-weight: 600; }
+h4 { font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; }
+h1 em, h2 em, h3 em, h4 em { font-style: italic; color: var(--cornflower); font-weight: 700; }
+
+p { font-size: 1rem; color: var(--dusk-blue); }
+.eyebrow { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cornflower); margin-bottom: 12px; }
+.lead { font-size: 1.05rem; color: var(--dusk-blue); line-height: 1.6; max-width: 780px; margin: 0 0 28px; }
+strong { color: var(--blue-black); font-weight: 700; }
+a { color: var(--cornflower); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Layout ──────────────────────────── */
+section.section { padding: 96px 24px; }
+.inner { max-width: 1180px; margin: 0 auto; }
+.section-head { margin-bottom: 48px; }
+.section-head h2 { margin-bottom: 16px; }
+
+section.accent { background: linear-gradient(180deg, rgba(192,213,240,0.32) 0%, rgba(192,213,240,0.08) 100%); }
+section.platinum { background: var(--platinum); }
+
+/* NAVY section variant — for high-contrast focal sections */
+section.navy { background: var(--blue-black); color: var(--pale-sky); }
+section.navy h1, section.navy h2, section.navy h3, section.navy h4 { color: var(--white); }
+section.navy h1 em, section.navy h2 em, section.navy h3 em, section.navy h4 em { color: var(--cornflower); }
+section.navy p, section.navy .lead { color: var(--pale-sky); }
+section.navy .eyebrow { color: var(--cornflower); }
+section.navy strong { color: var(--white); }
+section.navy .process-step { background: rgba(255,255,255,0.04); border-color: rgba(192,213,240,0.18); }
+section.navy .process-title { color: var(--white); }
+section.navy .process-desc { color: rgba(192,213,240,0.78); }
+section.navy .process-time { color: var(--pale-sky); }
+section.navy .apply-shell { background: var(--white); border-color: rgba(255,255,255,0.18); box-shadow: 0 14px 48px rgba(0,0,0,0.32); }
+section.navy .apply-shell h3 { color: var(--blue-black); }
+section.navy .apply-shell .apply-lead { color: var(--dusk-blue); }
+section.navy .form-group label { color: var(--dusk-blue); }
+section.navy .form-footnote { color: var(--dusk-blue); }
+
+/* Logo strip */
+.logo-strip { padding: 36px 24px 40px; background: var(--white); border-top: 1px solid rgba(106,143,253,0.14); border-bottom: 1px solid rgba(106,143,253,0.14); }
+.logo-strip-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
+.logo-strip-label {
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 18px;
+}
+.logo-strip-row {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 14px 28px; row-gap: 12px;
+}
+.logo-strip-item {
+  font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600;
+  color: var(--blue-black); opacity: 0.78; letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.logo-strip-item:hover { opacity: 1; }
+@media (max-width: 720px) {
+  .logo-strip { padding: 28px 20px 30px; }
+  .logo-strip-row { gap: 10px 20px; }
+  .logo-strip-item { font-size: 0.95rem; }
+}
+section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, rgba(106,143,253,0.15) 100%); }
+
+/* ── Floating pill nav ──────────────────────────── */
+.float-nav-wrap {
+  position: fixed; top: 18px; left: 0; right: 0; z-index: 90;
+  display: flex; justify-content: center; pointer-events: none;
+  padding: 0 16px;
+}
+.float-nav {
+  display: flex; align-items: center; gap: 4px;
+  padding: 8px 8px 8px 18px;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid rgba(106,143,253,0.22);
+  border-radius: 100px;
+  box-shadow: 0 8px 32px rgba(21,28,51,0.10);
+  pointer-events: auto;
+  max-width: 100%; overflow: hidden;
+}
+.float-nav .brand {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Lora', serif; font-weight: 700; font-size: 0.92rem;
+  color: var(--blue-black); padding-right: 18px; margin-right: 8px;
+  border-right: 1px solid rgba(63,76,123,0.14);
+}
+.float-nav .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cornflower); }
+.float-nav a {
+  font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600;
+  color: var(--dusk-blue); padding: 8px 14px; border-radius: 100px;
+  white-space: nowrap; transition: background 0.15s, color 0.15s;
+}
+.float-nav a:hover { background: rgba(106,143,253,0.10); color: var(--blue-black); text-decoration: none; }
+.float-nav a.cta {
+  background: var(--cornflower); color: #fff; padding: 9px 18px;
+  margin-left: 6px;
+}
+.float-nav a.cta:hover { background: #4D75E8; color: #fff; }
+
+/* ── Buttons ──────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; font-weight: 600; letter-spacing: 0.01em;
+  border-radius: 100px; border: 1.5px solid transparent;
+  transition: transform 0.15s, background 0.15s, color 0.15s;
+  cursor: pointer; text-decoration: none;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn-primary { background: var(--cornflower); color: #fff; }
+.btn-primary:hover { background: #4D75E8; }
+.btn-secondary { background: transparent; color: var(--blue-black); border-color: rgba(63,76,123,0.3); }
+.btn-secondary:hover { border-color: var(--cornflower); color: var(--cornflower); }
+
+/* ══════════════════════════ HERO ══════════════════════════ */
+.hero { position: relative; padding: 130px 24px 72px; overflow: hidden; }
+
+/* LIGHT variant (default) */
+.hero[data-hero="light"] {
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(192,213,240,0.55) 0%, rgba(231,236,243,0.4) 40%, var(--white) 100%);
+  color: var(--blue-black);
+}
+.hero[data-hero="light"] .partner-badge { background: rgba(255,255,255,0.7); border-color: rgba(106,143,253,0.3); color: var(--blue-black); }
+.hero[data-hero="light"] .hero-eyebrow { color: var(--cornflower); }
+.hero[data-hero="light"] .hero-bullet { background: rgba(255,255,255,0.7); border-color: rgba(106,143,253,0.22); }
+.hero[data-hero="light"] .hero-bullet-marker { background: var(--cornflower); color: #fff; }
+.hero[data-hero="light"] .hero-bullet-text { color: var(--dusk-blue); }
+.hero[data-hero="light"] .hero-bullet-text strong { color: var(--cornflower); }
+.hero[data-hero="light"] .video-card { background: rgba(255,255,255,0.6); border-color: rgba(106,143,253,0.3); }
+.hero[data-hero="light"] .video-placeholder { background: linear-gradient(135deg, rgba(192,213,240,0.45), rgba(106,143,253,0.15)); color: var(--blue-black); }
+.hero[data-hero="light"] .video-label { color: var(--blue-black); }
+.hero[data-hero="light"] .video-meta { color: var(--dusk-blue); }
+.hero[data-hero="light"] .hero-meta-strip .item { background: rgba(255,255,255,0.6); border-color: rgba(106,143,253,0.2); }
+.hero[data-hero="light"] .hero-meta-strip .item strong { color: var(--blue-black); }
+.hero[data-hero="light"] .hero-meta-strip .item span { color: var(--dusk-blue); }
+.hero[data-hero="light"] .btn-secondary { color: var(--blue-black); border-color: rgba(63,76,123,0.3); }
+.hero[data-hero="light"] h1 { color: var(--blue-black); }
+
+/* NAVY variant */
+.hero[data-hero="navy"] {
+  background: var(--blue-black);
+  color: var(--white);
+}
+.hero[data-hero="navy"] h1 { color: var(--white); }
+.hero[data-hero="navy"] .partner-badge { background: rgba(255,255,255,0.06); border-color: rgba(192,213,240,0.18); color: var(--pale-sky); }
+.hero[data-hero="navy"] .hero-eyebrow { color: var(--pale-sky); }
+.hero[data-hero="navy"] .hero-bullet { background: rgba(255,255,255,0.04); border-color: rgba(192,213,240,0.18); }
+.hero[data-hero="navy"] .hero-bullet-marker { background: var(--cornflower); color: #fff; }
+.hero[data-hero="navy"] .hero-bullet-text { color: rgba(255,255,255,0.78); }
+.hero[data-hero="navy"] .hero-bullet-text strong { color: var(--cornflower); }
+.hero[data-hero="navy"] .video-card { background: rgba(255,255,255,0.04); border-color: rgba(192,213,240,0.18); }
+.hero[data-hero="navy"] .video-placeholder { background: linear-gradient(135deg, rgba(106,143,253,0.20), rgba(32,104,255,0.10)); color: var(--white); }
+.hero[data-hero="navy"] .video-label { color: var(--white); }
+.hero[data-hero="navy"] .video-meta { color: rgba(255,255,255,0.65); }
+.hero[data-hero="navy"] .hero-meta-strip .item { background: rgba(255,255,255,0.04); border-color: rgba(192,213,240,0.16); }
+.hero[data-hero="navy"] .hero-meta-strip .item strong { color: var(--white); }
+.hero[data-hero="navy"] .hero-meta-strip .item span { color: rgba(255,255,255,0.65); }
+.hero[data-hero="navy"] .btn-secondary { color: var(--white); border-color: rgba(255,255,255,0.3); }
+.hero[data-hero="navy"] .btn-secondary:hover { color: var(--pale-sky); border-color: var(--pale-sky); }
+
+.hero .inner-wide { max-width: 1280px; margin: 0 auto; }
+
+.partner-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 14px; border: 1px solid; border-radius: 100px;
+  font-size: 0.78rem; font-weight: 600; margin-bottom: 22px;
+  backdrop-filter: blur(8px);
+}
+.partner-badge svg { width: 16px; height: 16px; }
+.partner-badge span { opacity: 0.6; font-weight: 500; }
+
+.hero-eyebrow { display: block; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 20px; }
+.hero-scarcity { color: var(--danger); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.hero h1 { margin-bottom: 14px; max-width: 960px; font-size: clamp(40px, 5.7vw, 76px); }
+.hero-subheadline {
+  font-size: clamp(15px, 1.18vw, 18px); color: var(--dusk-blue);
+  line-height: 1.5; max-width: 700px; margin: 0 0 30px;
+  font-weight: 500;
+}
+.hero[data-hero="navy"] .hero-subheadline { color: var(--pale-sky); }
+
+/* Guarantee chip near primary CTAs */
+.guarantee-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  margin-top: 10px; padding: 5px 12px;
+  background: var(--success-100); color: var(--success);
+  font-family: 'DM Sans', sans-serif; font-size: 0.74rem; font-weight: 700;
+  letter-spacing: 0.04em; border-radius: 100px;
+  border: 1px solid rgba(5,193,104,0.3); white-space: nowrap;
+}
+.guarantee-chip::before {
+  content: ''; display: inline-block; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--success);
+}
+.cta-cluster { display: flex; flex-direction: column; align-items: flex-start; }
+.cta-cluster.center { align-items: center; }
+
+/* Two-step form */
+.form-step-header {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--cornflower);
+  margin-bottom: 18px;
+}
+.form-step-header .step-pip {
+  display: inline-block; padding: 3px 10px; border-radius: 100px;
+  background: rgba(106,143,253,0.15); font-size: 0.7rem;
+}
+.form-step-header .step-label { color: var(--dusk-blue); font-weight: 600; letter-spacing: 0.04em; text-transform: none; font-size: 0.86rem; }
+.form-step-hint { font-size: 0.84rem; color: var(--dusk-blue); margin-bottom: 16px; line-height: 1.5; }
+.btn-step-next {
+  display: inline-block; margin-top: 6px;
+  background: var(--cornflower); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 0.96rem; font-weight: 600;
+  padding: 13px 28px; border: none; border-radius: 100px; cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.btn-step-next:hover { background: #4D75E8; transform: translateY(-1px); }
+.form-group input.invalid, .form-group select.invalid { border-color: #DC2626; box-shadow: 0 0 0 3px rgba(220,38,38,0.12); }
+.cohort-lead-form { position: absolute; left: -9999px; visibility: hidden; }
+
+.hero-grid {
+  display: grid; grid-template-columns: 1.75fr 0.9fr; gap: 48px;
+  align-items: center; margin-bottom: 56px;
+}
+@media (max-width: 980px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+.targeted-block { margin-bottom: 32px; }
+.targeted-block-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.hero[data-hero="light"] .targeted-block-label { color: var(--cornflower); }
+.hero[data-hero="navy"] .targeted-block-label { color: var(--pale-sky); }
+.targeted-block-title {
+  font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 600;
+  letter-spacing: -0.01em; margin-bottom: 14px;
+}
+.hero[data-hero="light"] .targeted-block-title { color: var(--blue-black); }
+.hero[data-hero="navy"] .targeted-block-title { color: var(--white); }
+
+.hero-bullets {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+@media (max-width: 880px) { .hero-bullets { grid-template-columns: 1fr; } }
+.hero-bullet {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 16px 18px; border: 1px solid; border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+.hero-bullet-marker {
+  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif; font-weight: 700; font-size: 0.95rem;
+}
+.hero-bullet-text { font-size: 0.94rem; line-height: 1.55; }
+
+.hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.video-card {
+  border: 1.5px solid; border-radius: 18px; padding: 12px;
+  backdrop-filter: blur(8px);
+  max-width: 380px; margin-left: auto; width: 100%;
+}
+.video-placeholder {
+  aspect-ratio: 16 / 10; border-radius: 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; padding: 24px; text-align: center;
+}
+.play-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--cornflower); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 24px rgba(106,143,253,0.35);
+}
+.video-label { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; }
+.video-meta { font-size: 0.78rem; }
+
+.hero-meta-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+}
+@media (max-width: 720px) { .hero-meta-strip { grid-template-columns: repeat(2, 1fr); } }
+.hero-meta-strip .item {
+  padding: 16px 18px; border: 1px solid; border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+.hero-meta-strip .item strong {
+  display: block; font-family: 'Lora', serif; font-size: 1.55rem; font-weight: 700;
+  letter-spacing: -0.02em; margin-bottom: 4px;
+}
+.hero-meta-strip .item span { display: block; font-size: 0.74rem; line-height: 1.4; }
+
+/* Down-arrow between sections */
+.down-arrow {
+  display: flex; justify-content: center; padding: 32px 0 0;
+}
+.down-arrow svg { opacity: 0.6; }
+
+/* ══════════════════════════ Cards & generic ══════════════════════════ */
+.metric-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 880px) { .metric-grid { grid-template-columns: 1fr; } }
+.metric-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-left: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 28px 26px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.metric-card .metric {
+  font-family: 'Lora', serif; font-size: 2.6rem; font-weight: 700;
+  color: var(--blue-black); letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px;
+}
+.metric-card .stat-label {
+  font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--cornflower);
+  margin-bottom: 12px;
+}
+.metric-card p { font-size: 0.9rem; line-height: 1.55; }
+
+/* Credentials */
+.cred-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+@media (max-width: 980px) { .cred-grid { grid-template-columns: repeat(2, 1fr); } }
+.cred-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 28px 24px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.cred-card.highlight { border-top-color: var(--cornflower); background: linear-gradient(180deg, rgba(106,143,253,0.07), var(--white) 60%); }
+.cred-card .cred-number {
+  font-family: 'Lora', serif; font-size: 2rem; font-weight: 700;
+  color: var(--blue-black); letter-spacing: -0.02em; margin-bottom: 8px;
+}
+.cred-card.highlight .cred-number { color: var(--cornflower); }
+.cred-card .cred-label { font-size: 0.85rem; color: var(--dusk-blue); line-height: 1.5; }
+.cred-note {
+  background: var(--white); border: 1px dashed rgba(106,143,253,0.4);
+  border-radius: 12px; padding: 18px 22px; font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.6;
+}
+
+/* Team bio panels */
+.team-intro { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.6; margin: 30px 0 22px; max-width: 740px; }
+.team-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 880px) { .team-panels { grid-template-columns: 1fr; } }
+.bio-panel {
+  display: flex; flex-direction: column; gap: 16px;
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 16px; padding: 16px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.bio-photo {
+  position: relative; border-radius: 12px; overflow: hidden;
+  aspect-ratio: 4 / 5; background: linear-gradient(155deg, var(--pale-sky) 0%, var(--cornflower) 100%);
+}
+.bio-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.bio-initials {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif; font-size: 4.6rem; font-weight: 600; color: rgba(255,255,255,0.94);
+}
+.bio-shape {
+  position: absolute; background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(2px);
+}
+.bio-shape.s1 { width: 34px; height: 150px; border-radius: 100px; top: 16px; right: 46px; transform: rotate(28deg); }
+.bio-shape.s2 { width: 124px; height: 50px; border-radius: 16px; top: 116px; right: 14px; transform: rotate(12deg); }
+.bio-shape.s3 { width: 40px; height: 124px; border-radius: 14px; bottom: 26px; right: 34px; transform: rotate(20deg); }
+.bio-eyebrow { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; color: var(--blue-black); margin-bottom: 6px; }
+.bio-text h3 { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 700; color: var(--blue-black); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.bio-li { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 6px; background: rgba(106,143,253,0.12); color: var(--cornflower); transition: background 0.15s, color 0.15s; }
+.bio-li:hover { background: var(--cornflower); color: #fff; }
+.bio-desc { font-size: 0.86rem; color: var(--dusk-blue); line-height: 1.6; }
+.bio-pending {
+  display: inline-block; margin-top: 10px; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--cornflower);
+}
+
+/* Offer */
+.offer-callout {
+  background: linear-gradient(180deg, rgba(192,213,240,0.45) 0%, rgba(192,213,240,0.15) 100%);
+  border: 1.5px solid rgba(106,143,253,0.32); border-left: 6px solid var(--cornflower);
+  border-radius: 16px; padding: 36px 38px; margin-bottom: 32px;
+}
+.offer-callout .label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 14px;
+}
+.offer-callout .commitment {
+  font-family: 'Lora', serif; font-size: clamp(20px, 2.2vw, 28px); font-weight: 500;
+  color: var(--blue-black); line-height: 1.4; margin-bottom: 18px; letter-spacing: -0.015em;
+}
+.offer-callout .clarifier { font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.6; }
+
+.definition-grid h3 { margin-bottom: 18px; }
+.criteria-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 800px) { .criteria-list { grid-template-columns: 1fr; } }
+.criteria-list li {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 12px; padding: 18px 22px;
+}
+.criteria-list li strong { display: block; font-size: 0.95rem; color: var(--blue-black); margin-bottom: 6px; }
+.criteria-list li span { font-size: 0.85rem; color: var(--dusk-blue); line-height: 1.55; }
+
+/* Calculator */
+.bc-shell {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(106,143,253,0.28); border-radius: 18px;
+  overflow: hidden; box-shadow: 0 8px 32px rgba(21,28,51,0.06);
+}
+.bc-header { padding: 26px 32px; border-bottom: 1px solid rgba(106,143,253,0.18); background: rgba(192,213,240,0.18); }
+.bc-header h3 { margin: 0 0 4px; font-family: 'Lora', serif; font-size: 1.4rem; font-weight: 700; }
+.bc-header p { font-size: 0.9rem; color: var(--dusk-blue); }
+.bc-body { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; }
+@media (max-width: 980px) { .bc-body { grid-template-columns: 1fr; } }
+
+.bc-inputs { padding: 28px 32px; border-right: 1px solid rgba(106,143,253,0.18); background: rgba(255,255,255,0.5); }
+@media (max-width: 980px) { .bc-inputs { border-right: none; border-bottom: 1px solid rgba(106,143,253,0.18); } }
+.bc-inputs h4 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 18px; color: var(--blue-black); }
+
+.input-group { margin-bottom: 18px; }
+.input-group label {
+  display: block; font-size: 0.78rem; font-weight: 600; color: var(--dusk-blue);
+  margin-bottom: 6px;
+}
+.input-group input, .input-group select {
+  width: 100%; font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+  padding: 11px 14px; border: 1.5px solid rgba(106,143,253,0.3);
+  border-radius: 10px; background: var(--white); color: var(--blue-black);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input-group input:focus, .input-group select:focus {
+  outline: none; border-color: var(--cornflower);
+  box-shadow: 0 0 0 3px rgba(106,143,253,0.18);
+}
+.input-helper { font-size: 0.72rem; color: var(--dusk-blue); opacity: 0.75; margin-top: 6px; line-height: 1.45; }
+
+.bc-cost-summary {
+  margin-top: 22px; padding: 18px 20px; background: var(--platinum);
+  border-radius: 12px; border: 1px solid rgba(106,143,253,0.18);
+}
+.cost-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; font-size: 0.85rem; color: var(--dusk-blue);
+}
+.cost-row strong { font-family: 'Lora', serif; color: var(--blue-black); font-size: 0.95rem; }
+.cost-row.total { border-top: 1px solid rgba(63,76,123,0.18); margin-top: 8px; padding-top: 12px; font-weight: 600; color: var(--blue-black); }
+.cost-row.total strong { font-size: 1.1rem; }
+.cost-footnote { font-size: 0.7rem; color: var(--dusk-blue); opacity: 0.7; margin-top: 8px; line-height: 1.45; }
+
+.bc-output { padding: 28px 32px; background: rgba(255,255,255,0.4); }
+.scenarios-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 16px; }
+.scenario-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 12px; padding: 18px 20px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.scenario-card.guaranteed { border-left: 4px solid var(--cornflower); }
+.scenario-card.expected { border-left: 4px solid var(--cornflower); background: linear-gradient(180deg, rgba(106,143,253,0.06), var(--white) 60%); }
+.scenario-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--cornflower);
+}
+.scenario-card.expected .scenario-label { color: var(--cornflower); }
+.scenario-opps {
+  font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600;
+  color: var(--blue-black); line-height: 1.3;
+}
+.math-row, .revenue-row {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.82rem; color: var(--dusk-blue); padding: 4px 0;
+  border-top: 1px dashed rgba(63,76,123,0.14);
+}
+.math-row strong, .revenue-row strong { font-family: 'Lora', serif; color: var(--blue-black); font-size: 0.9rem; }
+.dual-roi { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 6px; padding-top: 10px; border-top: 1px solid rgba(63,76,123,0.14); }
+.roi-block { background: var(--platinum); border-radius: 8px; padding: 10px 12px; text-align: center; }
+.roi-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dusk-blue); margin-bottom: 4px; }
+.roi-value { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
+.roi-value.green { color: var(--success); }
+.roi-value.amber { color: #B58000; }
+.roi-value.red { color: #C8323C; }
+
+.verdict {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 22px; border-radius: 12px;
+  border: 1.5px solid; margin-bottom: 16px;
+}
+.verdict.green { background: var(--success-100); border-color: rgba(5,193,104,0.4); }
+.verdict.amber { background: var(--warn-100); border-color: rgba(253,189,26,0.5); }
+.verdict.red { background: var(--danger-100); border-color: rgba(255,90,101,0.45); }
+.verdict-light {
+  width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; margin-top: 4px;
+}
+.verdict.green .verdict-light { background: var(--success); }
+.verdict.amber .verdict-light { background: var(--warn); }
+.verdict.red .verdict-light { background: var(--danger); }
+.verdict-text strong { display: block; font-family: 'Lora', serif; font-size: 1.05rem; color: var(--blue-black); margin-bottom: 4px; }
+.verdict-text span { font-size: 0.86rem; color: var(--dusk-blue); line-height: 1.5; }
+.verdict-cta { display: inline-flex; margin-bottom: 16px; }
+.bc-note { font-size: 0.78rem; color: var(--dusk-blue); line-height: 1.6; padding: 14px 16px; background: rgba(192,213,240,0.18); border-radius: 10px; }
+.bc-note a { color: var(--cornflower); }
+
+/* Qualify */
+.qualify-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 880px) { .qualify-grid { grid-template-columns: 1fr; } }
+.qualify-col {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.18);
+  border-radius: 14px; padding: 28px 28px 24px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.qualify-col.fit { border-left: 5px solid var(--success); }
+.qualify-col.notfit { border-left: 5px solid var(--danger); }
+.qualify-col h3 { font-family: 'Lora', serif; font-size: 1.3rem; margin-bottom: 18px; }
+.qualify-col.fit h3 { color: var(--blue-black); }
+.qualify-col.fit h3::before { content: '✓ '; color: var(--success); font-weight: 700; }
+.qualify-col.notfit h3::before { content: '× '; color: var(--danger); font-weight: 700; }
+.qualify-col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.qualify-col li { padding: 12px 0; border-top: 1px dashed rgba(63,76,123,0.14); }
+.qualify-col li:first-child { border-top: none; padding-top: 0; }
+.qualify-col li strong { display: block; font-size: 0.92rem; color: var(--blue-black); margin-bottom: 3px; }
+.qualify-col li div { font-size: 0.82rem; color: var(--dusk-blue); line-height: 1.55; }
+.qualify-col li div span { display: block; }
+
+/* Timeline (How) */
+.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+@media (max-width: 880px) { .timeline { grid-template-columns: 1fr; } }
+.timeline-item {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 24px 22px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.timeline-item:last-child { border-top-color: var(--success); }
+.timeline-marker {
+  width: 34px; height: 34px; border-radius: 50%; background: var(--cornflower); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 14px;
+}
+.timeline-item:last-child .timeline-marker { background: var(--success); }
+.timeline-meta { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cornflower); margin-bottom: 6px; }
+.timeline-item:last-child .timeline-meta { color: var(--success); }
+.timeline-item h4 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 8px; }
+.timeline-item p { font-size: 0.84rem; line-height: 1.55; }
+
+/* Risk reversal */
+.risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 800px) { .risk-grid { grid-template-columns: 1fr; } }
+.risk-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 14px; padding: 24px 26px;
+}
+.risk-card.wide { grid-column: span 2; }
+@media (max-width: 800px) { .risk-card.wide { grid-column: auto; } }
+.risk-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--cornflower); color: #fff;
+  font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+.risk-card h4 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 8px; }
+.risk-card p { font-size: 0.88rem; line-height: 1.55; }
+
+/* Methodology */
+.method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 880px) { .method-grid { grid-template-columns: 1fr; } }
+.method-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 14px; padding: 28px 26px;
+}
+.method-card .num {
+  font-family: 'Lora', serif; font-size: 2.6rem; font-weight: 700;
+  color: var(--cornflower); letter-spacing: -0.03em; line-height: 1; margin-bottom: 14px;
+}
+.method-card h4 { font-family: 'Lora', serif; font-size: 1.15rem; margin-bottom: 10px; }
+.method-card p { font-size: 0.9rem; line-height: 1.6; }
+
+/* Methodology flow */
+.flow { max-width: 860px; margin: 0 auto; }
+.flow-node {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-left: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 24px 28px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.flow-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 8px;
+}
+.flow-node h4 { font-family: 'Lora', serif; font-size: 1.2rem; margin-bottom: 8px; }
+.flow-node p { font-size: 0.9rem; line-height: 1.6; }
+.flow-arrow { display: flex; justify-content: center; padding: 10px 0; }
+.flow-arrow svg { opacity: 0.5; }
+.flow-intel {
+  background: linear-gradient(180deg, rgba(214,240,224,0.75) 0%, rgba(214,240,224,0.28) 100%);
+  border: 1.5px solid rgba(60,165,110,0.34); border-radius: 16px;
+  padding: 26px 26px 28px;
+}
+.flow-intel-head { text-align: center; margin-bottom: 20px; }
+.flow-intel-head h4 { font-family: 'Lora', serif; font-size: 1.3rem; margin: 4px 0 8px; }
+.flow-intel-head p { font-size: 0.9rem; max-width: 520px; margin: 0 auto; }
+.flow-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 720px) { .flow-branches { grid-template-columns: 1fr; } }
+.flow-branch {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 12px; padding: 22px 22px;
+}
+.flow-branch h4 { font-family: 'Lora', serif; font-size: 1.08rem; margin-bottom: 8px; }
+.flow-branch p { font-size: 0.87rem; line-height: 1.55; color: var(--dusk-blue); }
+.flow-stat {
+  display: inline-block; margin-top: 12px; padding: 5px 12px;
+  background: rgba(106,143,253,0.12); border-radius: 100px;
+  font-family: 'Lora', serif; font-size: 0.9rem; font-weight: 700; color: var(--cornflower);
+}
+.flow-note {
+  text-align: center; font-size: 0.84rem; color: var(--dusk-blue);
+  line-height: 1.6; margin: 22px auto 0; max-width: 620px;
+}
+
+/* Results / evidence */
+.results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 760px) { .results-grid { grid-template-columns: 1fr; } }
+.case-card {
+  display: flex; flex-direction: column;
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 16px;
+  padding: 30px 30px 32px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.case-industry {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 10px;
+}
+.case-client {
+  font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--blue-black); margin-bottom: 20px;
+}
+.case-stat {
+  font-family: 'Lora', serif; font-size: 3.6rem; font-weight: 700;
+  color: var(--cornflower); line-height: 1;
+}
+.case-stat-tbc {
+  display: inline-block; padding: 8px 16px; border-radius: 100px;
+  background: rgba(106,143,253,0.12); border: 1px dashed rgba(106,143,253,0.45);
+  font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 700; color: var(--cornflower);
+}
+.case-stat-label { font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.5; margin: 10px 0 18px; }
+.case-desc { font-size: 0.9rem; color: var(--dusk-blue); line-height: 1.65; }
+.case-pending {
+  display: inline-block; margin-top: 14px; font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--cornflower);
+}
+
+/* Cost of inaction — trajectory chart + ACV scenario cards */
+.inaction-chart {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 14px; padding: 26px 30px 22px;
+  box-shadow: 0 2px 12px rgba(21,28,51,0.03); margin-bottom: 22px;
+}
+.inaction-chart svg { width: 100%; height: auto; display: block; }
+.inaction-caption {
+  font-size: 0.84rem; color: var(--dusk-blue); line-height: 1.55;
+  text-align: center; margin-top: 14px; font-style: italic; max-width: 720px;
+  margin-left: auto; margin-right: auto;
+}
+.inaction-scenarios { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 880px) { .inaction-scenarios { grid-template-columns: 1fr; } }
+.scenario-card {
+  position: relative;
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 24px 24px 22px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+  display: flex; flex-direction: column;
+}
+.scenario-card.featured {
+  background: linear-gradient(180deg, rgba(192,213,240,0.26) 0%, rgba(255,255,255,1) 65%);
+  border-color: rgba(106,143,253,0.42);
+}
+.scenario-tag {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 4px;
+}
+.scenario-acv {
+  font-family: 'Lora', serif; font-size: 1.4rem; font-weight: 700;
+  color: var(--blue-black); margin-bottom: 16px;
+}
+.scenario-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 10px 0; border-top: 1px dashed rgba(63,76,123,0.14);
+}
+.scenario-row:first-of-type { border-top: none; padding-top: 4px; }
+.scenario-row .label { font-size: 0.78rem; color: var(--dusk-blue); }
+.scenario-row .value { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 700; color: var(--blue-black); }
+.scenario-card.featured .scenario-row .value { color: var(--cornflower); }
+.scenario-ribbon {
+  position: absolute; top: -11px; right: 18px;
+  background: var(--cornflower); color: #fff;
+  font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px;
+}
+.scenario-footnote {
+  font-size: 0.78rem; color: var(--dusk-blue); line-height: 1.55;
+  font-style: italic; margin-top: 16px; opacity: 0.85; max-width: 820px;
+}
+.inaction-bridge {
+  text-align: center; margin-top: 26px;
+  font-size: 0.98rem; color: var(--dusk-blue); line-height: 1.55;
+}
+.inaction-bridge a {
+  color: var(--cornflower); font-weight: 700;
+  border-bottom: 1.5px solid rgba(106,143,253,0.4);
+}
+.inaction-bridge a:hover { border-bottom-color: var(--cornflower); }
+.cost-sources {
+  font-size: 0.74rem; color: var(--dusk-blue); line-height: 1.55;
+  font-style: italic; margin-top: 20px; opacity: 0.78; text-align: center;
+}
+.cost-sources strong { color: var(--dusk-blue); }
+
+/* Results — hero case study (Retain) */
+.case-hero {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 18px;
+  padding: 36px 36px 40px; box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+  margin-bottom: 36px;
+}
+.case-hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; align-items: center; }
+@media (max-width: 880px) { .case-hero-grid { grid-template-columns: 1fr; gap: 28px; } }
+.case-hero-headline { font-family: 'Lora', serif; font-size: 3.4rem; font-weight: 700; color: var(--cornflower); line-height: 1; margin: 6px 0 6px; }
+.case-hero-sub { font-size: 0.98rem; color: var(--dusk-blue); line-height: 1.55; max-width: 480px; margin-bottom: 22px; }
+.case-chart-svg { width: 100%; height: auto; display: block; margin: 8px 0 18px; }
+.case-chart-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.case-tile {
+  background: rgba(192,213,240,0.22); border: 1px solid rgba(106,143,253,0.22);
+  border-radius: 12px; padding: 12px 14px;
+}
+.case-tile-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cornflower); }
+.case-tile-value { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700; color: var(--blue-black); margin-top: 2px; }
+.case-chart-caption { font-size: 0.84rem; color: var(--dusk-blue); line-height: 1.55; }
+.case-video-cap { display: block; margin-top: 10px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--dusk-blue); text-align: center; }
+
+/* Results — divider + 12-card mini grid */
+.results-divider {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cornflower); margin: 10px 0 18px;
+}
+.results-divider::before, .results-divider::after { content: ''; flex: 1; height: 1px; background: rgba(106,143,253,0.28); }
+.results-grid-mini { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 980px) { .results-grid-mini { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .results-grid-mini { grid-template-columns: 1fr; } }
+.mini-card {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 14px; padding: 20px 22px;
+  display: flex; flex-direction: column;
+}
+.mini-industry { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cornflower); margin-bottom: 8px; }
+.mini-client { font-family: 'Lora', serif; font-size: 1.12rem; font-weight: 700; color: var(--blue-black); margin-bottom: 12px; }
+.mini-stat { font-family: 'Lora', serif; font-size: 2.4rem; font-weight: 700; color: var(--cornflower); line-height: 1; }
+.mini-metric { font-size: 0.84rem; color: var(--dusk-blue); line-height: 1.5; margin-top: 6px; }
+.mini-period { display: inline-block; margin-top: 8px; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(106,143,253,0.78); }
+
+/* Industries chip strip */
+.industries-chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px;
+  justify-content: center;
+}
+.industries-chips .chip {
+  background: var(--white); border: 1px solid rgba(106,143,253,0.28);
+  border-radius: 100px; padding: 6px 14px;
+  font-size: 0.74rem; font-weight: 700; color: var(--dusk-blue);
+  letter-spacing: 0.02em;
+}
+
+/* FAQ (phil-toggle pattern) */
+.phil-toggle {
+  border: 1px solid rgba(106,143,253,0.18); border-radius: 12px;
+  background: rgba(255,255,255,0.7); margin-bottom: 12px; overflow: hidden;
+  box-shadow: 0 1px 2px rgba(21,28,51,0.03); backdrop-filter: blur(6px);
+}
+.phil-toggle[open] { border-color: rgba(106,143,253,0.4); box-shadow: 0 2px 10px rgba(21,28,51,0.06); }
+.phil-toggle > summary {
+  list-style: none; cursor: pointer; padding: 20px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; user-select: none;
+}
+.phil-toggle > summary::-webkit-details-marker { display: none; }
+.phil-toggle > summary:hover { background: rgba(106,143,253,0.04); }
+.phil-toggle .q { font-family: 'Lora', serif; font-size: 1.02rem; font-weight: 600; color: var(--blue-black); line-height: 1.35; }
+.phil-toggle .chev { transition: transform 0.2s ease; color: var(--cornflower); flex-shrink: 0; }
+.phil-toggle[open] .chev { transform: rotate(180deg); }
+.phil-toggle .a { padding: 0 24px 22px; font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.65; }
+
+/* Why we approached you — three reasons grid */
+.reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 880px) { .reasons-grid { grid-template-columns: 1fr; } }
+.reason-card {
+  display: flex; flex-direction: column;
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 16px;
+  padding: 34px 30px 30px; box-shadow: 0 2px 14px rgba(21,28,51,0.04);
+}
+.reason-number {
+  font-family: 'Lora', serif; font-size: 3.4rem; font-weight: 700;
+  color: var(--cornflower); line-height: 0.9; margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.reason-card h3 {
+  font-family: 'Lora', serif; font-size: 1.32rem; font-weight: 700;
+  color: var(--blue-black); line-height: 1.3; margin-bottom: 12px;
+}
+.reason-card p { font-size: 0.95rem; color: var(--dusk-blue); line-height: 1.6; }
+.reason-source { display: block; margin-top: 14px; font-size: 0.72rem; color: var(--dusk-blue); opacity: 0.78; font-style: italic; line-height: 1.45; }
+.why-now-bridge { font-size: 1.05rem; line-height: 1.65; color: var(--dusk-blue); margin: 32px auto 0; max-width: 820px; text-align: center; }
+.why-now-bridge strong { color: var(--blue-black); }
+
+/* Business case projection — output tiles + rows */
+.bc-output h4 { font-family: 'Lora', serif; font-size: 1.08rem; margin-bottom: 16px; color: var(--blue-black); }
+.bc-roi-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+.bc-roi-tile { background: var(--white); border: 1.5px solid rgba(106,143,253,0.22); border-top: 4px solid var(--cornflower); border-radius: 12px; padding: 18px 16px; text-align: center; }
+.bc-roi-tile.ltv { border-top-color: var(--success); }
+.bc-roi-tile .label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cornflower); margin-bottom: 6px; }
+.bc-roi-tile.ltv .label { color: var(--success); }
+.bc-roi-tile .value { font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 700; color: var(--blue-black); line-height: 1; }
+.bc-rows { background: var(--white); border: 1px solid rgba(106,143,253,0.18); border-radius: 12px; padding: 4px 18px; }
+.bc-row { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-top: 1px dashed rgba(63,76,123,0.14); gap: 16px; }
+.bc-row:first-child { border-top: none; }
+.bc-row .label { font-size: 0.85rem; color: var(--dusk-blue); }
+.bc-row .value { font-family: 'Lora', serif; font-size: 1.06rem; font-weight: 700; color: var(--blue-black); text-align: right; }
+.bc-row .value.accent { color: var(--cornflower); }
+.bc-verdict-line { margin-top: 16px; padding: 14px 16px; background: var(--success-100); border: 1px solid rgba(5,193,104,0.3); border-radius: 10px; font-size: 0.92rem; color: var(--blue-black); line-height: 1.55; }
+.bc-verdict-line strong { color: var(--success); }
+.cost-footnote { font-size: 0.7rem; color: var(--dusk-blue); opacity: 0.75; margin-top: 8px; line-height: 1.45; font-style: italic; }
+
+/* Section-level collapsible toggle (Qualify / How / Clauses) */
+.section-toggle {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(21,28,51,0.03); margin-top: 8px;
+}
+.section-toggle > summary {
+  list-style: none; cursor: pointer; padding: 22px 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  background: var(--white); transition: background 0.15s;
+}
+.section-toggle > summary::-webkit-details-marker { display: none; }
+.section-toggle > summary:hover { background: rgba(106,143,253,0.04); }
+.section-toggle[open] > summary { border-bottom: 1px solid rgba(106,143,253,0.16); }
+.section-toggle-teaser {
+  font-family: 'Lora', serif; font-size: 1.12rem; font-weight: 600;
+  color: var(--blue-black); line-height: 1.35;
+}
+.section-toggle-sub { font-size: 0.85rem; color: var(--dusk-blue); margin-top: 3px; }
+.section-toggle .chev { color: var(--cornflower); flex-shrink: 0; transition: transform 0.2s; }
+.section-toggle[open] .chev { transform: rotate(180deg); }
+.section-toggle-body { padding: 26px 28px 30px; }
+@media (max-width: 640px) {
+  .section-toggle > summary { padding: 18px 20px; }
+  .section-toggle-body { padding: 22px 20px 24px; }
+}
+
+/* Soft CTA — hero text-link version */
+.hero-soft-cta {
+  display: inline-block; margin-top: 16px;
+  font-size: 0.92rem; color: var(--dusk-blue); font-weight: 500;
+  border-bottom: 1.5px solid rgba(106,143,253,0.35);
+  padding-bottom: 2px;
+}
+.hero-soft-cta:hover { color: var(--cornflower); border-bottom-color: var(--cornflower); }
+.hero[data-hero="navy"] .hero-soft-cta { color: var(--pale-sky); }
+
+/* Post-calculator soft CTAs block */
+.bc-soft-ctas {
+  margin-top: 28px; padding: 30px 32px;
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.28);
+  border-top: 4px solid var(--cornflower); border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(21,28,51,0.03);
+}
+.bc-soft-ctas h3 { font-family: 'Lora', serif; font-size: 1.35rem; margin-bottom: 8px; color: var(--blue-black); }
+.bc-soft-ctas > p { font-size: 0.92rem; color: var(--dusk-blue); line-height: 1.55; margin-bottom: 18px; max-width: 720px; }
+.bc-form-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 14px;
+}
+@media (max-width: 720px) { .bc-form-row { grid-template-columns: 1fr; } }
+.bc-soft-ctas input[type="text"], .bc-soft-ctas input[type="email"] {
+  font-family: 'DM Sans', sans-serif; font-size: 0.92rem;
+  padding: 11px 14px; border: 1.5px solid rgba(106,143,253,0.3);
+  border-radius: 10px; background: var(--white); color: var(--blue-black);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.bc-soft-ctas input:focus {
+  outline: none; border-color: var(--cornflower);
+  box-shadow: 0 0 0 3px rgba(106,143,253,0.18);
+}
+.bc-soft-ctas .btn { display: inline-block; }
+.bc-alt {
+  display: flex; align-items: center; gap: 16px; margin-top: 18px;
+  padding-top: 18px; border-top: 1px dashed rgba(63,76,123,0.18);
+  font-size: 0.9rem; color: var(--dusk-blue);
+}
+.bc-alt span { font-style: italic; }
+.bc-soft-ctas .bc-success {
+  display: none; padding: 16px 18px;
+  background: rgba(40,167,87,0.08); border: 1px solid rgba(40,167,87,0.3);
+  border-radius: 10px; color: var(--blue-black); font-size: 0.92rem;
+}
+.bc-soft-ctas.submitted .bc-form-row,
+.bc-soft-ctas.submitted form > .btn,
+.bc-soft-ctas.submitted .bc-alt { display: none; }
+.bc-soft-ctas.submitted .bc-success { display: block; }
+
+/* Pre-Apply soft CTA strip */
+.apply-soft-cta {
+  text-align: center; margin-bottom: 26px; padding: 14px 20px;
+  background: rgba(255,255,255,0.06); border: 1px dashed rgba(192,213,240,0.3);
+  border-radius: 12px; font-size: 0.94rem; color: var(--pale-sky); line-height: 1.5;
+}
+.apply-soft-cta a {
+  color: var(--white); font-weight: 700;
+  border-bottom: 1.5px solid rgba(192,213,240,0.5);
+}
+.apply-soft-cta a:hover { border-bottom-color: var(--white); }
+
+/* Apply / Process */
+.process-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 40px; }
+@media (max-width: 980px) { .process-flow { grid-template-columns: repeat(2, 1fr); } }
+.process-step {
+  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
+  border-top: 4px solid var(--cornflower); border-radius: 14px;
+  padding: 18px 18px 16px;
+}
+.process-step:last-child { border-top-color: var(--success); }
+.process-number {
+  font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 700;
+  color: var(--cornflower); margin-bottom: 8px; line-height: 1;
+}
+.process-step:last-child .process-number { color: var(--success); }
+.process-time { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dusk-blue); margin-bottom: 4px; }
+.process-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--blue-black); margin-bottom: 4px; }
+.process-desc { font-size: 0.78rem; color: var(--dusk-blue); line-height: 1.5; }
+
+.apply-shell {
+  background: rgba(255,255,255,0.7); backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(106,143,253,0.28); border-radius: 18px;
+  padding: 36px 38px; box-shadow: 0 8px 32px rgba(21,28,51,0.06);
+}
+.apply-shell h3 { font-family: 'Lora', serif; font-size: 1.45rem; margin-bottom: 6px; }
+.apply-lead { font-size: 0.92rem; color: var(--dusk-blue); margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+@media (max-width: 720px) { .form-grid { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; }
+.form-group.full { grid-column: span 2; }
+@media (max-width: 720px) { .form-group.full { grid-column: auto; } }
+.form-group label { font-size: 0.78rem; font-weight: 600; color: var(--dusk-blue); margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  font-family: 'DM Sans', sans-serif; font-size: 0.92rem;
+  padding: 11px 14px; border: 1.5px solid rgba(106,143,253,0.3);
+  border-radius: 10px; background: var(--white); color: var(--blue-black);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.form-group textarea { min-height: 90px; resize: vertical; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--cornflower);
+  box-shadow: 0 0 0 3px rgba(106,143,253,0.18);
+}
+.checkbox-row { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.checkbox-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 16px; background: var(--platinum);
+  border: 1px solid rgba(106,143,253,0.18); border-radius: 10px;
+}
+.checkbox-item input { margin-top: 3px; accent-color: var(--cornflower); }
+.checkbox-item label { font-size: 0.85rem; color: var(--dusk-blue); line-height: 1.5; }
+.btn-submit {
+  grid-column: 1 / -1; justify-self: start;
+  background: var(--cornflower); color: #fff;
+  font-family: 'DM Sans', sans-serif; font-size: 0.98rem; font-weight: 600;
+  padding: 14px 32px; border: none; border-radius: 100px; cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+}
+.btn-submit:hover { background: #4D75E8; transform: translateY(-1px); }
+.form-footnote { font-size: 0.78rem; color: var(--dusk-blue); opacity: 0.75; margin-top: 12px; }
+
+/* Footer */
+footer.foot {
+  padding: 32px 24px; text-align: center;
+  border-top: 1px solid rgba(106,143,253,0.18);
+  background: var(--white);
+}
+footer.foot .brand-line {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--cornflower); margin-bottom: 6px;
+}
+footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
+
+/* Reduce hero top padding on small screens */
+@media (max-width: 720px) {
+  .hero { padding-top: 150px; }
+  .float-nav .brand { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Floating pill nav -->
+<div class="float-nav-wrap">
+  <nav class="float-nav" aria-label="Section navigation">
+    <div class="brand"><span class="dot"></span>Fill My Funnel</div>
+    <a href="#why-now">Why now</a>
+    <a href="#business-case">Pay back?</a>
+    <a href="#why-fmf">Why FMF</a>
+    <a href="#results">Results</a>
+    <a href="#faq">FAQ</a>
+    <a href="#business-case" class="cta">Build my business case</a>
+  </nav>
+</div>
+
+<!-- ══════════════════════════ HERO ══════════════════════════ -->
+<section class="hero" id="hero" data-hero="light">
+  <div class="inner-wide">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="partner-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+          </svg>
+          <div>Official Marketing Partner <span>· EMEA</span></div>
+        </div>
+        <span class="hero-eyebrow"><span class="hero-scarcity">For B2B teams &nbsp;·&nbsp; Not yet on LinkedIn</span></span>
+        <h1>Build the case for LinkedIn — <em>before you commit a pound.</em></h1>
+        <p class="hero-subheadline">For B2B CMOs and Heads of Marketing exploring LinkedIn as a pipeline channel — with the data to defend the spend before signing anything.</p>
+        <div class="hero-cta-row">
+          <a href="#business-case" class="btn btn-primary">Build my business case ↓</a>
+          <a href="#why-now" class="btn btn-secondary">See the research first</a>
+        </div>
+        <a href="#calendly" class="hero-soft-cta">Or book a 15-min call with Tom →</a>
+      </div>
+      <div class="hero-video">
+        <div class="video-card">
+          <div class="video-placeholder">
+            <div class="play-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="video-label">Why we built this business case tool</div>
+            <div class="video-meta">Tom Tigwell · Founder, FMF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════ WHY WE APPROACHED YOU ══════════════════════════ -->
+<section class="section" id="why-you">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Why we approached you</div>
+      <h2 class="section">Three reasons we targeted <em>your company.</em></h2>
+      <p class="lead">You did not land on this page by accident. We chose your business because the gap is visible, and the upside is real — but we want to size it with you before any commitment.</p>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-number">01</div>
+        <h3>You're not currently in the LinkedIn Ad Library</h3>
+        <p>We checked. Your category is moving on LinkedIn, your competitors are showing up to your buying committees, and you aren't. That's a quiet but compounding cost.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">02</div>
+        <h3>Your buyers spend a working day a week on LinkedIn</h3>
+        <p>B2B decision-makers scroll the feed. If you are not in there, your competitor's content is filling the space — winning attention 6 to 18 months before the buying trigger.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">03</div>
+        <h3>We'll size the opportunity with you — no commitment first</h3>
+        <p>The business case is the conversation starter, not the close. You fill in four numbers; we send you a CFO-ready document you can take internally. We talk only if it makes sense to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ LOGO STRIP ══════════════════════════ -->
+<section class="logo-strip" aria-label="Clients">
+  <div class="logo-strip-inner">
+    <div class="logo-strip-label">Trusted by B2B teams at</div>
+    <div class="logo-strip-row">
+      <span class="logo-strip-item">Retain</span>
+      <span class="logo-strip-item">Thunes</span>
+      <span class="logo-strip-item">ACCA</span>
+      <span class="logo-strip-item">IQGeo</span>
+      <span class="logo-strip-item">Prolific</span>
+      <span class="logo-strip-item">CoreStream</span>
+      <span class="logo-strip-item">Greenomy</span>
+      <span class="logo-strip-item">Gaia</span>
+      <span class="logo-strip-item">Makers</span>
+      <span class="logo-strip-item">dScribe</span>
+      <span class="logo-strip-item">Bubty</span>
+      <span class="logo-strip-item">CHKS</span>
+      <span class="logo-strip-item">Hire Intelligence</span>
+    </div>
+  </div>
+</section>
+
+<div class="down-arrow">
+  <svg width="28" height="36" viewBox="0 0 28 36" fill="none" stroke="#6A8FFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v26M6 22l8 8 8-8"/></svg>
+</div>
+
+<!-- ══════════════════════════ WHY LINKEDIN NOW ══════════════════════════ -->
+<section class="section" id="why-now">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">The research-backed case</div>
+      <h2 class="section">95% of your buyers aren't in-market today. <em>The Day-1 vendor list wins 92% of deals.</em></h2>
+      <p class="lead">B2B buying does not begin with a Google search — it begins with awareness built months before. LinkedIn is the only B2B channel that lets you reach buying-committee members <strong>before the trigger to buy</strong>. By the time they are in-market, you are already on the shortlist they call. That is the entire opportunity.</p>
+    </div>
+
+    <div class="reasons-grid" style="grid-template-columns: 1fr 1fr;">
+      <div class="reason-card">
+        <div class="reason-number">95%</div>
+        <h3>Of your buyers are not in-market right now</h3>
+        <p>Only ~5% of B2B buyers are actively buying in any given quarter — the other 95% will buy at some point in the next 12 to 24 months. Reaching them <em>now</em> is the difference between being shortlisted later and being invisible. The 95-5 rule is the structural reason LinkedIn pays back over time.</p>
+        <span class="reason-source">Ehrenberg-Bass Institute · LinkedIn B2B Institute (Binet &amp; Field, <em>The 5 Principles of Growth in B2B Marketing</em>)</span>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">92%</div>
+        <h3>Of deals go to the Day-1 vendor list</h3>
+        <p>When a B2B buyer enters the active buying window, the vast majority already have a shortlist of vendors in mind. If you are not on the Day-1 list — built through visibility in the months before — you are competing for the remaining few percent. LinkedIn's precision targeting is how mid-market and enterprise vendors get on the Day-1 list.</p>
+        <span class="reason-source">Bain &amp; Company B2B Buying Behavior research, cited in LinkedIn / Edelman 2024 B2B Thought Leadership Impact Report</span>
+      </div>
+    </div>
+
+    <p class="why-now-bridge">The companies winning B2B in 2026 are not running ads for in-market demand alone — they are <strong>winning the 12 to 18-month attention window before</strong>. That is the spend you should be sizing.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════ BUSINESS CASE CALCULATOR ══════════════════════════ -->
+<section class="section roi-bg" id="business-case">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Does it pay back?</div>
+      <h2 class="section">Fill in four numbers. <em>See what LinkedIn could deliver in 6 months.</em></h2>
+      <p class="lead">Sized to your ACV, your close rate and your customer lifetime. The output becomes a CFO-ready business case you can download and take internally — modelled on public B2B LinkedIn benchmarks with sources cited at the bottom.</p>
+    </div>
+
+    <div class="bc-shell">
+      <div class="bc-grid">
+        <div class="bc-inputs">
+          <h4>Your numbers</h4>
+          <div class="input-group">
+            <label for="budget">Monthly LinkedIn budget (£) <span style="color: var(--dusk-blue); font-weight: 500;">(£5k minimum)</span></label>
+            <input type="number" id="budget" value="10000" min="5000" max="100000" step="1000">
+            <div class="input-helper">£5k/month is the minimum for the precision-targeting maths to work. Programme efficiency improves materially above £10k.</div>
+          </div>
+          <div class="input-group">
+            <label for="acv">Average contract value (£)</label>
+            <input type="number" id="acv" value="75000" min="10000" step="5000">
+            <div class="input-helper">Your typical first-year contract value per closed customer.</div>
+          </div>
+          <div class="input-group">
+            <label for="close_rate">Win rate from sales-qualified opportunity (%)</label>
+            <input type="number" id="close_rate" value="25" min="5" max="80" step="1">
+            <div class="input-helper">B2B SaaS multi-stakeholder average sits at 22–32% (Ebsta x Pavilion 2025). Tightly qualified opps typically 25–35%.</div>
+          </div>
+          <div class="input-group">
+            <label for="ltv_years">Customer lifetime (years)</label>
+            <input type="number" id="ltv_years" value="3" min="1" max="7" step="1">
+            <div class="input-helper">Year 1 only = 1. B2B SaaS average lifespan = 3–5 years. Mature enterprise = 5+.</div>
+          </div>
+          <div class="bc-cost-summary">
+            <div class="cost-row"><span>6-month LinkedIn spend</span><strong id="bc_total_spend">£60,000</strong></div>
+            <div class="cost-row"><span>Modelled cost per opportunity</span><strong id="bc_cpo">£6,500</strong></div>
+            <div class="cost-footnote">Cost per opportunity tiered by spend level (£5k/mo → £8k, £10k/mo → £6.5k, £20k+/mo → £5k). Spend goes directly to LinkedIn.</div>
+          </div>
+        </div>
+        <div class="bc-output">
+          <h4>What LinkedIn could deliver in 6 months</h4>
+          <div class="bc-roi-tiles">
+            <div class="bc-roi-tile">
+              <div class="label">Year 1 ROI</div>
+              <div class="value" id="bc_y1_roi">2.9x</div>
+            </div>
+            <div class="bc-roi-tile ltv">
+              <div class="label">LTV ROI</div>
+              <div class="value" id="bc_ltv_roi">8.7x</div>
+            </div>
+          </div>
+          <div class="bc-rows">
+            <div class="bc-row"><span class="label">Projected LinkedIn-influenced opportunities</span><span class="value accent" id="bc_opps">9</span></div>
+            <div class="bc-row"><span class="label">Closed deals (at your win rate)</span><span class="value" id="bc_deals">~2</span></div>
+            <div class="bc-row"><span class="label">Year-1 revenue</span><span class="value" id="bc_y1_rev">£169k</span></div>
+            <div class="bc-row"><span class="label">Customer-lifetime revenue</span><span class="value" id="bc_ltv_rev">£506k</span></div>
+            <div class="bc-row"><span class="label">Spend payback in</span><span class="value" id="bc_payback">~4 months</span></div>
+          </div>
+          <div class="bc-verdict-line" id="bc_verdict_line">
+            <strong>At these inputs:</strong> LinkedIn pays back within the first year and compounds over the customer lifetime. This is the case you take to your CFO.
+          </div>
+          <div class="bc-note">
+            <strong>How to read this.</strong> The opportunity count is the conservative public benchmark for a 6-month programme at the modelled cost-per-opp. Year-1 revenue assumes closed deals contribute their first-year ACV within the year of close. LTV revenue includes years 2 and beyond, where most B2B revenue actually accumulates.<br><br>
+            <strong>Benchmark sources:</strong> Cost-per-opportunity from LinkedIn B2B Institute tiered benchmarks. Win rate ranges from <a href="https://optif.ai/learn/questions/b2b-saas-win-rate-by-deal-size/" target="_blank" rel="noopener">Optifai B2B SaaS Sales Ops Benchmark 2026</a>. Multi-stakeholder uplift from <a href="https://www.ebsta.com/wp-content/uploads/2024/02/B2B-Sales-Benchmarks-2024_.pdf" target="_blank" rel="noopener">Ebsta x Pavilion 2025</a>. LTV economics from <a href="https://optif.ai/learn/questions/b2b-saas-ltv-benchmark/" target="_blank" rel="noopener">Optifai LTV Benchmarks 2026</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bc-soft-ctas" id="bc_soft_ctas">
+      <h3>Download your CFO-ready business case</h3>
+      <p>Four fields. We email you a personalised business case — your inputs, the projected opportunity count, year-1 and LTV revenue scenarios, and a one-page summary you can take to your CFO to defend the H2 2026 spend.</p>
+      <form name="linkedin-business-case-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="bc_request_form">
+        <input type="hidden" name="form-name" value="linkedin-business-case-request">
+        <p style="display:none;"><label>Do not fill this in: <input name="bot-field"></label></p>
+        <input type="hidden" name="monthly_budget" id="bc_form_budget">
+        <input type="hidden" name="acv" id="bc_form_acv">
+        <input type="hidden" name="close_rate" id="bc_form_close">
+        <input type="hidden" name="ltv_years" id="bc_form_ltv">
+        <input type="hidden" name="projected_opps" id="bc_form_opps">
+        <input type="hidden" name="year1_revenue" id="bc_form_year1">
+        <input type="hidden" name="ltv_revenue" id="bc_form_ltv_rev">
+        <input type="hidden" name="payback_months" id="bc_form_payback">
+        <div class="bc-form-row" style="grid-template-columns: 1fr 1fr;">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="text" name="role" placeholder="Role (CMO, Head of Marketing, etc.)" required>
+          <input type="text" name="company" placeholder="Company" required>
+          <input type="email" name="email" placeholder="Work email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Email me my business case →</button>
+      </form>
+      <div class="bc-success">
+        <strong>Thanks — your business case is on its way.</strong> Tom will personally email it through within 24 hours, formatted to take internally.
+      </div>
+      <div class="bc-alt">
+        <span>Or</span>
+        <a href="#calendly" class="btn btn-secondary">Book a 15-min call with Tom →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ WHY FMF ══════════════════════════ -->
+<section class="section platinum" id="why-fmf">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Who you're working with</div>
+      <h2 class="section">EMEA's only Official LinkedIn <em>Marketing Partner.</em></h2>
+      <p class="lead">LinkedIn awards Marketing Partner status only to vetted agencies that meet rigorous criteria for expertise, delivery quality, and client outcomes at scale. FMF holds the only Official Partner badge in EMEA. The 25% lift guarantee in this cohort is backed by that operational track record.</p>
+    </div>
+    <div class="cred-grid">
+      <div class="cred-card highlight">
+        <div class="cred-number">1 of 1</div>
+        <div class="cred-label">Official LinkedIn Marketing Partner in EMEA</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-number">£500m+</div>
+        <div class="cred-label">LinkedIn ad spend managed since 2019</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-number">150+</div>
+        <div class="cred-label">B2B clients delivered, mid-market to enterprise</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-number">6 years</div>
+        <div class="cred-label">As a LinkedIn Ads specialist agency, founded 2019</div>
+      </div>
+    </div>
+    <p class="team-intro"><strong>The pod on your account.</strong> One integrated team runs your whole LinkedIn engine — strategy, paid delivery and outreach — not a hand-off chain of freelancers.</p>
+    <div class="team-panels">
+      <div class="bio-panel">
+        <div class="bio-photo">
+          <div class="bio-initials">TT</div>
+          <span class="bio-shape s1"></span>
+          <span class="bio-shape s2"></span>
+          <span class="bio-shape s3"></span>
+        </div>
+        <div class="bio-text">
+          <div class="bio-eyebrow">Founder &amp; Strategy Lead</div>
+          <h3>Tom Tigwell <a href="https://www.linkedin.com/in/tomtigwell/" target="_blank" rel="noopener" class="bio-li" aria-label="Tom Tigwell on LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg></a></h3>
+          <p class="bio-desc">Tom founded Fill My Funnel over 6 years ago and built it into a LinkedIn Marketing Partner — the only one of its kind in EMEA. In 2023, he was selected as one of just 70 globally certified LinkedIn Marketing Experts.</p>
+        </div>
+      </div>
+      <div class="bio-panel">
+        <div class="bio-photo">
+          <div class="bio-initials">B</div>
+          <span class="bio-shape s1"></span>
+          <span class="bio-shape s2"></span>
+          <span class="bio-shape s3"></span>
+        </div>
+        <div class="bio-text">
+          <div class="bio-eyebrow">Senior Strategist</div>
+          <h3>Brinley</h3>
+          <p class="bio-desc">Brinley runs day-to-day campaign strategy across cohort accounts — five years dedicated to LinkedIn Ads and over a decade in B2B marketing. The strategic detail behind every campaign decision.</p>
+          <span class="bio-pending">Photo to follow</span>
+        </div>
+      </div>
+      <div class="bio-panel">
+        <div class="bio-photo">
+          <div class="bio-initials">A</div>
+          <span class="bio-shape s1"></span>
+          <span class="bio-shape s2"></span>
+          <span class="bio-shape s3"></span>
+        </div>
+        <div class="bio-text">
+          <div class="bio-eyebrow">LinkedIn Outreach Lead</div>
+          <h3>Alex</h3>
+          <p class="bio-desc">Alex leads the LinkedIn and email outreach layer — turning engagement signals from your campaigns into authentic conversations and booked meetings. Where interest becomes pipeline.</p>
+          <span class="bio-pending">Photo to follow</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ RESULTS ══════════════════════════ -->
+<section class="section platinum" id="results">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Proof, not pitch</div>
+      <h2 class="section">The same system, <em>already generating pipeline.</em></h2>
+      <p class="lead">You don't have to take the methodology on faith. It is the exact programme already running for B2B companies — turning LinkedIn spend into attributed, sales-ready pipeline.</p>
+    </div>
+    <!-- Featured case study: Retain -->
+    <div class="case-hero">
+      <div class="case-hero-grid">
+        <div>
+          <div class="case-industry">Resource &amp; capacity management software</div>
+          <div class="case-client">Retain</div>
+          <div class="case-hero-headline">£5.6M</div>
+          <p class="case-hero-sub">LinkedIn-attributed pipeline over 3 years — from a standing start to a programme that compounds. All from the same connected system.</p>
+          <svg class="case-chart-svg" viewBox="0 0 380 200" xmlns="http://www.w3.org/2000/svg" aria-label="Retain pipeline growth, Year 0 to Year 3" role="img">
+            <line x1="40" y1="160" x2="350" y2="160" stroke="rgba(63,76,123,0.18)" stroke-width="1"/>
+            <path d="M 40 160 C 80 160 100 150 140 134 C 190 115 200 110 240 102 C 290 80 310 50 340 30 L 340 160 L 40 160 Z" fill="rgba(106,143,253,0.18)"/>
+            <path d="M 40 160 C 80 160 100 150 140 134 C 190 115 200 110 240 102 C 290 80 310 50 340 30" fill="none" stroke="#6A8FFD" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="40" cy="160" r="4" fill="#6A8FFD"/>
+            <circle cx="140" cy="134" r="5" fill="#fff" stroke="#6A8FFD" stroke-width="2.5"/>
+            <circle cx="240" cy="102" r="4" fill="#6A8FFD" opacity="0.45"/>
+            <circle cx="340" cy="30" r="6" fill="#6A8FFD"/>
+            <text x="140" y="120" text-anchor="middle" font-family="Lora,serif" font-size="13" font-weight="700" fill="#151C33">£1.1M</text>
+            <text x="340" y="20" text-anchor="middle" font-family="Lora,serif" font-size="14" font-weight="700" fill="#151C33">£5.6M</text>
+            <text x="40" y="180" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#3F4C7B">Year 0</text>
+            <text x="140" y="180" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#3F4C7B">Year 1</text>
+            <text x="240" y="180" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#3F4C7B" opacity="0.55">Year 2</text>
+            <text x="340" y="180" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="600" fill="#3F4C7B">Year 3</text>
+          </svg>
+          <div class="case-chart-tiles">
+            <div class="case-tile">
+              <div class="case-tile-label">Year 1</div>
+              <div class="case-tile-value">£1.1M</div>
+            </div>
+            <div class="case-tile">
+              <div class="case-tile-label">Years 1–3 total</div>
+              <div class="case-tile-value">£5.6M</div>
+            </div>
+          </div>
+          <p class="case-chart-caption">LinkedIn-attributed pipeline. Same connected programme — paid activation into named accounts, intent-led outreach, conversion-optimised retargeting.</p>
+        </div>
+        <div>
+          <div class="video-card" style="border-color: rgba(106,143,253,0.30); background: rgba(255,255,255,0.7);">
+            <div style="padding:56.25% 0 0 0;position:relative;border-radius:12px;overflow:hidden;">
+              <iframe src="https://player.vimeo.com/video/869050395?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Retain Success Story | Rahat Ahmed, Head of Marketing"></iframe>
+            </div>
+            <span class="case-video-cap">Rahat Ahmed · Head of Marketing, Retain</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Across-industries grid -->
+    <div class="results-divider"><span>And across very different industries</span></div>
+    <div class="results-grid-mini">
+      <div class="mini-card">
+        <div class="mini-industry">Professional services · accounting</div>
+        <div class="mini-client">ACCA</div>
+        <div class="mini-stat">190%</div>
+        <div class="mini-metric">QoQ growth · eCommerce checkouts via LinkedIn Ads</div>
+        <span class="mini-period">Over 12 months</span>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Geospatial · network software</div>
+        <div class="mini-client">IQGeo</div>
+        <div class="mini-stat">350%</div>
+        <div class="mini-metric">QoQ growth · Inbound leads</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">GRC · compliance SaaS</div>
+        <div class="mini-client">CoreStream</div>
+        <div class="mini-stat">300%</div>
+        <div class="mini-metric">QoQ surge · Inbound leads</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Research participant platform</div>
+        <div class="mini-client">Prolific</div>
+        <div class="mini-stat">270%</div>
+        <div class="mini-metric">QoQ growth · Inbound conversions</div>
+        <span class="mini-period">Over 12 months</span>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Healthcare analytics</div>
+        <div class="mini-client">CHKS</div>
+        <div class="mini-stat">260%</div>
+        <div class="mini-metric">QoQ growth · MQLs</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Data governance SaaS</div>
+        <div class="mini-client">dScribe</div>
+        <div class="mini-stat">233%</div>
+        <div class="mini-metric">QoQ growth · MQLs</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">B2B equipment rental</div>
+        <div class="mini-client">Hire Intelligence</div>
+        <div class="mini-stat">150%</div>
+        <div class="mini-metric">QoQ surge · Inbound demo bookings</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">ESG · sustainability reporting</div>
+        <div class="mini-client">Greenomy</div>
+        <div class="mini-stat">126%</div>
+        <div class="mini-metric">QoQ growth · Inbound demo bookings</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Contingent workforce SaaS</div>
+        <div class="mini-client">Bubty</div>
+        <div class="mini-stat">100%</div>
+        <div class="mini-metric">QoQ growth · Inbound demo bookings</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Fintech · cross-border payments</div>
+        <div class="mini-client">Thunes</div>
+        <div class="mini-stat">82%</div>
+        <div class="mini-metric">QoQ growth · Influenced opportunities</div>
+        <span class="mini-period">Over 15 months</span>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">Tech education · bootcamp</div>
+        <div class="mini-client">Makers</div>
+        <div class="mini-stat">43%</div>
+        <div class="mini-metric">QoQ growth · Inbound B2B calls booked</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-industry">B2B SaaS</div>
+        <div class="mini-client">Gaia</div>
+        <div class="mini-stat">42%</div>
+        <div class="mini-metric">QoQ growth · Inbound demos</div>
+      </div>
+    </div>
+
+    <div class="industries-chips">
+      <span class="chip">Fintech &amp; Payments</span>
+      <span class="chip">ESG</span>
+      <span class="chip">GRC &amp; Compliance</span>
+      <span class="chip">Healthcare</span>
+      <span class="chip">Education</span>
+      <span class="chip">Workforce</span>
+      <span class="chip">Geospatial</span>
+      <span class="chip">Data</span>
+      <span class="chip">Research</span>
+      <span class="chip">Professional services</span>
+      <span class="chip">B2B SaaS</span>
+      <span class="chip">B2B services</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FAQ ══════════════════════════ -->
+<section class="section accent" id="faq">
+  <div class="inner">
+    <div class="section-head">
+      <div class="eyebrow">Questions, answered</div>
+      <h2 class="section">The things every CMO asks <em>before deciding.</em></h2>
+      <p class="lead">If your question is not here, ask Tom on the call. We try not to bury anything.</p>
+    </div>
+
+    <details class="phil-toggle" open>
+      <summary>
+        <div class="q">Why are you approaching us if we are not even running ads?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Because the absence is the signal. We run the LinkedIn Ad Library against B2B categories where the channel pays back and your category is moving. Your competitors are showing up to your buyers right now and you are not — that is the gap we want to size with you. We make no claim that LinkedIn is the right channel for every B2B business. The business case is how we both find out before any commitment.</div>
+    </details>
+
+    <details class="phil-toggle" open>
+      <summary>
+        <div class="q">What is the "business case" exactly?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">A one-page PDF showing your specific projection: monthly spend, projected LinkedIn-influenced opportunities over 6 months, year-1 revenue, customer-lifetime revenue, payback period, and the source benchmarks for every number. Formatted to walk straight into a CFO meeting. We send it within 24 hours of you submitting the form, personalised to your inputs. It is yours to use even if you decide we are not the right partner.</div>
+    </details>
+
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">How much spend do I need to commit to start?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">£5k/month is the floor for the targeting maths to work — below that, LinkedIn's audience size constraints make precision targeting unreliable. Most of our work starts at £10k/month, where unit economics materially improve. The business case shows you exactly what each spend level delivers so you can pick the level that fits your finance reality.</div>
+    </details>
+
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">Do you require a long contract?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">No. If we do move forward, our standard 6-month engagement includes a 30-day exit clause from month 3. Either side can end the engagement with no further fees due. Ad spend already committed to LinkedIn cannot be refunded by us, but you keep all audiences, creative, attribution dashboards and learnings produced to that point.</div>
+    </details>
+
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">How is your approach different from a typical LinkedIn agency?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Three differences. (1) Official LinkedIn Marketing Partner — the only one in EMEA, vetted by LinkedIn against expertise, delivery quality and outcomes at scale. (2) We measure on LinkedIn-influenced opportunities tied to your CRM and attribution platform, not on engagement vanity metrics. (3) Paid activation runs alongside a LinkedIn outreach layer and conversion-optimised landing pages — one connected system, not a media-buying silo. Tom can walk you through how that works on the call.</div>
+    </details>
+
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">What happens after I submit my business case?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Tom personally reads every submission. Within 24 hours you receive the formatted PDF in your inbox along with a short, human note. If the numbers look right and you want to talk, you book a 15-min call directly from the email. If the numbers do not look right, we will tell you that too — and suggest what to do next. No drip campaigns, no SDR follow-up sequences.</div>
+    </details>
+
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">Can we start with a smaller test budget?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">Below £5k/month the targeting precision LinkedIn requires breaks down — you cannot reliably reach a defined buying committee at scale. We would rather tell you that than take your money and underdeliver. If the £5k floor is not realistic for H2 2026, the most useful version of this conversation is timing — not commitment.</div>
+    </details>
+
+    <details class="phil-toggle">
+      <summary>
+        <div class="q">Why six months — can we run shorter?</div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="a">For a cold start on LinkedIn, six months is the minimum window for paid activation to compound: month 1 builds the foundation (audiences, creative, baseline), months 2 to 4 test multivariant approaches, months 5 to 6 scale what works. Anything shorter and you measure setup, not performance. The first three months at most spend levels are net cost; the back half is where the return shows up.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FINAL CTA STRIP ══════════════════════════ -->
+<section class="section accent" id="final-cta">
+  <div class="inner" style="max-width: 820px;">
+    <div class="section-head" style="text-align: center;">
+      <h2 class="section">Ready to size the opportunity?</h2>
+      <p class="lead" style="margin-left: auto; margin-right: auto;">Two paths. Build the business case yourself in three minutes, or talk it through with Tom on a 15-min call. Either way, no commitment — just the numbers.</p>
+    </div>
+    <div class="hero-cta-row" style="justify-content: center; margin-top: 8px;">
+      <a href="#business-case" class="btn btn-primary">Build my business case ↑</a>
+      <a href="#calendly" class="btn btn-secondary">Book a 15-min call with Tom →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+<footer class="foot">
+  <p class="brand-line">Fill My Funnel · EMEA's only LinkedIn Ads Official Marketing Partner</p>
+  <p>The 2026 H2 Pipeline Cohort · Applications open until 14 June 2026 · Confidential</p>
+</footer>
+
+<script>
+// ── Business case projection calculator ──
+function formatCurrency(n) {
+  if (n >= 1000000) return '£' + (n/1000000).toFixed(n >= 10000000 ? 0 : 1) + 'M';
+  if (n >= 10000) return '£' + Math.round(n/1000) + 'k';
+  if (n >= 1000) return '£' + (n/1000).toFixed(1) + 'k';
+  return '£' + Math.round(n).toLocaleString();
+}
+
+function costPerOpp(monthlySpend) {
+  // Tiered cost per opportunity model:
+  // £5k/mo -> £8k per opp
+  // £10k/mo -> £6.5k per opp
+  // £20k+/mo -> £5k per opp
+  // Linear interpolation between tiers.
+  if (monthlySpend >= 20000) return 5000;
+  if (monthlySpend <= 5000) return 8000;
+  if (monthlySpend <= 10000) {
+    return 8000 - 1500 * (monthlySpend - 5000) / 5000;
+  }
+  return 6500 - 1500 * (monthlySpend - 10000) / 10000;
+}
+
+function calculateBusinessCase() {
+  const budget = Math.max(5000, parseFloat(document.getElementById('budget').value) || 5000);
+  const acv = parseFloat(document.getElementById('acv').value) || 0;
+  const closeRate = (parseFloat(document.getElementById('close_rate').value) || 0) / 100;
+  const ltvYears = parseFloat(document.getElementById('ltv_years').value) || 1;
+
+  const sixMonthSpend = budget * 6;
+  const cpo = costPerOpp(budget);
+  const projectedOpps = sixMonthSpend / cpo;
+  const closedDeals = projectedOpps * closeRate;
+  const year1Revenue = closedDeals * acv;
+  const ltvRevenue = closedDeals * acv * ltvYears;
+  const year1ROI = sixMonthSpend > 0 ? year1Revenue / sixMonthSpend : 0;
+  const ltvROI = sixMonthSpend > 0 ? ltvRevenue / sixMonthSpend : 0;
+  const paybackMonths = year1Revenue > 0 ? (sixMonthSpend * 12) / year1Revenue : 999;
+
+  // Top-of-section summary
+  document.getElementById('bc_total_spend').textContent = formatCurrency(sixMonthSpend);
+  document.getElementById('bc_cpo').textContent = formatCurrency(cpo);
+
+  // Output tiles
+  document.getElementById('bc_y1_roi').textContent = year1ROI.toFixed(1) + 'x';
+  document.getElementById('bc_ltv_roi').textContent = ltvROI.toFixed(1) + 'x';
+
+  // Row values
+  document.getElementById('bc_opps').textContent = '~' + Math.round(projectedOpps);
+  document.getElementById('bc_deals').textContent = '~' + closedDeals.toFixed(1).replace(/\.0$/, '');
+  document.getElementById('bc_y1_rev').textContent = formatCurrency(year1Revenue);
+  document.getElementById('bc_ltv_rev').textContent = formatCurrency(ltvRevenue);
+  document.getElementById('bc_payback').textContent = paybackMonths < 24
+    ? '~' + Math.max(1, Math.round(paybackMonths)) + ' months'
+    : 'Beyond 24 months';
+
+  // Verdict line
+  const verdict = document.getElementById('bc_verdict_line');
+  if (year1ROI >= 1.5 && ltvROI >= 4) {
+    verdict.innerHTML = '<strong>At these inputs:</strong> LinkedIn pays back within the first year and compounds materially over the customer lifetime. This is the case you take to your CFO.';
+    verdict.style.background = 'var(--success-100)';
+    verdict.style.borderColor = 'rgba(5,193,104,0.3)';
+  } else if (ltvROI >= 2) {
+    verdict.innerHTML = '<strong>At these inputs:</strong> Year-1 payback is marginal but LTV economics are positive. Worth a conversation about how to tune the levers — ACV mix, spend pacing, or attribution scope.';
+    verdict.style.background = 'rgba(245,158,11,0.10)';
+    verdict.style.borderColor = 'rgba(245,158,11,0.35)';
+  } else {
+    verdict.innerHTML = '<strong>At these inputs:</strong> Unit economics are tight. The most useful next step is sizing whether ACV uplift, increased spend, or a different channel mix changes the maths. Talk to Tom before committing.';
+    verdict.style.background = 'rgba(220,38,38,0.08)';
+    verdict.style.borderColor = 'rgba(220,38,38,0.30)';
+  }
+
+  // Sync hidden form fields
+  const setHidden = (id, val) => { const e = document.getElementById(id); if (e) e.value = val; };
+  setHidden('bc_form_budget', budget);
+  setHidden('bc_form_acv', acv);
+  setHidden('bc_form_close', closeRate * 100);
+  setHidden('bc_form_ltv', ltvYears);
+  setHidden('bc_form_opps', Math.round(projectedOpps));
+  setHidden('bc_form_year1', Math.round(year1Revenue));
+  setHidden('bc_form_ltv_rev', Math.round(ltvRevenue));
+  setHidden('bc_form_payback', paybackMonths.toFixed(1));
+}
+
+document.querySelectorAll('.bc-inputs input').forEach(input => {
+  input.addEventListener('input', calculateBusinessCase);
+});
+
+// Initial render
+calculateBusinessCase();
+
+// ── Business case download form (Netlify Forms, AJAX) ──
+const bcForm = document.getElementById('bc_request_form');
+if (bcForm) {
+  bcForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    calculateBusinessCase(); // ensure hidden fields are fresh
+    const formData = new FormData(bcForm);
+    const submitBtn = bcForm.querySelector('button[type="submit"]');
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    }).then(() => {
+      document.getElementById('bc_soft_ctas').classList.add('submitted');
+    }).catch(() => {
+      document.getElementById('bc_soft_ctas').classList.add('submitted');
+    });
+  });
+}
+</script>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+</body>
+</html>
