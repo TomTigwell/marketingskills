@@ -82,6 +82,13 @@ section.navy .apply-shell h3 { color: var(--blue-black); }
 section.navy .apply-shell .apply-lead { color: var(--dusk-blue); }
 section.navy .form-group label { color: var(--dusk-blue); }
 section.navy .form-footnote { color: var(--dusk-blue); }
+section.navy .bc-shell { background: var(--white); border-color: rgba(255,255,255,0.18); box-shadow: 0 14px 48px rgba(0,0,0,0.32); }
+section.navy .bc-shell h3, section.navy .bc-shell h4 { color: var(--blue-black); }
+section.navy .bc-shell p, section.navy .bc-shell label, section.navy .bc-shell .input-helper { color: var(--dusk-blue); }
+section.navy .bc-soft-ctas { background: var(--white); border-color: rgba(255,255,255,0.18); box-shadow: 0 14px 48px rgba(0,0,0,0.32); }
+section.navy .bc-soft-ctas h3 { color: var(--blue-black); }
+section.navy .bc-soft-ctas > p, section.navy .bc-alt { color: var(--dusk-blue); }
+section.navy .scenario-footnote { color: var(--pale-sky); }
 
 /* Logo strip */
 .logo-strip { padding: 36px 24px 40px; background: var(--white); border-top: 1px solid rgba(106,143,253,0.14); border-bottom: 1px solid rgba(106,143,253,0.14); }
@@ -105,7 +112,6 @@ section.navy .form-footnote { color: var(--dusk-blue); }
   .logo-strip-row { gap: 10px 20px; }
   .logo-strip-item { font-size: 0.95rem; }
 }
-section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, rgba(106,143,253,0.15) 100%); }
 
 /* ── Floating pill nav ──────────────────────────── */
 .float-nav-wrap {
@@ -582,25 +588,6 @@ section.roi-bg { background: linear-gradient(135deg, rgba(192,213,240,0.45) 0%, 
 .timeline-item:last-child .timeline-meta { color: var(--success); }
 .timeline-item h4 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 8px; }
 .timeline-item p { font-size: 0.84rem; line-height: 1.55; }
-
-/* Risk reversal */
-.risk-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-@media (max-width: 800px) { .risk-grid { grid-template-columns: 1fr; } }
-.risk-card {
-  background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
-  border-radius: 14px; padding: 24px 26px;
-}
-.risk-card.wide { grid-column: span 2; }
-@media (max-width: 800px) { .risk-card.wide { grid-column: auto; } }
-.risk-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 38px; height: 38px; border-radius: 50%;
-  background: var(--cornflower); color: #fff;
-  font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem;
-  margin-bottom: 12px;
-}
-.risk-card h4 { font-family: 'Lora', serif; font-size: 1.05rem; margin-bottom: 8px; }
-.risk-card p { font-size: 0.88rem; line-height: 1.55; }
 
 /* Methodology */
 .method-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -1154,8 +1141,8 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         <ul class="criteria-list">
           <li><div><strong>ICP-matched company</strong><span>Sector, employee size band, geography, and revenue criteria locked at engagement start. No moving targets.</span></div></li>
           <li><div><strong>Named buying-committee engagement</strong><span>A decision-maker or named buying committee member from a target account engaged with creative or content.</span></div></li>
-          <li><div><strong>LinkedIn touch within 90 days of opportunity creation</strong><span>AND either first-touch on the buying committee member, OR top-2 weighted touch in the attributed journey. Causal proximity, not passive brand exposure.</span></div></li>
-          <li><div><strong>Sales acceptance within SLA</strong><span>Accepted as a qualified opportunity by your sales team within 5 business days of handover. Auditable through your attribution platform.</span></div></li>
+          <li><div><strong>LinkedIn touch — including impressions — within 180 days of opportunity creation</strong><span>Impressions count, not just clicks. B2B buyers regularly progress to pipeline without ever clicking an ad — they see the message in-feed, internalise it, and surface later through a different channel. If LinkedIn placed the brand in front of the buying committee inside the 180-day window before the opportunity was created, LinkedIn contributed to that opportunity.</span></div></li>
+          <li><div><strong>Booked call with an ICP-matched contact = first-stage opportunity</strong><span>An opportunity counts the moment a buying-committee member from a target account books a call — via inbound to the landing page, form submission, or proactive outreach on engaged accounts. This is the handover point we control and can defend with audit trail. It is not contingent on downstream sales-team behaviour.</span></div></li>
         </ul>
       </div>
     </details>
@@ -1238,7 +1225,7 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
 </section>
 
 <!-- ══════════════════════════ CALCULATOR ══════════════════════════ -->
-<section class="section roi-bg" id="roi">
+<section class="section navy" id="roi">
   <div class="inner">
     <div class="section-head">
       <div class="eyebrow">The business case</div>
@@ -1650,55 +1637,6 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
   </div>
 </section>
 
-<!-- ══════════════════════════ RISK REVERSAL ══════════════════════════ -->
-<section class="section accent">
-  <div class="inner">
-    <div class="section-head">
-      <div class="eyebrow">Risk reversal</div>
-      <h2 class="section">Five clauses that put <em>our skin in the game.</em></h2>
-      <p class="lead">A guarantee is only as strong as the mechanics behind it. These are the specific terms that make the commitment defensible, audit-trail backed, and CMO-readable.</p>
-    </div>
-    <details class="section-toggle">
-      <summary>
-        <div>
-          <div class="section-toggle-teaser">Read the five clauses ↓</div>
-          <div class="section-toggle-sub">Refundable audit · 100% fee refund · Month 3 exit · You own everything · Outperformance bonus</div>
-        </div>
-        <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-      </summary>
-      <div class="section-toggle-body">
-        <div class="risk-grid">
-      <div class="risk-card">
-        <div class="risk-icon">A</div>
-        <h4>Paid audit, refundable</h4>
-        <p>£2.5k audit fee, refunded in full if we determine we cannot honour the guarantee for your specific profile. Most agencies will take any money. We turn down profiles where the math does not work. The audit fee is real money on our line.</p>
-      </div>
-      <div class="risk-card">
-        <div class="risk-icon">B</div>
-        <h4>100% management fee refund</h4>
-        <p>If we miss the 25% lift over the trailing 6-month baseline in 180 days, every penny of management fees returns to you within 30 days of programme end. Ad spend belongs to LinkedIn and cannot be refunded by us, but our fees are entirely on our line.</p>
-      </div>
-      <div class="risk-card">
-        <div class="risk-icon">C</div>
-        <h4>Month 3 exit with 30 days notice</h4>
-        <p>If the partnership is not working, either side can exit at month 3 with no further fees owed. Most agencies bury this. We state it openly because trust starts with no surprises.</p>
-      </div>
-      <div class="risk-card">
-        <div class="risk-icon">D</div>
-        <h4>You own everything</h4>
-        <p>Audiences, creative assets, attribution model, playbooks, learnings. All yours at programme end. If you take it in-house at month 7, you can. The case study has right-of-approval before publication.</p>
-      </div>
-      <div class="risk-card wide">
-        <div class="risk-icon">E</div>
-        <h4>Outperformance bonus, optional</h4>
-        <p>If we lift LinkedIn-influenced opportunities by 50% or more over the baseline, you have the option to pay a 5% bonus on the trailing six-month ad spend. This is voluntary, agreed in advance, and exists because we want skin in the game on the upside too, not just the downside.</p>
-      </div>
-        </div>
-      </div>
-    </details>
-  </div>
-</section>
-
 <!-- ══════════════════════════ METHODOLOGY ══════════════════════════ -->
 <section class="section">
   <div class="inner">
@@ -1785,14 +1723,14 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         <div class="q">How is the baseline calculated?</div>
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </summary>
-      <div class="a">Trailing 6 months of LinkedIn-influenced opportunities, measured from the day before campaigns go live. Pulled from your attribution platform using a definition agreed in writing during the foundation phase: <strong>LinkedIn touch within 90 days of opportunity creation, AND either first-touch on the buying committee member, OR top-2 weighted in the attributed journey.</strong> This filters out passive brand exposure and forces causal proximity. The baseline is locked and signed. No moving targets, no end-of-engagement disputes about what counted.</div>
+      <div class="a">Trailing 6 months of LinkedIn-influenced opportunities, measured from the day before campaigns go live. Pulled from your attribution platform using a definition agreed in writing during the foundation phase: <strong>LinkedIn touch — including impressions — within 180 days of opportunity creation, against an ICP-matched company with named buying-committee engagement.</strong> Impressions count because B2B buyers regularly progress to pipeline without clicking — they see the message in-feed, internalise it, and surface later through a different channel. The baseline is locked and signed. No moving targets, no end-of-engagement disputes about what counted.</div>
     </details>
     <details class="phil-toggle">
       <summary>
         <div class="q">What if our sales team does not follow up on the opportunities we generate?</div>
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </summary>
-      <div class="a">We agree opportunity-acceptance criteria in writing during the foundation phase. If a LinkedIn-influenced opportunity is handed over and your sales team does not action it within the agreed SLA (typically 5 business days), the opportunity still counts toward the lift calculation. Our delivery sits at the point of qualified handover. Your sales team's conversion performance is a separate variable we report on but do not guarantee.</div>
+      <div class="a">Our delivery sits at booked call with an ICP-matched contact — the point at which a buying-committee member from a target account has a meeting on the calendar via inbound or our proactive outreach. Once that's logged, the opportunity counts toward the lift. What your sales team does with it from there — whether they accept it, qualify it out, or close it — is a separate variable we report on but do not guarantee. We chose this handover point deliberately because it's the one we control end-to-end and can defend with audit trail.</div>
     </details>
     <details class="phil-toggle">
       <summary>
@@ -1813,7 +1751,7 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         <div class="q">What does "LinkedIn-influenced opportunity" mean in practice?</div>
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </summary>
-      <div class="a">Four criteria, all agreed in writing during the foundation phase: (1) ICP-matched company by sector, employee size, and geography, (2) named buying committee member engaged with creative or content, (3) LinkedIn touch within 90 days of opportunity creation and either first-touch or top-2 weighted in the attribution journey, (4) accepted by your sales team within 5 business days. All four must be present. Every opportunity is logged in your CRM and attribution platform with audit trail. The 25% lift is calculated on this exact definition applied to both the trailing 6-month baseline and the engagement period.</div>
+      <div class="a">Four criteria, all agreed in writing during the foundation phase: (1) ICP-matched company by sector, employee size, and geography, (2) named buying-committee member engaged with creative or content, (3) LinkedIn touch — including impressions — within 180 days of opportunity creation (impressions count because B2B buyers regularly reach pipeline without clicking), (4) a booked call with that ICP-matched contact via inbound or proactive outreach. All four must be present. Every opportunity is logged in your CRM and attribution platform with audit trail. The 25% lift is calculated on this exact definition applied to both the trailing 6-month baseline and the engagement period.</div>
     </details>
     <details class="phil-toggle">
       <summary>
