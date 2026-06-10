@@ -1263,10 +1263,10 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
             <div class="input-helper">Programme minimum £5k/month. Cap above your normal spend lifts opportunity volume.</div>
           </div>
           <div class="bc-cost-summary">
-            <div class="cost-row"><span>Management fees (6 months)</span><strong>£27,000</strong></div>
-            <div class="cost-row"><span>Ad spend (6 months)</span><strong id="cost_spend">£60,000</strong></div>
-            <div class="cost-row total"><span>Total programme cost</span><strong id="cost_total">£87,000</strong></div>
-            <div class="cost-footnote">Ad spend paid directly to LinkedIn. Management fees are 100% refundable if guarantee missed.</div>
+            <div class="cost-row"><span>Our fee (£5,000/month × 6)</span><strong>£30,000</strong></div>
+            <div class="cost-row"><span>LinkedIn ad spend (6 months)</span><strong id="cost_spend">£60,000</strong></div>
+            <div class="cost-row total"><span>Total programme investment</span><strong id="cost_total">£90,000</strong></div>
+            <div class="cost-footnote">Our fee is a flat retainer. It doesn't change with your ad spend. 100% refundable if we miss the 25% lift guarantee. Ad spend is paid directly to LinkedIn and is not marked up by us.</div>
           </div>
         </div>
         <div class="bc-output">
@@ -1765,7 +1765,7 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         <div class="q">What are the management fees?</div>
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
       </summary>
-      <div class="a">Cohort management fees are £4,500 per month for the 6-month programme. £27,000 total. All refundable if the guarantee is missed. Ad spend is separate and paid directly to LinkedIn. The paid audit is £2,500, refundable if we determine the engagement cannot proceed, credited toward the first month's fee if it does.</div>
+      <div class="a">Our fee is £5,000 per month for the 6-month programme. £30,000 total. 100% refundable if we miss the 25% lift guarantee. Ad spend is separate, paid directly to LinkedIn, and is not marked up by us. The paid audit is £2,500, refundable if we determine the engagement cannot proceed, credited toward the first month's fee if it does.</div>
     </details>
     <details class="phil-toggle">
       <summary>
@@ -1889,7 +1889,7 @@ function calculateROI() {
   const budget = parseFloat(document.getElementById('budget').value) || 0;
 
   const adSpend = budget * 6;
-  const fees = 27000;
+  const fees = 30000;
   const totalCost = adSpend + fees;
 
   function scenario(liftPct) {
