@@ -329,24 +329,26 @@ section.navy .scenario-footnote { color: var(--pale-sky); }
 .video-thumb {
   aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden;
   background: linear-gradient(135deg, var(--cornflower) 0%, var(--electric) 100%);
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 14px; padding: 24px; text-align: center; color: #fff;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 20px 22px 18px; text-align: center; color: #fff;
   position: relative; cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   border: 0;
   width: 100%;
 }
 .video-thumb:hover, .video-thumb:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(106,143,253,0.35); outline: none; }
-.video-thumb:hover .play-icon, .video-thumb:focus-visible .play-icon { transform: scale(1.08); background: #fff; color: var(--electric); }
+.video-thumb:hover .play-icon, .video-thumb:focus-visible .play-icon { transform: translate(-50%, -50%) scale(1.08); background: #fff; color: var(--electric); }
 .play-icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--cornflower); color: #fff;
+  position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%);
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(255,255,255,0.95); color: var(--electric);
   display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 8px 24px rgba(106,143,253,0.35);
+  box-shadow: 0 8px 24px rgba(12,16,29,0.30);
   transition: transform 0.2s, background 0.2s, color 0.2s;
 }
-.video-label { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; color: #fff; }
-.video-meta { font-size: 0.78rem; color: rgba(255,255,255,0.78); }
+.play-icon svg { margin-left: 3px; }
+.video-label { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 2px; line-height: 1.25; }
+.video-meta { font-size: 0.76rem; color: rgba(255,255,255,0.82); }
 
 /* Video lightbox modal */
 .video-modal {
