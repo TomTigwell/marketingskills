@@ -228,6 +228,7 @@ section.navy .scenario-footnote { color: var(--pale-sky); }
 .partner-badge-img {
   display: block; height: auto; width: 180px;
   margin-bottom: 22px;
+  mix-blend-mode: multiply;
 }
 .partner-badge-img-section { width: 220px; margin: 4px 0 18px; }
 
@@ -323,20 +324,64 @@ section.navy .scenario-footnote { color: var(--pale-sky); }
 .video-card {
   border: 1.5px solid; border-radius: 18px; padding: 12px;
   backdrop-filter: blur(8px);
-  max-width: 380px; margin-left: auto; width: 100%;
+  max-width: 420px; margin-left: auto; width: 100%;
 }
-.video-placeholder {
-  aspect-ratio: 16 / 10; border-radius: 12px;
+.video-thumb {
+  aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden;
+  background: linear-gradient(135deg, var(--cornflower) 0%, var(--electric) 100%);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 14px; padding: 24px; text-align: center;
+  gap: 14px; padding: 24px; text-align: center; color: #fff;
+  position: relative; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 0;
+  width: 100%;
 }
+.video-thumb:hover, .video-thumb:focus-visible { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(106,143,253,0.35); outline: none; }
+.video-thumb:hover .play-icon, .video-thumb:focus-visible .play-icon { transform: scale(1.08); background: #fff; color: var(--electric); }
 .play-icon {
   width: 64px; height: 64px; border-radius: 50%;
   background: var(--cornflower); color: #fff;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 8px 24px rgba(106,143,253,0.35);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
 }
-.video-label { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; }
+.video-label { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; color: #fff; }
+.video-meta { font-size: 0.78rem; color: rgba(255,255,255,0.78); }
+
+/* Video lightbox modal */
+.video-modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: none; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.video-modal.open { display: flex; }
+.video-modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(12,16,29,0.88);
+  backdrop-filter: blur(8px);
+}
+.video-modal-content {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 1200px;
+}
+.video-modal-iframe-wrap {
+  position: relative; padding-top: 56.25%;
+  background: #000; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+}
+.video-modal-iframe-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-modal-close {
+  position: absolute; top: -52px; right: 0; z-index: 2;
+  background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.25);
+  color: #fff; width: 40px; height: 40px; border-radius: 50%;
+  font-size: 22px; cursor: pointer; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.video-modal-close:hover { background: rgba(255,255,255,0.22); }
+@media (max-width: 720px) {
+  .video-modal-close { top: 12px; right: 12px; }
+}
 .video-meta { font-size: 0.78rem; }
 
 .hero-meta-strip {
@@ -451,7 +496,17 @@ section.navy .scenario-footnote { color: var(--pale-sky); }
 
 .definition-grid h3 { margin-bottom: 18px; }
 .criteria-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.criteria-list-stacked { grid-template-columns: 1fr; max-width: 820px; margin: 0 auto; }
+.criteria-list-horizontal { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.criteria-list-horizontal li { padding: 24px 22px 22px; display: block; }
+.criteria-num {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--cornflower); color: #fff;
+  font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(106,143,253,0.25);
+}
+@media (max-width: 880px) { .criteria-list-horizontal { grid-template-columns: 1fr; } }
 @media (max-width: 800px) { .criteria-list { grid-template-columns: 1fr; } }
 .criteria-list li {
   background: var(--white); border: 1.5px solid rgba(106,143,253,0.22);
@@ -1054,10 +1109,14 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
       </div>
       <div class="hero-video">
         <div class="video-card">
-          <div style="padding:62.5% 0 0 0;position:relative;border-radius:12px;overflow:hidden;">
-            <iframe src="https://player.vimeo.com/video/1200082278?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Why we are running this cohort | Tom Tigwell, Founder, Fill My Funnel"></iframe>
-          </div>
-          <span class="case-video-cap">Why we are running this cohort · Tom Tigwell, Founder, FMF</span>
+          <button type="button" class="video-thumb" data-vimeo-id="1200082278" data-vimeo-title="Why we are running this cohort | Tom Tigwell, Founder, Fill My Funnel" aria-label="Play video: Why we are running this cohort">
+            <div class="play-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="video-label">Why we are running this cohort</div>
+            <div class="video-meta">Tom Tigwell · Founder, FMF</div>
+          </button>
+          <span class="case-video-cap">Click to play · expands to full size</span>
         </div>
       </div>
     </div>
@@ -1141,10 +1200,28 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         <svg class="chev" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
       </summary>
       <div class="section-toggle-body">
-        <ul class="criteria-list criteria-list-stacked">
-          <li><div><strong>1. ICP-matched account</strong><span>The ICP scope is agreed in writing in week 1, before any advertising goes live. Sector, employee size band, geography, revenue — all locked. Removes any ambiguity later about whether the right type of company was reached.</span></div></li>
-          <li><div><strong>2. Booked call with an ICP-matched contact</strong><span>A decision-maker or named buying-committee member from an ICP-matched account books a call. It does not matter who books it — inbound from the landing page, your sales team off a form submission, or our proactive outreach on engaged accounts. The path is irrelevant; the booked call is the handover.</span></div></li>
-          <li><div><strong>3. LinkedIn touch — including impressions — within 180 days of opportunity creation</strong><span>Impressions count, not just clicks. B2B buyers regularly progress to pipeline without ever clicking an ad. They see the message in-feed, internalise it, and surface later through a different channel. If LinkedIn placed the brand in front of the buying committee inside the 180-day window before the opportunity was created, LinkedIn contributed to that opportunity.</span></div></li>
+        <ul class="criteria-list criteria-list-horizontal">
+          <li>
+            <div class="criteria-num">1</div>
+            <div>
+              <strong>ICP-matched account</strong>
+              <span>The ICP scope is agreed in writing in week 1, before any advertising goes live. Sector, employee size band, geography, revenue — all locked. Removes any ambiguity later about whether the right type of company was reached.</span>
+            </div>
+          </li>
+          <li>
+            <div class="criteria-num">2</div>
+            <div>
+              <strong>Booked call with an ICP-matched contact</strong>
+              <span>A decision-maker from an ICP-matched account books a call. It does not matter who books it — inbound from the landing page, your sales team off a form submission, or our proactive outreach on engaged accounts. The path is irrelevant; the booked call is the handover.</span>
+            </div>
+          </li>
+          <li>
+            <div class="criteria-num">3</div>
+            <div>
+              <strong>LinkedIn touch (including impressions) within 180 days of opportunity creation</strong>
+              <span>Impressions count, not just clicks. B2B buyers regularly progress to pipeline without ever clicking an ad. They see the message in-feed, internalise it, and surface later through a different channel. If LinkedIn placed the brand in front of the account inside the 180-day window before the opportunity was created, LinkedIn contributed to that opportunity.</span>
+            </div>
+          </li>
         </ul>
       </div>
     </details>
@@ -2078,6 +2155,50 @@ if (cohortForm) {
 </script>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
+
+<!-- Video lightbox modal -->
+<div class="video-modal" id="video_modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="video-modal-backdrop" data-close-modal></div>
+  <div class="video-modal-content">
+    <button type="button" class="video-modal-close" data-close-modal aria-label="Close video">×</button>
+    <div class="video-modal-iframe-wrap" id="video_modal_iframe_wrap"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const modal = document.getElementById('video_modal');
+  const wrap = document.getElementById('video_modal_iframe_wrap');
+
+  function openVideoModal(vimeoId, title) {
+    wrap.innerHTML = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?autoplay=1&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="' + (title || 'Video') + '"></iframe>';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    wrap.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.video-thumb[data-vimeo-id]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      openVideoModal(btn.dataset.vimeoId, btn.dataset.vimeoTitle);
+    });
+  });
+
+  modal.querySelectorAll('[data-close-modal]').forEach(function(el) {
+    el.addEventListener('click', closeVideoModal);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeVideoModal();
+  });
+})();
+</script>
 
 </body>
 </html>
