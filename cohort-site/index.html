@@ -330,7 +330,52 @@ section.navy .scenario-footnote { color: var(--pale-sky); }
   position: relative; padding-top: 62.5%;
   border-radius: 12px; overflow: hidden; background: #000;
 }
-.video-iframe-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-iframe-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; pointer-events: none; }
+.video-overlay-trigger {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  background: transparent; border: 0; cursor: pointer;
+  padding: 0; margin: 0;
+  z-index: 2;
+}
+.video-overlay-trigger:focus-visible {
+  outline: 3px solid var(--cornflower); outline-offset: -3px;
+}
+
+/* Video lightbox modal */
+.video-modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: none; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.video-modal.open { display: flex; }
+.video-modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(12,16,29,0.88);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+.video-modal-content {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 1200px;
+}
+.video-modal-iframe-wrap {
+  position: relative; padding-top: 56.25%;
+  background: #000; border-radius: 12px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+}
+.video-modal-iframe-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-modal-close {
+  position: absolute; top: -52px; right: 0; z-index: 2;
+  background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.25);
+  color: #fff; width: 40px; height: 40px; border-radius: 50%;
+  font-size: 22px; cursor: pointer; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.video-modal-close:hover { background: rgba(255,255,255,0.22); }
+@media (max-width: 720px) {
+  .video-modal-close { top: 12px; right: 12px; }
+}
 .video-meta { font-size: 0.78rem; }
 
 .hero-meta-strip {
@@ -1060,8 +1105,9 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
         <div class="video-card">
           <div class="video-iframe-wrap">
             <iframe src="https://player.vimeo.com/video/1200082278?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;title=0&amp;byline=0&amp;portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Why we are running this cohort | Tom Tigwell, Founder, Fill My Funnel"></iframe>
+            <button type="button" class="video-overlay-trigger" data-vimeo-id="1200082278" data-vimeo-title="Why we are running this cohort | Tom Tigwell, Founder, Fill My Funnel" aria-label="Play video centred on screen"></button>
           </div>
-          <span class="case-video-cap">Why we are running this cohort · Tom Tigwell, Founder, FMF</span>
+          <span class="case-video-cap">Click to watch · Why we are running this cohort · Tom Tigwell, Founder, FMF</span>
         </div>
       </div>
     </div>
@@ -2100,6 +2146,50 @@ if (cohortForm) {
 </script>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
+
+<!-- Video lightbox modal -->
+<div class="video-modal" id="video_modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="video-modal-backdrop" data-close-modal></div>
+  <div class="video-modal-content">
+    <button type="button" class="video-modal-close" data-close-modal aria-label="Close video">×</button>
+    <div class="video-modal-iframe-wrap" id="video_modal_iframe_wrap"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const modal = document.getElementById('video_modal');
+  const wrap = document.getElementById('video_modal_iframe_wrap');
+
+  function openVideoModal(vimeoId, title) {
+    wrap.innerHTML = '<iframe src="https://player.vimeo.com/video/' + vimeoId + '?autoplay=1&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="' + (title || 'Video') + '"></iframe>';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    wrap.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.video-overlay-trigger[data-vimeo-id]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      openVideoModal(btn.dataset.vimeoId, btn.dataset.vimeoTitle);
+    });
+  });
+
+  modal.querySelectorAll('[data-close-modal]').forEach(function(el) {
+    el.addEventListener('click', closeVideoModal);
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeVideoModal();
+  });
+})();
+</script>
 
 </body>
 </html>
