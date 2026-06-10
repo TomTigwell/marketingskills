@@ -1307,9 +1307,9 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
     <div class="bc-soft-ctas" id="bc_soft_ctas">
       <h3>Take this analysis to your CFO</h3>
       <p>Email yourself a personalised business case: your inputs, the ROI scenarios at the 25% guaranteed lift, and the £-figures for your specific business. Useful for getting internal buy-in before applying.</p>
-      <form name="business-case-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="bc_request_form">
-        <input type="hidden" name="form-name" value="business-case-request">
-        <p style="display:none;"><label>Do not fill this in: <input name="bot-field"></label></p>
+      <form name="business-case-request" method="POST" action="https://formspree.io/f/xzdqvqkv" id="bc_request_form">
+        <input type="hidden" name="_subject" value="Business case request — fmf cohort page">
+        <p style="display:none;"><label>Do not fill this in: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
         <input type="hidden" name="current_opps" id="bc_form_opps">
         <input type="hidden" name="acv" id="bc_form_acv">
         <input type="hidden" name="close_rate" id="bc_form_close">
@@ -1850,9 +1850,9 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
     <div class="apply-shell">
       <h3>Cohort application</h3>
       <p class="apply-lead">Two short steps. Step 1 = who you are. Step 2 = your numbers. We respond personally within 3 business days.</p>
-      <form name="cohort-application" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="cohort_form">
-        <input type="hidden" name="form-name" value="cohort-application">
-        <p style="display:none;"><label>Do not fill this in: <input name="bot-field"></label></p>
+      <form name="cohort-application" method="POST" action="https://formspree.io/f/xzdqvqkv" id="cohort_form">
+        <input type="hidden" name="_subject" value="Cohort application — fmf cohort page">
+        <p style="display:none;"><label>Do not fill this in: <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
 
         <div class="form-step" id="form_step_1">
           <div class="form-step-header"><span class="step-pip">Step 1 of 2</span><span class="step-label">Tell us about you</span></div>
@@ -1885,8 +1885,8 @@ footer.foot p { font-size: 0.82rem; color: var(--dusk-blue); }
       </form>
 
       <!-- Hidden Netlify-detection form for lead-only capture from step 1 -->
-      <form name="cohort-application-lead" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cohort-lead-form" aria-hidden="true" tabindex="-1">
-        <input type="hidden" name="form-name" value="cohort-application-lead">
+      <form name="cohort-application-lead" method="POST" action="https://formspree.io/f/xzdqvqkv" class="cohort-lead-form" aria-hidden="true" tabindex="-1">
+        <input type="hidden" name="_subject" value="Cohort application — Step 1 lead capture (incomplete)">
         <input type="text" name="name">
         <input type="text" name="role">
         <input type="text" name="company">
@@ -2023,7 +2023,7 @@ if (bcForm) {
     syncBusinessCaseInputs();
     e.preventDefault();
     const formData = new FormData(bcForm);
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(formData).toString() })
+    fetch('https://formspree.io/f/xzdqvqkv', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' }, body: new URLSearchParams(formData).toString() })
       .then(() => { document.getElementById('bc_soft_ctas').classList.add('submitted'); })
       .catch(() => { document.getElementById('bc_soft_ctas').classList.add('submitted'); });
   });
@@ -2050,15 +2050,15 @@ if (step1Next && formStep1 && formStep2) {
       return;
     }
     const leadData = new URLSearchParams({
-      'form-name': 'cohort-application-lead',
+      _subject: 'Cohort application — Step 1 lead capture (incomplete)',
       name: document.getElementById('name').value,
       role: document.getElementById('role').value,
       company: document.getElementById('company').value,
       email: document.getElementById('email').value
     });
-    fetch('/', {
+    fetch('https://formspree.io/f/xzdqvqkv', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
       body: leadData.toString()
     }).catch(() => {});
     formStep1.style.display = 'none';
@@ -2072,7 +2072,7 @@ if (step1Next && formStep1 && formStep2) {
   });
 }
 
-// ── Cohort application form (Netlify Forms, AJAX submission) ──
+// ── Cohort application form (Formspree, AJAX submission) ──
 const cohortForm = document.querySelector('form[name="cohort-application"]');
 if (cohortForm) {
   cohortForm.addEventListener('submit', function(e) {
@@ -2080,9 +2080,9 @@ if (cohortForm) {
     const submitBtn = cohortForm.querySelector('.btn-submit');
     if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
     const data = new FormData(cohortForm);
-    fetch('/', {
+    fetch('https://formspree.io/f/xzdqvqkv', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
       body: new URLSearchParams(data).toString()
     }).then(function(response) {
       if (!response.ok) throw new Error('Network response was not ok');
